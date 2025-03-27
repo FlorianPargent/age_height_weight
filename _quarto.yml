@@ -1,0 +1,36 @@
+project: 
+  type: manuscript
+
+manuscript:
+  article: manuscript.qmd
+  meca-bundle: "bundle.zip"
+  code-links: [binder, repo]
+  # notebooks:
+  #   - notebook: analysis.qmd
+  #     title: "Description of all analyses"
+      
+format:
+  html:
+    toc: true
+    comments:
+      hypothesis: false
+    theme: [brand, styles.scss]
+    # citation:
+    #   type: article-journal
+    #   container-title: ""
+    #   doi: ""
+    #   volume: 1
+    #   issue: 1
+    #   issued: 2025
+  jats: default
+  apaquarto-pdf:
+    documentmode: man
+    a4paper: true
+    keep-tex: true
+  apaquarto-docx:
+    a4paper: true
+
+notebook-links: global
+
+execute:
+  freeze: false

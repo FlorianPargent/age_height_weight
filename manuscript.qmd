@@ -1,0 +1,69 @@
+---
+title: "Manuscript"
+date: today
+date-modified: today
+date-format: iso
+author:
+  - name: Markus Bühner
+    orcid: 0000-0002-0597-8708
+    roles:
+      - conceptualization
+      - formal analysis
+      - methodology
+      - writing
+    affiliations:
+      - id: "lmu"
+        name: LMU Munich
+        department: Department of Psychology
+  - name: Florian Pargent
+    corresponding: true
+    email: florian.pargent@psy.lmu.de
+    orcid: 0000-0002-2388-553X
+    roles:
+      - conceptualization
+      - formal analysis
+      - methodology
+      - software
+      - visualization
+      - editing
+    affiliations:
+      - id: "lmu"
+        name: LMU Munich
+        department: Department of Psychology  
+author-note:
+  disclosures:
+    data-sharing: This is version 1 of our preprint published at <LINK>. All materials (reproducible manuscript, analysis code, data) are available in the project's repository on the Open Science Framework (OSF) at <LINK>. A Quarto Manuscripts website is hosted at <LINK>.
+    conflict-of-interest: The authors declare that there were no conflicts of interest concerning the authorship or the publication of this article.
+    financial-support: ~
+    gratitude: ~
+    authorship-agreements: ~
+language:
+  title-block-role-introduction: "Author roles were classified using the Contributor Role Taxonomy (CRediT; <https://credit.niso.org/>):"
+abstract: Abstract Text
+keywords: [keyword1, keyword2]
+license: CC BY 4.0
+bibliography: [references.bib]
+floatsintext: true
+numbered-lines: false
+csl: apa.csl
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(lavaan)
+```
+
+# Introduction
+
+# Methods
+
+# Results
+
+# Discussion
+
+
+# References
+
+::: {#refs}
+:::
