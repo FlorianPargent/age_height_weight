@@ -5,31 +5,78 @@ date-modified: today
 date-format: iso
 author:
   - name: Markus Bühner
+    corresponding: true
+    equal-contributor: true
+    email: buehner@lmu.de
     orcid: 0000-0002-0597-8708
-    roles:
-      - conceptualization
+    role: 
       - formal analysis
-      - methodology
+      - supervision
       - writing
     affiliations:
       - id: "lmu"
         name: LMU Munich
         department: Department of Psychology
-  - name: Florian Pargent
-    corresponding: true
-    email: florian.pargent@psy.lmu.de
-    orcid: 0000-0002-2388-553X
-    roles:
+        address: Leopoldstr. 13
+        city: D-80802 Munich
+        country: Germany
+        postal-code: 80802
+  - name: Kathryn Eichhorn
+    equal-contributor: true
+    orcid: ~
+    role: 
       - conceptualization
+      - investigation
+      - resources
+      - data curation
+      - writing
+    affiliations:
+      - name: University of the Bundeswehr Munich
+        department: Institute of Psychology
+        city: Neubiberg
+        country: Germany
+  - name: Florian Pargent
+    orcid: 0000-0002-2388-553X
+    role:
       - formal analysis
-      - methodology
       - software
+      - validation
+      - editing
+    affiliations:
+      - ref: lmu
+  - name: Janika Saretzki
+    orcid: ~
+    role:
       - visualization
       - editing
     affiliations:
-      - id: "lmu"
-        name: LMU Munich
-        department: Department of Psychology  
+      - name: University of Graz
+        department: Department of Psychology
+        city: Graz
+        country: Austria
+      - name: Charlotte Fresenius University of Psychology
+        city: Munich
+        country: Germany
+      - ref: lmu
+  - name: Jonas Hauck
+    orcid: ~
+    role:
+      - editing
+    affiliations:
+      - id: "regen"
+        name: University of Regensburg
+        department: Faculty of Psychology
+        city: Regensburg
+        country: Germany
+  - name: Sven Hilbert
+    orcid: ~
+    role:
+      - conceptualization
+      - supervision
+      - editing
+    affiliations:
+      - ref: regen
+    
 author-note:
   disclosures:
     data-sharing: This is version 1 of our preprint published at <LINK>. All materials (reproducible manuscript, analysis code, data) are available in the project's repository on the Open Science Framework (OSF) at <LINK>. A Quarto Manuscripts website is hosted at <LINK>.
@@ -51,14 +98,53 @@ csl: apa.csl
 ```{r}
 #| label: setup
 #| include: false
-library(lavaan)
+library(foreign)
+library(flextable)
+dat_poly <- read.spss("data/Haupterhebung Studie III (Polytom 6PS).sav", 
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+dat_dich <- read.spss("data/Haupterhebung Studie III (Dichotom 2PS).sav",
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+
+results <- readRDS("results/results.rds")
 ```
 
 # Introduction
 
 # Methods
 
+```{r}
+#| label: "table1"
+```
+
+
 # Results
+
+
+```{r}
+#| label: "table2"
+```
+
+```{r}
+#| label: "tbl-3"
+#| tbl-cap: Standardized item loadings on the general latent variable for 6 categories controlling for the self-reported physical item and self-reported sex.
+#| ft.align: left
+#| disable-apaquarto-processing: false
+#| apa-note: Loadings on the latent variable or standardized regression weights of the self-reported physical item and self-reported sex greater than .60 are printed in bold typeface.
+results$table3
+```
+
+As we can see in @tbl-3 ...
+
+```{r}
+#| label: "tbl-4"
+#| tbl-cap: Latent correlations between the latent variables age, body height and body weight for 6 and 2 categories
+#| ft.align: left
+#| apa-note: Above the diagonal the correlations between the latent variables are shown and below the diag-onal the correlations between the self-reported physical measures are shown. The latent correla-tions were taken out of latent variable models (6 and response categories) including all self-reported physical items and all latent variables with the allocated items. The models showed the following fit. In the diagonal are the reliability estimates Omega for the scales.
+
+results$table4
+```
+
+As we can see in @tbl-4 ...
 
 # Discussion
 
@@ -67,3 +153,13 @@ library(lavaan)
 
 ::: {#refs}
 :::
+
+# Appendix
+
+```{r}
+#| label: "table5"
+```
+
+```{r}
+#| label: "table6"
+```

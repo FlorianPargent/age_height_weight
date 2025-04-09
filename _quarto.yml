@@ -5,28 +5,26 @@ manuscript:
   article: manuscript.qmd
   meca-bundle: "bundle.zip"
   code-links: [binder, repo]
-  # notebooks:
-  #   - notebook: analysis.qmd
-  #     title: "Description of all analyses"
+  notebooks:
+    - notebook: analysis/primary_analyses.qmd
+      title: "Primary Analyses"
       
 format:
-  html:
+  apaquarto-html:
     toc: true
     comments:
       hypothesis: false
     theme: [brand, styles.scss]
-    # citation:
-    #   type: article-journal
-    #   container-title: ""
-    #   doi: ""
-    #   volume: 1
-    #   issue: 1
-    #   issued: 2025
+    grid:
+      body-width: 900px
   jats: default
-  apaquarto-pdf:
+  # apaquarto-pdf:
+  #   documentmode: man
+  #   a4paper: true
+  #   keep-tex: true
+  apaquarto-typst:
     documentmode: man
     a4paper: true
-    keep-tex: true
   apaquarto-docx:
     a4paper: true
 
@@ -34,3 +32,4 @@ notebook-links: global
 
 execute:
   freeze: false
+  echo: false

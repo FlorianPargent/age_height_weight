@@ -1,0 +1,116 @@
+---
+title: "Secondary analyses"
+---
+
+## Load packages
+
+```{r}
+library(foreign)
+library(tidyverse)
+library(semTools)
+library(lavaan)
+library(MBESS)
+```
+
+## Load datasets
+
+```{r}
+dat_poly <- read.spss("../data/Haupterhebung Studie III (Polytom 6PS).sav", 
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = TRUE)
+dat_dich <- read.spss("../data/Haupterhebung Studie III (Dichotom 2PS).sav",
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = TRUE)
+```
+
+## Fit and analyze CFA models with correlated errors
+
+```{r}
+### tau-kongeneric models with correlated errors 
+modelA <- "
+  f1 =~ A_1 +  A_2 + A_3 + A_4 + A_5 + A_6 + A_7 + A_8 + A_9 +A_10 + A_11 + A_12 + Alter_realW
+  A_3 ~~ A_9
+  A_2 ~~ A_5
+  A_7 ~~ A_10"
+modelG <- "
+  f1 =~ KGr_13 + KGr_14 + KGr_15 + KGr_16 + KGr_17 + KGr_18 + KGr_19 + KGr_20 + KGr_21 + KGr_22 + KGr_23 + KGr_24 + Koerpergroesse_realW
+  KGr_22 ~~ KGr_23 
+  KGr_16 ~~ KGr_21"
+modelGe <- "
+  f1 =~ KGe_25 + KGe_26 + KGe_27 + KGe_28 + KGe_29 + KGe_30 + KGe_31 + KGe_32 + KGe_33 + KGe_34 + KGe_35 + KGe_36 + Koerpergewicht_realW
+  KGe_30 ~~ KGe_36
+  KGe_27 ~~ KGe_31"
+
+### run model test with MIIVsem
+### fit1 <- MIIVsem::miive(model = model1, data = dat_poly)
+
+fit1A6 <- cfa(model = modelA, data = dat_poly, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12"), std.lv=TRUE, meanstructure=TRUE)
+fit1A2 <- cfa(model = modelA, data = dat_dich, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12"), std.lv=TRUE, meanstructure=TRUE)
+fit1G6 <- cfa(model = modelG, data = dat_poly, ordered = c("KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24"), std.lv=TRUE, meanstructure=TRUE)
+fit1G2 <- cfa(model = modelG, data = dat_dich, ordered = c("KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24"), std.lv=TRUE, meanstructure=TRUE)
+fit1Ge6 <- cfa(model = modelGe, data = dat_poly, ordered = c("KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+fit1Ge2 <- cfa(model = modelGe, data = dat_dich, ordered = c("KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+
+summary(fit1A6, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1A2, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1G6, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1G2, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1Ge6, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1Ge2, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+
+tabelle1a <- compareFit(fit1A6, fit1G6, fit1Ge6, nested=FALSE)
+tabelle1b <- compareFit(fit1A2, fit1G2, fit1Ge2, nested=FALSE)
+summary(tabelle1a)
+summary(tabelle1b)
+```
+
+```{r}
+# Funktion zum Extrahieren standardisierter Ladungen (nur einmal definieren)
+get_std_loadings <- function(fit, model_name) {
+  standardizedSolution(fit) %>%
+    filter(op == "=~") %>%
+    select(lhs, rhs, est.std) %>%
+    mutate(model = model_name)
+}
+
+# ---- Alter ----
+loadings1 <- get_std_loadings(fit1A6, "age 1")
+loadings2 <- get_std_loadings(fit1A2, "age d1")
+all_loadings1 <- bind_rows(loadings1, loadings2)
+
+table_loadings1 <- all_loadings1 %>%
+  pivot_wider(names_from = model, values_from = est.std)
+
+print(table_loadings1)
+
+# ---- Größe ----
+loadings3 <- get_std_loadings(fit1G6, "height 2")
+loadings4 <- get_std_loadings(fit1G2, "height d2")
+all_loadings2 <- bind_rows(loadings3, loadings4)
+
+table_loadings2 <- all_loadings2 %>%
+  pivot_wider(names_from = model, values_from = est.std)
+
+print(table_loadings2)
+
+# ---- Gewicht ----
+loadings5 <- get_std_loadings(fit1Ge6, "weight 3")
+loadings6 <- get_std_loadings(fit1Ge2, "weight d3")
+all_loadings3 <- bind_rows(loadings5, loadings6)
+
+table_loadings3 <- all_loadings3 %>%
+  pivot_wider(names_from = model, values_from = est.std)
+
+print(table_loadings3)
+
+mod_indA6 <- lavaan::modificationindices(fit1A6)
+subset(mod_indA6[order(mod_indA6$mi, decreasing=TRUE), ], mi > 4)
+mod_indA2 <- lavaan::modificationindices(fit1A2)
+subset(mod_indA2[order(mod_indA2$mi, decreasing=TRUE), ], mi > 4)
+mod_indG6 <- lavaan::modificationindices(fit1G6)
+subset(mod_indG6[order(mod_indG6$mi, decreasing=TRUE), ], mi > 4)
+mod_indG2 <- lavaan::modificationindices(fit1G2)
+subset(mod_indG2[order(mod_indG2$mi, decreasing=TRUE), ], mi > 4)
+mod_indGe6 <- lavaan::modificationindices(fit1Ge6)
+subset(mod_indGe6[order(mod_indGe6$mi, decreasing=TRUE), ], mi > 4)
+mod_indGe2 <- lavaan::modificationindices(fit1Ge2)
+subset(mod_indGe2[order(mod_indGe2$mi, decreasing=TRUE), ], mi > 4)
+```
