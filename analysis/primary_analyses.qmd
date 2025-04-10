@@ -57,45 +57,62 @@ summary(tabelle2a)
 summary(tabelle2b)
 ```
 
-
 ```{r}
-# Funktion zum Extrahieren standardisierter Ladungen (nur einmal definieren)
-get_std_loadings <- function(fit, model_name) {
-  standardizedSolution(fit) %>%
-    filter(op == "=~") %>%
-    select(lhs, rhs, est.std) %>%
-    mutate(model = model_name)
-}
+load_df <- 
+  bind_rows(
+    standardizedSolution(fit1A6P, type = "std.all") |> mutate(measure = "age", categories = "6"),
+    standardizedSolution(fit1A2P, type = "std.all") |> mutate(measure = "age", categories = "2"),
+    standardizedSolution(fit1G6P, type = "std.all") |> mutate(measure = "height", categories = "6"),
+    standardizedSolution(fit1G2P, type = "std.all") |> mutate(measure = "height", categories = "2"),
+    standardizedSolution(fit1Ge6P, type = "std.all") |> mutate(measure = "weight", categories = "6"),
+    standardizedSolution(fit1Ge2P, type = "std.all") |> mutate(measure = "weight", categories = "2")) |>
+  filter(lhs == "f1" & op == "=~") |> 
+  mutate(item_name = rhs) |>
+  # Create new columns: prefix (everything before underscore) and suffix (the numeric part)
+  mutate(prefix = sub("_.*", "", item_name),
+    suffix = as.numeric(sub(".*_", "", item_name))) |>
+  group_by(prefix) |>
+  mutate(item = match(suffix, sort(unique(suffix)))) |>
+  mutate(item = replace_na(as.character(item), "Physical item")) |>
+  ungroup() |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  select(item, measure, categories, est_print) |>
+  pivot_wider(names_from = c(measure, categories), values_from = est_print)
 
-# ---- Alter ----
-loadings1 <- get_std_loadings(fit1A6P, "age 1")
-loadings2 <- get_std_loadings(fit1A2P, "age d1")
-all_loadings12 <- bind_rows(loadings1, loadings2)
+fit_df <- bind_rows(
+  data.frame(as.list(fitMeasures(fit1A6P))) |> mutate(measure = "age", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1A2P))) |> mutate(measure = "age", categories = "2"),
+  data.frame(as.list(fitMeasures(fit1G6P))) |> mutate(measure = "height", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1G2P))) |> mutate(measure = "height", categories = "2"),
+  data.frame(as.list(fitMeasures(fit1Ge6P))) |> mutate(measure = "weight", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1Ge2P))) |> mutate(measure = "weight", categories = "2")
+) |>
+  pivot_longer(!c(measure, categories), names_to = "statistic", values_to = "est") |>
+  filter(statistic %in% c("chisq.scaled", "pvalue.scaled", "df.scaled", "cfi.scaled", "rmsea.scaled", "srmr")) |>
+  mutate(est_print = papaja::printnum(est, gt1 = FALSE, digits = 3)) |>
+  pivot_wider(id_cols = statistic, names_from = c(measure, categories), values_from = est_print)
 
-table_loadings12 <- all_loadings12 %>%
-  pivot_wider(names_from = model, values_from = est.std)
-
-print(table_loadings12)
-
-# ---- Größe ----
-loadings3 <- get_std_loadings(fit1G6P, "height 2")
-loadings4 <- get_std_loadings(fit1G2P, "height d2")
-all_loadings34 <- bind_rows(loadings3, loadings4)
-
-table_loadings34 <- all_loadings34 %>%
-  pivot_wider(names_from = model, values_from = est.std)
-
-print(table_loadings34)
-
-# ---- Gewicht ----
-loadings5 <- get_std_loadings(fit1Ge6P, "weight 3")
-loadings6 <- get_std_loadings(fit1Ge2P, "weight d3")
-all_loadings56 <- bind_rows(loadings5, loadings6)
-
-table_loadings56 <- all_loadings56 %>%
-  pivot_wider(names_from = model, values_from = est.std)
-
-print(table_loadings56)
+table2 <- rbind(
+    load_df |> rename(Measure = item) |> mutate(group = "Items"),
+    fit_df |> rename(Measure = statistic) |> mutate(group = "Fit")
+  ) |> 
+  group_by(group) |>
+  flextable::as_grouped_data(groups = "group") |>
+  flextable::as_flextable(hide_grouplabel = TRUE) |>
+  flextable::add_header_row(values = c("Measure", "Age", "Height", "Weight"),
+    colwidths = c(1, 2, 2, 2)) |>
+  flextable::set_header_labels(
+    values = list(
+      Measure = "Categories",
+      age_6 = "6", age_2 = "2", 
+      height_6 = "6", height_2 = "2",
+      weight_6 = "6", weight_2 = "2")) |>
+  flextable::align(i = 1, align = "center", part = "header") |>
+  flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
+  flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  flextable::theme_apa() |>
+  ftExtra::colformat_md()
+table2
 ```
 
 
@@ -187,7 +204,7 @@ bifac_df <-
     )) |> 
   # Create new columns: prefix (everything before underscore) and suffix (the numeric part)
   mutate(prefix = sub("_.*", "", item_name),
-         suffix = as.numeric(sub(".*_", "", item_name))) %>%
+    suffix = as.numeric(sub(".*_", "", item_name))) |>
   # For each prefix group, assign new_num as the rank of suffix in sorted order 
   group_by(prefix) |>
   mutate(item = match(suffix, sort(unique(suffix)))) |>
@@ -200,7 +217,7 @@ table3 <- bifac_df |>
   select(item, cause, measure, categories, est_print) |> 
   pivot_wider(names_from = c(measure, cause), values_from = est_print) |>
   flextable::as_grouped_data(groups = "categories") |>
-  flextable::as_flextable() |>
+  flextable::as_flextable(hide_grouplabel = TRUE) |>
   flextable::add_header_row(values = c("age", "height", "weight"),
     colwidths = c(4, 3, 3)) |>
   flextable::set_header_labels(
@@ -386,7 +403,7 @@ table4
 ```{r}
 results <- saveRDS(
   object = list(
-    table3 = table3, table4 = table4
+    table2 = table2, table3 = table3, table4 = table4
     ), 
   file = "../results/results.rds"
 )

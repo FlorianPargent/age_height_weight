@@ -121,8 +121,16 @@ results <- readRDS("results/results.rds")
 
 
 ```{r}
-#| label: "table2"
+#| label: "tbl-2"
+#| tbl-cap: Standardized item loadings (correlations with the latent variable) for 6 and 2 response categories 
+#| ft.align: left
+#| disable-apaquarto-processing: false
+#| apa-note: CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled chi-square, scaled df, and scaled p-value are reported. Correlations with the latent variable higher as the self-reported physical item are printed in bold typeface.
+
+results$table2
 ```
+
+As we can see in @tbl-2 ...
 
 ```{r}
 #| label: "tbl-3"
