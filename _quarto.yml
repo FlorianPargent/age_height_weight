@@ -8,6 +8,8 @@ manuscript:
   notebooks:
     - notebook: analysis/primary_analyses.qmd
       title: "Primary Analyses"
+    - notebook: analysis/secondary_analyses.qmd
+      title: "Secondary Analyses"
       
 format:
   apaquarto-html:
