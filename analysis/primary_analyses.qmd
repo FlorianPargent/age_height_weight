@@ -22,6 +22,33 @@ dat_dich <- read.spss("../data/Haupterhebung Studie III (Dichotom 2PS).sav",
   to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
 ```
 
+## Descriptive statistics
+
+```{r}
+dat_desc <- bind_rows(
+  dat_poly |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "6 categories"),
+  dat_dich |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "2 categories")
+)
+# dat_desc |> group_by(categories, Geschlecht) |>
+#   summarize(N = n()) |> mutate(perc = N / sum(N))
+# dat_desc |> group_by(categories, Bildung) |>
+#   summarize(N = n()) |> mutate(perc = N / sum(N))
+# dat_desc |> group_by(categories, Muttersprache) |>
+#   summarize(N = n()) |> mutate(perc = N / sum(N))
+# dat_desc |> group_by(categories) |>
+#   summarize(MD = median(Alter_realW), SD = sd(Alter_realW), N = n())
+
+table1 <- dat_desc |>
+  mutate(Geschlecht = factor(Geschlecht), 
+    Bildung = factor(Bildung), 
+    Muttersprache = factor(Muttersprache)) |>
+  flextable::summarizor(by = "categories") |>
+  flextable::as_flextable() |>
+  flextable::theme_apa() |>
+  ftExtra::colformat_md()
+table1
+```
+
 ## Fit and analyze CFA models
 
 ### Tau-congeneric model for each trait
@@ -403,7 +430,7 @@ table4
 ```{r}
 results <- saveRDS(
   object = list(
-    table2 = table2, table3 = table3, table4 = table4
+    table1 = table1, table2 = table2, table3 = table3, table4 = table4
     ), 
   file = "../results/results.rds"
 )
