@@ -207,6 +207,55 @@ results$table2
 
 Both scale lengths exhibited similar loading patterns, but those with two response categories obtained slightly higher loadings compared to the six response categories in most cases. On average, questionnaires with two response categories showed better descriptive fit indices than those with six. Model fits were within the expected range for questionnaire items [@goretzkoEvaluatingModelFit2024]. In particular, the fit indices for the questionnaires on body height and weight with two response categories showed the best fit.
 
+```{r}
+#| eval: false
+
+# height
+gold_loading_h6 <- results$load_df_nomod |>
+  filter(categories == 6, measure == "height", rhs == "Koerpergroesse_realW") |>
+  pull(est.std)
+higher_load_h6 <- results$load_df_nomod |> 
+  filter(categories == 6, str_detect(results$load_df_nomod$item_name, "KGr_")) |>
+  summarize(higher_load = sum(est.std > gold_loading_h6))
+
+gold_loading_h2 <- results$load_df_nomod |>
+  filter(categories == 2, measure == "height", rhs == "Koerpergroesse_realW") |>
+  pull(est.std)
+higher_load_h2 <- results$load_df_nomod |> 
+  filter(categories == 2, str_detect(results$load_df_nomod$item_name, "KGr_")) |>
+  summarize(higher_load = sum(est.std > gold_loading_h2))
+
+# weight
+gold_loading_w6 <- results$load_df_nomod |>
+  filter(categories == 6, measure == "weight", rhs == "Koerpergewicht_realW") |>
+  pull(est.std)
+higher_load_w6 <- results$load_df_nomod |> 
+  filter(categories == 6, str_detect(results$load_df_nomod$item_name, "KGe_")) |>
+  summarize(higher_load = sum(est.std > gold_loading_w6))
+
+gold_loading_w2 <- results$load_df_nomod |>
+  filter(categories == 2, measure == "weight", rhs == "Koerpergewicht_realW") |>
+  pull(est.std)
+higher_load_w2 <- results$load_df_nomod |> 
+  filter(categories == 2, str_detect(results$load_df_nomod$item_name, "KGe_")) |>
+  summarize(higher_load = sum(est.std > gold_loading_w2))
+
+# age
+gold_loading_a6 <- results$load_df_nomod |>
+  filter(categories == 6, measure == "weight", rhs == "Alter_realW") |>
+  pull(est.std)
+higher_load_a6 <- results$load_df_nomod |> 
+  filter(categories == 6, str_detect(results$load_df_nomod$item_name, "A_")) |>
+  summarize(higher_load = sum(est.std > gold_loading_a6))
+
+gold_loading_a2 <- results$load_df_nomod |>
+  filter(categories == 2, measure == "age", rhs == "Alter_realW") |>
+  pull(est.std)
+higher_load_a2 <- results$load_df_nomod |> 
+  filter(categories == 2, str_detect(results$load_df_nomod$item_name, "A_")) |>
+  summarize(higher_load = sum(est.std > gold_loading_a2))
+```
+
 For the body height scales, the self-reported physical height loaded highest (six response categories) or similarly high (two response categories) on the latent variables compared to the remaining items. However, that was not the case for the weight and age scales.
 
 For weight, the items 7 ("My pants have a small waistband.") and 4 ("I am obese.") had highest loadings on the latent variable for the questionnaire with six response categories and the items 5 ("I weigh a lot.") on the latent variable for the questionnaire with two response categories scale. Here, 50.0% of items loaded higher than the gold-standard physical weight report for both scales.
@@ -215,7 +264,16 @@ For age, the items 5 ("I've already lived most of my life.") and 7 ("Over time, 
 
 The items loadings for both weight and age scales suggest that the gold-standard items were not essential for measuring the latent variable. 
 
-Even after allowing for correlated errors as suggested by the modification indices, the loading patterns did not improve (see notes in @tbl-5). Loading patterns with and without modifications correlated above .98 across all questionnaires (body height, body weight, age) and response variants (two and six categories; *p* < .001). Therefore, no correlated errors were specified.
+```{r}
+# correlation of loadings between cfa models with and without correlated errors
+r_loadings <- cor.test(
+  # use absolute values because the items were not recoded for cfa models
+  abs(results$load_df_nomod$est.std), abs(results_secondary$load_df_mod$est.std), 
+  method = "pearson")
+r_loadings <- apa_print(r_loadings)$table
+```
+
+Even after allowing for correlated errors as suggested by the modification indices, the loading patterns did not improve (see notes in @tbl-5). Loading patterns with and without modifications correlated above `r r_loadings$estimate` across all questionnaires (body height, body weight, age) and response variants (two and six categories; *p* `r r_loadings$p.value`). Therefore, no correlated errors were specified.
 
 ## Assumption 2: The measurement has a psychological component, and the item responses cannot be fully explained by the self-reported physical measurement and gender. A systemic residual remains when corrected for self-reported physical height and gender.
 
@@ -268,7 +326,7 @@ The aim of this work was to find out whether gold standard items have the highes
 
 ## Gold Standard Items
 
-Gold-standard items did not work as theoretically but empirically expected in this study. However, we still believe they are important. Only the gold standard item for body height – for six, not for two response categories – had its expected highest loading on the latent variable. @bortolottiRelevanceAdvantagesUsing2013, who previously applied the same procedure with two response categories to investigate a gold-standard item for body height, found a correlation of .86 with body height. This correlation pretty much matches our correlation with the latent variable. For our 2-response category scale, the correlation was slightly higher (.87), but there were also items which had descriptively equal or higher correlations (biserial correlations) with the sum score than the self-reported physical item (Pearson correlation). This can be due since we reported a latent correlation corrected for diattenuation, and our scale had 12 instead of 27 items. Nevertheless, our results depict a conceptual replication of @bortolottiRelevanceAdvantagesUsing2013 with a different questionnaire.
+Gold-standard items did not work as theoretically but empirically expected in this study. However, we still believe they are important. Only the gold standard item for body height – for six, not for two response categories – had its expected highest loading on the latent variable. @bortolottiRelevanceAdvantagesUsing2013, who previously applied the same procedure with two response categories to investigate a gold-standard item for body height, found a correlation of .86 with body height. This correlation pretty much matches our correlation with the latent variable. For our 2-response category scale, the correlation was slightly higher (.87), but there were also items which had descriptively equal or higher correlations (biserial correlations) with the sum score than the self-reported physical item (Pearson correlation). This might be because we reported a latent correlation corrected for diattenuation, and our scale had 12 instead of 27 items. Nevertheless, our results depict a conceptual replication of @bortolottiRelevanceAdvantagesUsing2013 with a different questionnaire.
 
 The results differed for the other latent variables, which exhibited lower correlations between the latent variable and their gold standard items. This seems problematic as these items were designed to be the "gold" measure of the latent variable and should ensure the interpretation. Thus, we should carefully consider what this finding means for item construction. If this basic requirement is not met, even for constructs that are so obvious and easy to measure, what about more complex constructs? To avoid a misleading interpretation of a latent variable, it might be very helpful to formulate a priori hypotheses about the importance of the constructed items as we do it to test the construct validity of a test. If we, for example, want to measure *warmth* as a big five facet and construct items that circumscribe this facet, then an item that directly measures warmth should have its highest loading on the latent variable, otherwise its interpretation is not justified.
 

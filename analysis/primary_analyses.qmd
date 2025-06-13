@@ -100,7 +100,9 @@ load_df <-
     standardizedSolution(fit1Ge6P, type = "std.all") |> mutate(measure = "weight", categories = "6"),
     standardizedSolution(fit1Ge2P, type = "std.all") |> mutate(measure = "weight", categories = "2")) |>
   filter(lhs == "f1" & op == "=~") |> 
-  mutate(item_name = rhs) |>
+  mutate(item_name = rhs)
+
+load_df_proc <- load_df |>
   # Create new columns: prefix (everything before underscore) and suffix (the numeric part)
   mutate(prefix = sub("_.*", "", item_name),
     suffix = as.numeric(sub(".*_", "", item_name))) |>
@@ -126,7 +128,7 @@ fit_df <- bind_rows(
   pivot_wider(id_cols = statistic, names_from = c(measure, categories), values_from = est_print)
 
 table2 <- rbind(
-    load_df |> rename(Measure = item) |> mutate(group = "Items"),
+    load_df_proc |> rename(Measure = item) |> mutate(group = "Items"),
     fit_df |> rename(Measure = statistic) |> mutate(group = "Fit")
   ) |> 
   group_by(group) |>
@@ -436,7 +438,8 @@ table4
 ```{r}
 results <- saveRDS(
   object = list(
-    table1 = table1, table2 = table2, table3 = table3, table4 = table4
+    table1 = table1, table2 = table2, table3 = table3, table4 = table4,
+    load_df_nomod = load_df
     ), 
   file = "../results/results.rds"
 )
