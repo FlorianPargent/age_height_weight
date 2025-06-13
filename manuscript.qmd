@@ -104,13 +104,20 @@ csl: apa.csl
 ```{r}
 #| label: setup
 #| include: false
+
 library(papaja)
-library(foreign)
 library(flextable)
+library(tidyverse)
+library(foreign)
 dat_poly <- read.spss("data/Haupterhebung Studie III (Polytom 6PS).sav", 
   to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
 dat_dich <- read.spss("data/Haupterhebung Studie III (Dichotom 2PS).sav",
   to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+
+dat_desc <- bind_rows(
+  dat_poly |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "6 categories"),
+  dat_dich |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "2 categories")
+)
 
 results <- readRDS("results/results.rds")
 results_secondary <- readRDS("results/results_secondary.rds")
@@ -164,7 +171,7 @@ All analyses were conducted in `r R.version$version.string`. A full list of soft
 
 ## Sample
 
-The total sample consisted of 1,854 participants aged between 18 and 97 years (*M* = 33.00, *SD* = 16.00), including 1,036 women (55.9 %) and 818 men (44.1 %). For sociodemographic see @tbl-1. The overall sample consisted of two independent subsamples, which were divided into the 2-point and 6-point response format conditions.
+The total sample consisted of `r nrow(dat_desc)` participants aged between `r min(dat_desc$Alter_realW)` and `r max(dat_desc$Alter_realW)` years (*M* = `r printnum(mean(dat_desc$Alter_realW))`, *SD* = `r printnum(sd(dat_desc$Alter_realW))`), including `r nrow(dat_desc[dat_desc$Geschlecht == 1,])` women (`r round(nrow(dat_desc[dat_desc$Geschlecht == 1,]) / nrow(dat_desc) * 100)`%) and `r nrow(dat_desc[dat_desc$Geschlecht == 2,])` men (`r round(nrow(dat_desc[dat_desc$Geschlecht == 2,]) / nrow(dat_desc) * 100)`%). For sociodemographic see @tbl-1. The overall sample consisted of two independent subsamples, which were divided into the 2-point and 6-point response format conditions.
 
 @tbl-1 shows the distribution of gender, level of education, native language, and age within the two conditions. The subsamples are largely homogeneous. Due to the left-skewed age distribution and outlier values, the median is reported as a measure of the central tendency instead of the mean. The subjects were recruited in trains, colleges, universities, adult education centers, fitness studios and various public places in Germany and Austria. Participation was voluntary and without reimbursement.
 
