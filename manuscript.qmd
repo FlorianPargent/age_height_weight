@@ -95,7 +95,7 @@ language:
 abstract: This article presents four studies (one qualitative study with n = 8, three quantitative studies with n = 390, n = 921, n = 931) to investigate whether gold-standard items are helpful for questionnaire construction. We constructed three 12-item scales to measure the physical traits of body height, body weight, and age, based on a 2- and a 6-response category response format. In addition, we assessed numeric self-reports of body weight, body height, and age as gold-standard items. Confirmatory factor analyses revealed that the gold-standard items did not always exhibit the highest loading on their latent variable. Furthermore, when controlling for the self-reported physical body height, body weight, and age as gold-standard items and gender, an interpretable, systematic residual variance did not always remain. Finally, the pattern of correlations between the latent variables did not reflect the correlations between the self-reported gold standard items indicating that they do not have the same validity. While these results are in line with existing literature, our analyses also showed that items with two response categories were at least as valid as those with six categories, which contradicts past recommendations. When constructing the questionnaire, the items that are intended to measure the latent variable itself should have the highest loading on the latent variable. If this is not the case, the content validity is at least questionable. Implications are that intensive cognitive pretesting is necessary. Questionnaires with different response formats should be empirically compared and most important, hypotheses about items which should represent the latent variable best should be tested.
 keywords: [item construction, latent variable modeling, physical scales, gold standard items, response categories]
 license: CC BY 4.0
-bibliography: [references.bib]
+bibliography: [references.bib, r-references.bib]
 floatsintext: true
 numbered-lines: false
 csl: apa.csl
@@ -104,6 +104,7 @@ csl: apa.csl
 ```{r}
 #| label: setup
 #| include: false
+library(papaja)
 library(foreign)
 library(flextable)
 dat_poly <- read.spss("data/Haupterhebung Studie III (Polytom 6PS).sav", 
@@ -113,6 +114,8 @@ dat_dich <- read.spss("data/Haupterhebung Studie III (Dichotom 2PS).sav",
 
 results <- readRDS("results/results.rds")
 results_secondary <- readRDS("results/results_secondary.rds")
+
+papaja::r_refs(file = "r-references.bib")
 ```
 
 # Introduction
@@ -157,7 +160,7 @@ First, we constructed items for the physical characteristics of body height, bod
 
 ## Statistical Analysis
 
-All analyses were conducted in R (version 4.4.3, R Core Team, 2025). The data were analyzed using confirmatory factor analyses using the package *lavaan* (version 0.6-19, Rosseel, 2012). We used weighted least squares mean and variance adjusted (WLSMV) for parameter estimation, whereby the items were treated as ordinal and the self-reported physical height, weight, and age as continuous variables. We specified (1) a unidimensional model without any error correlations, (2) a model with one latent variable and correlated errors. In both models the self-reported physical gold standard-items and the other 12 items were specified as indicators of one latent variable. Finally, to test whether there is a latent variable while controlling for the self-reported physical item and gender, (3) a model with one latent variable where the items were additionally predicted by the manifest items self-reported physical value and gender was specified. Reliability analyses were conducted using the package *MBESS* (version 4.9.3, Kelly, 2023) and omega as internal-consistency reliability estimate is presented.
+All analyses were conducted in `r R.version$version.string`. A full list of software versions can be found in @apx-3. The data were analyzed using confirmatory factor analyses using the package *lavaan* [@R-lavaan]. We used weighted least squares mean and variance adjusted (WLSMV) for parameter estimation, whereby the items were treated as ordinal and the self-reported physical height, weight, and age as continuous variables. We specified (1) a unidimensional model without any error correlations, (2) a model with one latent variable and correlated errors. In both models the self-reported physical gold standard-items and the other 12 items were specified as indicators of one latent variable. Finally, to test whether there is a latent variable while controlling for the self-reported physical item and gender, (3) a model with one latent variable where the items were additionally predicted by the manifest items self-reported physical value and gender was specified. Reliability analyses were conducted using the package *MBESS* [@R-MBESS] and omega as internal-consistency reliability estimate is presented.
 
 ## Sample
 
@@ -320,3 +323,9 @@ knitr::kable(head(cars))
 ::: {.content-visible when-format="html"}
 *Note.* Add table note for html format here.
 :::
+
+# Software versions {#apx-3}
+
+Quarto [@allaireQuarto2025] version {{< version >}} was used together with RStudio [@positRstudio2025] to build the manuscript and the manuscript website.  
+`r papaja::cite_r(file = "r-references.bib")` were used for data analysis.  
+Some dependencies are not included in this list but can be found in the `renv.lock` file in our online repository.

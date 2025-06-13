@@ -11,6 +11,12 @@ library(semTools)
 library(lavaan)
 ```
 
+```{r}
+#| include: false
+# record R packages
+papaja::r_refs(file = "../r-references.bib")
+```
+
 ## Load datasets
 
 ```{r}

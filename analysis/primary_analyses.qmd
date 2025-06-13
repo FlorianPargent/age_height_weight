@@ -13,6 +13,12 @@ library(MBESS, quietly = TRUE, warn.conflicts = FALSE)
 library(corx)
 ```
 
+```{r}
+#| include: false
+# record R packages
+papaja::r_refs(file = "../r-references.bib")
+```
+
 ## Load datasets
 
 ```{r}
@@ -435,5 +441,3 @@ results <- saveRDS(
   file = "../results/results.rds"
 )
 ```
-
-
