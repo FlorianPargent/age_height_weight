@@ -439,7 +439,9 @@ table4
 results <- saveRDS(
   object = list(
     table1 = table1, table2 = table2, table3 = table3, table4 = table4,
-    load_df_nomod = load_df
+    load_df_nomod = load_df,
+    fullmodelfit6 = fitMeasures(fit1ges6),
+    fullmodelfit2 = fitMeasures(fit1ges2)
     ), 
   file = "../results/results.rds"
 )
