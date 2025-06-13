@@ -85,7 +85,7 @@ author:
     
 author-note:
   disclosures:
-    data-sharing: This is version 1 of our preprint published at <LINK>. All materials (reproducible manuscript, analysis code, data) are available in the project's repository on the Open Science Framework (OSF) at <LINK>. A Quarto Manuscripts website is hosted at <LINK>.
+    data-sharing: This is version 1 (last modification {{< meta date-modified >}}) of our preprint published at <TODOK>. All materials (reproducible manuscript, analysis code, data) are available in the project's repository on the Open Science Framework (OSF) at <TODO>. A Quarto Manuscripts website is hosted at <TODO>.
     conflict-of-interest: The authors declare that there were no conflicts of interest concerning the authorship or the publication of this article.
     financial-support: ~
     gratitude: ~
