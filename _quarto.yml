@@ -12,6 +12,10 @@ manuscript:
       title: "2. Secondary Analyses"
     - notebook: analysis/bonus_materials.qmd
       title: "3. Bonus Materials"
+  resources:
+    - data/
+    - materials/
+    - results/
 
 format:
   html:
