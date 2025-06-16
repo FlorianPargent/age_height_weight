@@ -68,6 +68,16 @@ summary(tabelle1b)
 ```
 
 ```{r}
+cor_errors <- 
+  bind_rows(
+    standardizedSolution(fit1A6, type = "std.all") |> mutate(measure = "age", categories = "6"),
+    standardizedSolution(fit1A2, type = "std.all") |> mutate(measure = "age", categories = "2"),
+    standardizedSolution(fit1G6, type = "std.all") |> mutate(measure = "height", categories = "6"),
+    standardizedSolution(fit1G2, type = "std.all") |> mutate(measure = "height", categories = "2"),
+    standardizedSolution(fit1Ge6, type = "std.all") |> mutate(measure = "weight", categories = "6"),
+    standardizedSolution(fit1Ge2, type = "std.all") |> mutate(measure = "weight", categories = "2")) |>
+  filter(op == "~~" & lhs != rhs)
+
 load_df <- 
   bind_rows(
     standardizedSolution(fit1A6, type = "std.all") |> mutate(measure = "age", categories = "6"),
@@ -150,7 +160,8 @@ subset(mod_indGe2[order(mod_indGe2$mi, decreasing=TRUE), ], mi > 4)
 results <- saveRDS(
   object = list(
     table5 = table5,
-    load_df_mod = load_df
+    load_df_mod = load_df,
+    cor_errors = cor_errors
     ), 
   file = "../results/results_secondary.rds"
 )
