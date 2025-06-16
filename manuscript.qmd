@@ -429,18 +429,50 @@ results_secondary$table5
 
 # Item translations {#apx-2}
 
-```{r}
-#| label: "tbl-6"
-#| tbl-cap: Translated items used in this study
-#| ft.align: left
-#| disable-apaquarto-processing: false
-#| apa-note: German wording in parenthesis.
+**Table B2**
 
-knitr::kable(head(cars))
-```
-::: {.content-visible when-format="html"}
-*Note.* Add table note for html format here.
-:::
+Translated items used in this study
+
+| Item       | Item wording [Item wording German language]                |
+|:-----------|:-----------------------------------------------------------|
+| **Age 1**  | I have physical ailments (Ich habe körperliche Gebrechen)                                                                                                                                                              |
+| **Age 2**  | Over time, my mental capacity has decreased (Im Laufe der Zeit hat meine geistige Leistungsfähigkeit abgenommen)                                                                                                        |
+| **Age 3**  | I have a lot of life experience (Ich habe viel Lebenserfahrung)                                                                                                                                                        |
+| **Age 4**  | Over time, my ability to react has decreased (Im Laufe der Zeit hat meine Reaktionsfähigkeit abgenommen)                                                                                                                |
+| **Age 5**  | Over time, my memory has deteriorated (Im Laufe der Zeit hat meine Merkfähigkeit abgenommen)                                                                                                                             |
+| **Age 6**  | I worry a lot about getting older (Ich mache mir viele Gedanken über das Älterwerden)                                                                                                                                    |
+| **Age 7**  | I have already lived most of my life (Den größten Teil meines Lebens habe ich bereits gelebt)                                                                                                                          |
+| **Age 8**  | I find it increasingly difficult to follow technical developments (Ich habe zunehmend Schwierigkeiten technischen Weiterentwicklungen zu folgen)                                                                          |
+| **Age 9**  | I have years of work experience (Ich habe jahrelange Berufserfahrung)                                                                                                                                                  |
+| **Age 10** | My whole life still lies ahead of me (Mein ganzes Leben liegt noch vor mir)                                                                                                                                            |
+| **Age 11** | I used to be more willing to take risks (Früher war ich risikofreudiger)                                                                                                                                               |
+| **Age 12** | I carry out everyday activities more slowly than before (Ich verrichte Alltagstätigkeiten langsamer als früher)                                                                                                          |
+| **Height 1**  | I keep my head down when I walk through doors (Ich ziehe den Kopf ein wenn ich durch Türen gehe)                                                                                                                     |
+| **Height 2**  | In the middle of a crowd, I can see over most other people (Inmitten einer Menschenmenge kann ich über die meisten anderen Menschen hinwegblicken)                                                                    |
+| **Height 3**  | Chairs and tables are usually too low for me (Stühle und Tische sind meistens zu niedrig für mich)                                                                                                                  |
+| **Height 4**  | In the supermarket, I can reach the things on the top shelf without any problems (Im Supermarkt komme ich ohne Probleme an die Sachen im obersten Regal)                                                             |
+| **Height 5**  | When I drive a car that was previously driven by someone else, I usually have to push the seat backwards (Wenn ich ein Auto fahre, das vorher jemand anderes gefahren hat, muss ich üblicherweise den Sitz nach hinten schieben) |
+| **Height 6**  | When I stretch out straight in hotel beds, my feet overlap (Wenn ich mich in Hotelbetten gerade ausstrecke, dann stehen meine Füße über)                                                                                   |
+| **Height 7**  | On airplanes, I bump my knees against the seat in front of me (Im Flugzeug stoße ich mit den Knien am Vordersitz an)                                                                                                  |
+| **Height 8**  | Pants are often too short for me (Hosen sind mir häufig zu kurz)                                                                                                                                                      |
+| **Height 9**  | I need a chair if I want to get things from the top shelf (Ich brauche einen Stuhl, wenn ich Sachen aus dem obersten Regal holen möchte)                                                                             |
+| **Height 10** | I have to look up when I talk to other people (Wenn ich mich mit anderen Menschen unterhalte muss ich nach oben schauen)                                                                                                |
+| **Height 11** | I have to stand at the front of group photos so that I can be seen clearly (Ich muss mich bei Gruppenfotos nach vorne stellen, damit ich gut zu sehen bin)                                                           |
+| **Height 12** | When I hug other people in greeting, I have to bend downwards (Wenn ich andere Menschen zur Begrüßung umarme, muss ich mich nach unten beugen)                                                                      |
+| **Weight 1**  | I am often afraid that chairs will give way under me (Ich habe oft Angst, dass Stühle unter mir nachgeben)                                                                                                           |
+| **Weight 2**  | Other people may think that I sit on the sofa in the evening and eat chocolate and potato chips (Möglicherweise denken andere Menschen von mir, dass ich abends auf dem Sofa sitze und Schokolade und Chips esse)    |
+| **Weight 3**  | I have a wide waistband when it comes to pants (Bei Hosen habe ich eine große Bundweite)                                                                                                                             |
+| **Weight 4**  | I am obese (Ich bin dick)                                                                                                                                                                                            |
+| **Weight 5**  | I weigh a lot (Ich wiege viel)                                                                                                                                                                                       |
+| **Weight 6**  | I need to lose weight (Ich müsste abnehmen)                                                                                                                                                                          |
+| **Weight 7**  | My pants have a small waistband (Meine Hosen haben eine kleine Bundweite)                                                                                                                                           |
+| **Weight 8**  | I am good at squeezing through narrow gaps (Ich kann mich gut durch enge Spalten quetschen)                                                                                                                         |
+| **Weight 9**  | I have a lot of space between the armrests in airplane seats (Zwischen den Armlehnen in Flugzeugsitzen habe ich viel Platz)                                                                                         |
+| **Weight 10** | I take up a lot of space in the elevator (Im Aufzug nehme ich viel Platz ein)                                                                                                                                       |
+| **Weight 11** | If I have the choice between the elevator and the stairs, I take the elevator (Wenn ich die Wahl habe zwischen Aufzug und Treppe, dann nehme ich den Aufzug)                                                     |
+| **Weight 12** | I should eat less (Ich sollte weniger essen) |
+
+*Note:* German wording in parenthesis.
 
 # Software versions {#apx-3}
 
