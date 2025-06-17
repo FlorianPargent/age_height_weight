@@ -292,7 +292,7 @@ For body weight, the items with the highest loadings on the latent variable also
 #| tbl-cap: Standardized item loadings on the latent variable for two and six categories controlling for the self-reported physical item and self-reported gender
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: Standardized regression weights of the self-reported physical item and self-reported gender greater than .60 are printed in bold typeface. LV = TODO
+#| apa-note: Standardized regression weights of the self-reported physical item and self-reported gender greater than .60 are printed in bold typeface. LV = latent variable (height, weight, age).
 
 results$table3
 ```
