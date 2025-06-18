@@ -91,7 +91,7 @@ summary(tabelle2b)
 ```
 
 ```{r}
-load_df <- 
+load_df_nomod <- 
   bind_rows(
     standardizedSolution(fit1A6P, type = "std.all") |> mutate(measure = "age", categories = "6"),
     standardizedSolution(fit1A2P, type = "std.all") |> mutate(measure = "age", categories = "2"),
@@ -102,7 +102,7 @@ load_df <-
   filter(lhs == "f1" & op == "=~") |> 
   mutate(item_name = rhs)
 
-load_df_proc <- load_df |>
+load_df_nomod_proc <- load_df_nomod |>
   # Create new columns: prefix (everything before underscore) and suffix (the numeric part)
   mutate(prefix = sub("_.*", "", item_name),
     suffix = as.numeric(sub(".*_", "", item_name))) |>
@@ -128,7 +128,7 @@ fit_df <- bind_rows(
   pivot_wider(id_cols = statistic, names_from = c(measure, categories), values_from = est_print)
 
 table2 <- rbind(
-    load_df_proc |> rename(Measure = item) |> mutate(group = "Items"),
+    load_df_nomod_proc |> rename(Measure = item) |> mutate(group = "Items"),
     fit_df |> rename(Measure = statistic) |> mutate(group = "Fit")
   ) |> 
   group_by(group) |>
@@ -218,7 +218,7 @@ summary(fit1Ge2_p, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modin
 ```
 
 ```{r}
-bifac_df <- 
+load_df_bifac <- 
   bind_rows(
     standardizedSolution(fit1A6_p, type = "std.all") |> mutate(measure = "age", categories = "6"),
     standardizedSolution(fit1A2_p, type = "std.all") |> mutate(measure = "age", categories = "2"),
@@ -228,7 +228,9 @@ bifac_df <-
     standardizedSolution(fit1Ge2_p, type = "std.all") |> mutate(measure = "weight", categories = "2")) |>
   filter(
     (lhs %in% c("age", "height", "weight") & op == "=~") |
-    (rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW", "Geschlecht") & op == "~")) |>
+    (rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW", "Geschlecht") & op == "~"))
+  
+load_df_bifac_proc <- load_df_bifac |>
   mutate(
     cause = case_when(
       lhs %in% c("age", "height", "weight") & op == "=~" ~ lhs,
@@ -248,7 +250,7 @@ bifac_df <-
 ```
 
 ```{r}
-table3 <- bifac_df |> 
+table3 <- load_df_bifac_proc |> 
   select(item, cause, measure, categories, est_print) |> 
   pivot_wider(names_from = c(measure, cause), values_from = est_print) |>
   flextable::as_grouped_data(groups = "categories") |>
@@ -439,7 +441,8 @@ table4
 results <- saveRDS(
   object = list(
     table1 = table1, table2 = table2, table3 = table3, table4 = table4,
-    load_df_nomod = load_df,
+    load_df_nomod = load_df_nomod,
+    load_df_bifac = load_df_bifac,
     fullmodelfit6 = fitMeasures(fit1ges6),
     fullmodelfit2 = fitMeasures(fit1ges2)
     ), 

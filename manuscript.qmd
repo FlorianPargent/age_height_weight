@@ -268,6 +268,12 @@ higher_load_a2 <- results$load_df_nomod |>
   summarize(higher_load = sum(est.std > gold_loading_a2))
 ```
 
+```{r}
+higher_load <- results$load_df_nomod |> group_by(measure, categories) |>
+  reframe(freq = mean(head(abs(est.std), 12) > tail(abs(est.std), 1)))
+```
+
+
 For the body height scales, the self-reported physical height loaded highest (six response categories) or similarly high (two response categories) on the latent variables compared to the remaining items. However, that was not the case for the weight and age scales.
 
 For weight, the items 7 ("My pants have a small waistband.") and 4 ("I am obese.") had highest loadings on the latent variable for the questionnaire with six response categories and the items 5 ("I weigh a lot.") on the latent variable for the questionnaire with two response categories scale. Here, 50.0% of items loaded higher than the gold-standard physical weight report for both scales.
@@ -305,7 +311,7 @@ results$table3
 :::
 \
 
-For body height, we obtained overall lower item loadings on the latent variable – i.e., below .41 – but high correlations with the gold-standard physical body height item. In particular, the third item "Chairs and tables are usually too low for me." exhibited the highest loadings on the latent variable (two response categories: .405, and six response categories: .408). In contrast, item 11 "I have to stand at the front of group photos so that I can be seen clearly." and item 12 "When I hug other people in greeting, I have to bend downwards." were explained best by the self-reported physical body height independently of the response format. This pattern does not convincingly confirm the existence of a psychological latent variable after controlling for the self-reported physical measure and gender. **TODO**
+For body height, we obtained overall lower item loadings on the latent variable – i.e., below .41 – but high correlations with the gold-standard physical body height item. In particular, the third item "Chairs and tables are usually too low for me." exhibited the highest loadings on the latent variable (two response categories: `r results$load_df_bifac |> filter(categories == 2, lhs == "height", rhs == "KGr_15") |> pull(est.std) |> printnum(gt = FALSE)`, and six response categories: `r results$load_df_bifac |> filter(categories == 6, lhs == "height", rhs == "KGr_15") |> pull(est.std) |> printnum(gt = FALSE)`). In contrast, item 11 "I have to stand at the front of group photos so that I can be seen clearly." and item 12 "When I hug other people in greeting, I have to bend downwards." were explained best by the self-reported physical body height independently of the response format. This pattern does not convincingly confirm the existence of a psychological latent variable after controlling for the self-reported physical measure and gender.
 
 For body weight, the items with the highest loadings on the latent variable also exhibited high associations with the self-reported physical body weight (e.g., item 4 "I am obese."). Item 5 "I weigh a lot.", and item 6 "I need to lose weight." show the highest correlation were explained best by the self-reported physical body weight. Item 9 "I have a lot of space between the armrests in airplane seats." had a low loading on the latent variable but was well explained by the self-reported physical body weight. Notably, item 11 "If I have the choice between the elevator and the stairs, I take the elevator." was not related to either the self-reported physical item or the latent variable, indicating that it may represent a more health-related perspective. Taken together, the resulting latent variable is hardly interpretable. The results for the two and six response categories show the same pattern.
 
