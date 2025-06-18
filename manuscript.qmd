@@ -131,6 +131,8 @@ results_secondary <- readRDS("results/results_secondary.rds")
 papaja::r_refs(file = "r-references.bib")
 ```
 
+\
+
 ::: {.content-visible when-format="html"}
 # Introduction
 :::
@@ -212,9 +214,7 @@ results$table1
 
 results$table2
 ```
-::: {.content-visible when-format="html"}
-*Note.* Add table note for html format here.
-:::
+
 \
 
 Both scale lengths exhibited similar loading patterns, but those with two response categories obtained slightly higher loadings compared to the six response categories in most cases. On average, questionnaires with two response categories showed better descriptive fit indices than those with six. Model fits were within the expected range for questionnaire items [@goretzkoEvaluatingModelFit2024]. In particular, the fit indices for the questionnaires on body height and weight with two response categories showed the best fit.
@@ -306,9 +306,7 @@ Even after allowing for correlated errors as suggested by the modification indic
 
 results$table3
 ```
-::: {.content-visible when-format="html"}
-*Note.* Add table note for html format here.
-:::
+
 \
 
 For body height, we obtained overall lower item loadings on the latent variable – i.e., below .41 – but high correlations with the gold-standard physical body height item. In particular, the third item "Chairs and tables are usually too low for me." exhibited the highest loadings on the latent variable (two response categories: `r results$load_df_bifac |> filter(categories == 2, lhs == "height", rhs == "KGr_15") |> pull(est.std) |> printnum(gt = FALSE)`, and six response categories: `r results$load_df_bifac |> filter(categories == 6, lhs == "height", rhs == "KGr_15") |> pull(est.std) |> printnum(gt = FALSE)`). In contrast, item 11 "I have to stand at the front of group photos so that I can be seen clearly." and item 12 "When I hug other people in greeting, I have to bend downwards." were explained best by the self-reported physical body height independently of the response format. This pattern does not convincingly confirm the existence of a psychological latent variable after controlling for the self-reported physical measure and gender.
@@ -332,7 +330,7 @@ As depicted in @tbl-4, the correlations between the latent variables do not matc
 
 results$table4
 ```
-::: {.content-visible when-format="html"}
+::: {.content-visible when-format="never"}
 *Note.* Above the diagonal the correlations between the latent variables are shown (printed in bold typeface) and below the diagonal the correlations between the self-reported physical measures are shown. The latent correlations were taken out of latent variable models (two and six response categories) including all self-reported physical items and all latent variables with the allocated items. The models showed the following fit: scaled chi-square (six response categories) = `r printnum(results$fullmodelfit6["chisq.scaled"])`, df = `r results$fullmodelfit6["df"]`, p `r printp(results$fullmodelfit6["pvalue.scaled"])`, scaled CFI = `r printnum(results$fullmodelfit6["cfi.scaled"], gt1 = FALSE)`, scaled RMSEA = `r printnum(results$fullmodelfit6["rmsea.scaled"], gt1 = FALSE)`, SRMR= `r printnum(results$fullmodelfit6["srmr"], gt1 = FALSE)`; scaled chi-square (two response categories) = `r printnum(results$fullmodelfit2["chisq.scaled"])`, df = `r results$fullmodelfit2["df"]`, p `r printp(results$fullmodelfit2["pvalue.scaled"])`, scaled CFI = `r printnum(results$fullmodelfit2["cfi.scaled"], gt1 = FALSE)`, scaled RMSEA = `r printnum(results$fullmodelfit2["rmsea.scaled"], gt1 = FALSE)`, SRMR = `r printnum(results$fullmodelfit2["srmr"], gt1 = FALSE)`. In the diagonal (grey shaded boxes) the reliability estimates Omega for the scales can be found. The differences between the correlations of the latent variables and the self-reported physical items are shown in parentheses. * p $\leq$ .05. 
 :::
 
@@ -443,7 +441,7 @@ r_A7_A10_2 <- results_secondary$cor_errors |>
 
 results_secondary$table5
 ```
-::: {.content-visible when-format="html"}
+::: {.content-visible when-format="never"}
 *Note.* CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df (degrees of freedom), and scaled p-value are reported. Best Fit indices are printed in bold typeface. Loadings higher than the loading of the self-reported physical item are printed in bold typeface. The following correlated errors were specified according to high modifications indices and good interpretability (In parenthesis error correlations for two and six response categories): "I have to look up when I talk to other people." (H10) and "I have to stand at the front of group photos so that I can be seen clearly." (H11) (`r printnum(r_H10_H11_2)`, `r printnum(r_H10_H11_6)`); "In the supermarket, I can reach the things on the top shelf without any problems." (H4) and "I need a chair if I want to get things from the top shelf." (H9) (`r printnum(r_H4_H9_2)`, `r printnum(r_H4_H9_6)`); "I need to lose weight." (W6) and "I should eat less." (W12) (`r printnum(r_W6_W12_2)`, `r printnum(r_W6_W12_6)`); "I have a wide waistband when it comes to pants." (W3) and "My pants have a small waistband." (W7) (`r printnum(r_W3_W7_2)`, `r printnum(r_W3_W7_6)`); "Over time, my mental capacity has decreased." (A3) and "I have years of work experience." (A9) (`r printnum(r_A3_A9_2)`, `r printnum(r_A3_A9_6)`); "Over time, my mental capacity has decreased." (A2) and "Over time, my memory has deteriorated." (A5) (`r printnum(r_A2_A5_2)`, `r printnum(r_A2_A5_6)`); "I have already lived most of my life." (A7) and "My whole life still lies ahead of me." (A10) (`r printnum(r_A7_A10_2)`, `r printnum(r_A7_A10_6)`).
 :::
 
