@@ -187,10 +187,10 @@ The total sample consisted of `r nrow(dat_desc)` participants aged between `r mi
 
 ```{r}
 #| label: "tbl-1"
-#| tbl-cap: Sample characteristics within the response category conditions
+#| tbl-cap: Sample characteristics within response category conditions
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: Percent = Percentage within the subsample.
+#| apa-note: SD = standard deviation, IQR = interquartile range.
 
 results$table1
 ```

@@ -45,9 +45,10 @@ dat_desc <- bind_rows(
 #   summarize(MD = median(Alter_realW), SD = sd(Alter_realW), N = n())
 
 table1 <- dat_desc |>
-  mutate(Geschlecht = factor(Geschlecht), 
-    Bildung = factor(Bildung), 
-    Muttersprache = factor(Muttersprache)) |>
+  rename(Gender = Geschlecht, Education = Bildung, `Mother tongue` = Muttersprache, Age = Alter_realW) |>
+  mutate(Gender = factor(Gender, levels = 1:2, labels = c("women", "men")), 
+    Education = factor(Education, levels = 1:6, labels = c("no school leaving certificate", "secondary school leaving certificate/elementary school or equivalent", "secondary school or equivalent", "vocational baccalaureate or high school diploma", "college degree or university degree", "doctorate or habilitation")), 
+    `Mother tongue` = factor(`Mother tongue`, levels = 1:2, labels = c("German", "Other"))) |>
   flextable::summarizor(by = "categories") |>
   flextable::as_flextable() |>
   flextable::theme_apa() |>
