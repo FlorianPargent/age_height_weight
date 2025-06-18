@@ -208,7 +208,7 @@ results$table1
 #| tbl-cap: Standardized item loadings (correlations with the latent variable) for two and six response categories 
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled chi-square, scaled df, and scaled p-value are reported. Correlations with the latent variable higher as the self-reported physical item are printed in bold typeface as well as the best fit indices. The standardized item loadings for the self-reported physical items are presented in grey shaded boxes.
+#| apa-note: CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df, and scaled p-value are reported. Correlations with the latent variable higher as the self-reported physical item are printed in bold typeface as well as the best fit indices. The standardized item loadings for the self-reported physical items are presented in grey shaded boxes.
 
 results$table2
 ```
