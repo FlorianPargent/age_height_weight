@@ -208,7 +208,7 @@ results$table1
 #| tbl-cap: Standardized item loadings (correlations with the latent variable) for two and six response categories 
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df, and scaled p-value are reported. Correlations with the latent variable higher as the self-reported physical item are printed in bold typeface as well as the best fit indices. The standardized item loadings for the self-reported physical items are presented in grey shaded boxes.
+#| apa-note: CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df (degrees of freedom), and scaled p-value are reported. Correlations with the latent variable higher as the self-reported physical item are printed in bold typeface as well as the best fit indices. The standardized item loadings for the self-reported physical items are presented in grey shaded boxes.
 
 results$table2
 ```
@@ -444,7 +444,7 @@ r_A7_A10_2 <- results_secondary$cor_errors |>
 results_secondary$table5
 ```
 ::: {.content-visible when-format="html"}
-*Note.* CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled chi-square, scaled df (degrees of freedom), and scaled p-value are reported. Best Fit indices are printed in bold typeface. Loadings higher than the loading of the self-reported physical item are printed in bold typeface. The following correlated errors were specified according to high modifications indices and good interpretability (In parenthesis error correlations for two and six response categories): "I have to look up when I talk to other people." (H10) and "I have to stand at the front of group photos so that I can be seen clearly." (H11) (`r printnum(r_H10_H11_2)`, `r printnum(r_H10_H11_6)`); "In the supermarket, I can reach the things on the top shelf without any problems." (H4) and "I need a chair if I want to get things from the top shelf." (H9) (`r printnum(r_H4_H9_2)`, `r printnum(r_H4_H9_6)`); "I need to lose weight." (W6) and "I should eat less." (W12) (`r printnum(r_W6_W12_2)`, `r printnum(r_W6_W12_6)`); "I have a wide waistband when it comes to pants." (W3) and "My pants have a small waistband." (W7) (`r printnum(r_W3_W7_2)`, `r printnum(r_W3_W7_6)`); "Over time, my mental capacity has decreased." (A3) and "I have years of work experience." (A9) (`r printnum(r_A3_A9_2)`, `r printnum(r_A3_A9_6)`); "Over time, my mental capacity has decreased." (A2) and "Over time, my memory has deteriorated." (A5) (`r printnum(r_A2_A5_2)`, `r printnum(r_A2_A5_6)`); "I have already lived most of my life." (A7) and "My whole life still lies ahead of me." (A10) (`r printnum(r_A7_A10_2)`, `r printnum(r_A7_A10_6)`).
+*Note.* CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df (degrees of freedom), and scaled p-value are reported. Best Fit indices are printed in bold typeface. Loadings higher than the loading of the self-reported physical item are printed in bold typeface. The following correlated errors were specified according to high modifications indices and good interpretability (In parenthesis error correlations for two and six response categories): "I have to look up when I talk to other people." (H10) and "I have to stand at the front of group photos so that I can be seen clearly." (H11) (`r printnum(r_H10_H11_2)`, `r printnum(r_H10_H11_6)`); "In the supermarket, I can reach the things on the top shelf without any problems." (H4) and "I need a chair if I want to get things from the top shelf." (H9) (`r printnum(r_H4_H9_2)`, `r printnum(r_H4_H9_6)`); "I need to lose weight." (W6) and "I should eat less." (W12) (`r printnum(r_W6_W12_2)`, `r printnum(r_W6_W12_6)`); "I have a wide waistband when it comes to pants." (W3) and "My pants have a small waistband." (W7) (`r printnum(r_W3_W7_2)`, `r printnum(r_W3_W7_6)`); "Over time, my mental capacity has decreased." (A3) and "I have years of work experience." (A9) (`r printnum(r_A3_A9_2)`, `r printnum(r_A3_A9_6)`); "Over time, my mental capacity has decreased." (A2) and "Over time, my memory has deteriorated." (A5) (`r printnum(r_A2_A5_2)`, `r printnum(r_A2_A5_6)`); "I have already lived most of my life." (A7) and "My whole life still lies ahead of me." (A10) (`r printnum(r_A7_A10_2)`, `r printnum(r_A7_A10_6)`).
 :::
 
 # Item translations {#apx-2}
@@ -492,7 +492,7 @@ Translated items used in this study
 | **Weight 11** | If I have the choice between the elevator and the stairs, I take the elevator (Wenn ich die Wahl habe zwischen Aufzug und Treppe, dann nehme ich den Aufzug) |
 | **Weight 12** | I should eat less (Ich sollte weniger essen) |
 
-*Note:* German wording in parenthesis.
+*Note:* Original German wording shown in parenthesis.
 
 # Software versions {#apx-3}
 
