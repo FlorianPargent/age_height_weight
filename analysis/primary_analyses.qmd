@@ -32,22 +32,15 @@ dat_dich <- read.spss("../data/Haupterhebung Studie III (Dichotom 2PS).sav",
 
 ```{r}
 dat_desc <- bind_rows(
-  dat_poly |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "6 categories"),
-  dat_dich |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "2 categories")
+  dat_poly |> select(Alter_realW, Geschlecht, Bildung, Muttersprache) |> mutate(categories = "6"),
+  dat_dich |> select(Alter_realW, Geschlecht,Bildung, Muttersprache) |> mutate(categories = "2")
 )
-# dat_desc |> group_by(categories, Geschlecht) |>
-#   summarize(N = n()) |> mutate(perc = N / sum(N))
-# dat_desc |> group_by(categories, Bildung) |>
-#   summarize(N = n()) |> mutate(perc = N / sum(N))
-# dat_desc |> group_by(categories, Muttersprache) |>
-#   summarize(N = n()) |> mutate(perc = N / sum(N))
-# dat_desc |> group_by(categories) |>
-#   summarize(MD = median(Alter_realW), SD = sd(Alter_realW), N = n())
 
 table1 <- dat_desc |>
   rename(Gender = Geschlecht, Education = Bildung, `Mother tongue` = Muttersprache, Age = Alter_realW) |>
-  mutate(Gender = factor(Gender, levels = 1:2, labels = c("women", "men")), 
-    Education = factor(Education, levels = 1:6, labels = c("no school leaving certificate", "secondary school leaving certificate/elementary school or equivalent", "secondary school or equivalent", "vocational baccalaureate or high school diploma", "college degree or university degree", "doctorate or habilitation")), 
+  mutate(categories = factor(categories, levels = c(2, 6), labels = c("Two categories", "Six categories")),
+    Gender = factor(Gender, levels = 1:2, labels = c("Women", "Men")), 
+    Education = factor(Education, levels = 1:6, labels = c("No school leaving certificate", "Secondary school leaving certificate/elementary school or equivalent", "Secondary school or equivalent", "Vocational baccalaureate or high school diploma", "College degree or university degree", "Doctorate or habilitation")), 
     `Mother tongue` = factor(`Mother tongue`, levels = 1:2, labels = c("German", "Other"))) |>
   flextable::summarizor(by = "categories") |>
   flextable::as_flextable() |>
@@ -129,24 +122,36 @@ fit_df <- bind_rows(
   mutate(est_print = papaja::printnum(est, gt1 = FALSE, digits = 3)) |>
   pivot_wider(id_cols = statistic, names_from = c(measure, categories), values_from = est_print)
 
+
+
 table2 <- rbind(
-    load_df_nomod_proc |> rename(Measure = item) |> mutate(group = "Items"),
-    fit_df |> rename(Measure = statistic) |> mutate(group = "Fit")
+    load_df_nomod_proc |> select(item, height_2, height_6, weight_2, weight_6, age_2, age_6) |> rename(Measure = item) |> mutate(group = "Items"),
+    fit_df |> select(statistic, height_2, height_6, weight_2, weight_6, age_2, age_6) |> rename(Measure = statistic) |> mutate(group = "Model fit")
   ) |> 
   group_by(group) |>
   flextable::as_grouped_data(groups = "group") |>
   flextable::as_flextable(hide_grouplabel = TRUE) |>
-  flextable::add_header_row(values = c("Measure", "Age", "Height", "Weight"),
+  flextable::add_header_row(values = c("Measure", "Height", "Weight", "Age"),
     colwidths = c(1, 2, 2, 2)) |>
   flextable::set_header_labels(
     values = list(
       Measure = "Categories",
-      age_6 = "6", age_2 = "2", 
-      height_6 = "6", height_2 = "2",
-      weight_6 = "6", weight_2 = "2")) |>
+      age_6 = "Six", age_2 = "Two", 
+      height_6 = "Six", height_2 = "Two",
+      weight_6 = "Six", weight_2 = "Two")) |>
   flextable::align(i = 1, align = "center", part = "header") |>
   flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
   flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  
+  flextable::bold(i = ~ age_6 > age_6[14], j = "age_6") |>
+  flextable::bold(i = ~ age_2 > age_2[14], j = "age_2") |>
+  flextable::bold(i = ~ height_6 > height_6[14], j = "height_6") |>
+  flextable::bold(i = ~ height_2 > height_2[14], j = "height_2") |>
+  flextable::bold(i = ~ weight_6 > weight_6[14], j = "weight_6") |>
+  flextable::bold(i = ~ weight_2 > weight_2[14], j = "weight_2") |>
+  flextable::bold(i = 15:21, bold = FALSE) |>
+  flextable::bg(i  = 14, bg = "grey90") |>
+  
   flextable::theme_apa() |>
   ftExtra::colformat_md()
 table2
@@ -247,28 +252,42 @@ load_df_bifac_proc <- load_df_bifac |>
   group_by(prefix) |>
   mutate(item = match(suffix, sort(unique(suffix)))) |>
   ungroup() |>
-  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3))
+  mutate(est_print = papaja::printnum(est.std, gt1 = TRUE, digits = 3))
 ```
 
 ```{r}
 table3 <- load_df_bifac_proc |> 
   select(item, cause, measure, categories, est_print) |> 
   pivot_wider(names_from = c(measure, cause), values_from = est_print) |>
+  select(item, categories, height_height, height_Koerpergroesse_realW, height_Geschlecht, weight_weight, weight_Koerpergewicht_realW, weight_Geschlecht, age_age, age_Alter_realW, age_Geschlecht) |>
+  mutate(categories = factor(categories, levels = c(2, 6), labels = c("Two categories", "Six categories"))) |>
+  arrange(categories, item) |>
   flextable::as_grouped_data(groups = "categories") |>
   flextable::as_flextable(hide_grouplabel = TRUE) |>
-  flextable::add_header_row(values = c("age", "height", "weight"),
-    colwidths = c(4, 3, 3)) |>
+  flextable::add_header_row(values = c("", "Height", "Weight", "Age"),
+    colwidths = c(1, 3, 3, 3)) |>
   flextable::set_header_labels(
     values = list(
       item = "Item",
-      age_age = "LV", height_height = "LV", weight_weight = "LV",
-      age_Alter_realW = "age",
-      height_Koerpergroesse_realW = "height",
-      weight_Koerpergewicht_realW = "weight",
-      age_Geschlecht = "sex", height_Geschlecht = "sex", weight_Geschlecht = "sex")) |>
+      age_age = "Latent", height_height = "Latent", weight_weight = "Latent",
+      age_Alter_realW = "Physical",
+      height_Koerpergroesse_realW = "Physical",
+      weight_Koerpergewicht_realW = "Physical",
+      age_Geschlecht = "Gender", height_Geschlecht = "Gender", weight_Geschlecht = "Gender")) |>
   flextable::align(i = 1, align = "center", part = "header") |>
   flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
   flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  
+  flextable::bold(i = ~ age_age > 0.6, j = "age_age") |>
+  flextable::bold(i = ~ age_Alter_realW > 0.6, j = "age_Alter_realW") |>
+  flextable::bold(i = ~ age_Geschlecht > 0.6, j = "age_Geschlecht") |>
+  flextable::bold(i = ~ height_height > 0.6, j = "height_height") |>
+  flextable::bold(i = ~ height_Koerpergroesse_realW > 0.6, j = "height_Koerpergroesse_realW") |>
+  flextable::bold(i = ~ height_Geschlecht > 0.6, j = "height_Geschlecht") |>
+  flextable::bold(i = ~ weight_weight > 0.6, j = "weight_weight") |>
+  flextable::bold(i = ~ weight_Koerpergewicht_realW > 0.6, j = "weight_Koerpergewicht_realW") |>
+  flextable::bold(i = ~ weight_Geschlecht > 0.6, j = "weight_Geschlecht") |>
+  
   flextable::theme_apa() |>
   ftExtra::colformat_md()
 table3
@@ -306,32 +325,32 @@ summary(fit1ges2, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modind
       lhs %in% c("age", "height", "weight") &
       rhs %in% c("age", "height", "weight") &
       lhs != rhs) |>
-  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3))) |>
-  mutate(est_print = case_when(
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print_star = case_when(
     pvalue < 0.05 & pvalue > 0.01 ~ paste0(est_print, "*"),
     pvalue < 0.01 & pvalue > 0.001 ~ paste0(est_print, "**"),
-    pvalue < 0.01 ~ paste0(est_print, "***"),
+    pvalue < 0.001 ~ paste0(est_print, "***"),
     .default = est_print 
-  ))
-r_latent_AG6 <- r_latent_poly |> filter(lhs == "age" & rhs == "height") |> pull(est_print)
-r_latent_AGe6 <- r_latent_poly |> filter(lhs == "age" & rhs == "weight") |> pull(est_print)
-r_latent_GGe6 <- r_latent_poly |> filter(lhs == "height" & rhs == "weight") |> pull(est_print)
+  )))
+r_latent_AG6 <- r_latent_poly |> filter(lhs == "age" & rhs == "height") |> pull(est_print_star)
+r_latent_AGe6 <- r_latent_poly |> filter(lhs == "age" & rhs == "weight") |> pull(est_print_star)
+r_latent_GGe6 <- r_latent_poly |> filter(lhs == "height" & rhs == "weight") |> pull(est_print_star)
 
 (r_latent_dich <- standardizedSolution(fit1ges2, type = "std.all") |>
   filter(op == "~~" & 
       lhs %in% c("age", "height", "weight") &
       rhs %in% c("age", "height", "weight") &
       lhs != rhs) |>
-  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3))) |>
-  mutate(est_print = case_when(
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print_star = case_when(
     pvalue < 0.05 & pvalue > 0.01 ~ paste0(est_print, "*"),
     pvalue < 0.01 & pvalue > 0.001 ~ paste0(est_print, "**"),
-    pvalue < 0.01 ~ paste0(est_print, "***"),
+    pvalue < 0.001 ~ paste0(est_print, "***"),
     .default = est_print 
-  ))
-r_latent_AG2 <- r_latent_dich |> filter(lhs == "age" & rhs == "height") |> pull(est_print)
-r_latent_AGe2 <- r_latent_dich |> filter(lhs == "age" & rhs == "weight") |> pull(est_print)
-r_latent_GGe2 <- r_latent_dich |> filter(lhs == "height" & rhs == "weight") |> pull(est_print)
+  )))
+r_latent_AG2 <- r_latent_dich |> filter(lhs == "age" & rhs == "height") |> pull(est_print_star)
+r_latent_AGe2 <- r_latent_dich |> filter(lhs == "age" & rhs == "weight") |> pull(est_print_star)
+r_latent_GGe2 <- r_latent_dich |> filter(lhs == "height" & rhs == "weight") |> pull(est_print_star)
 ```
 
 
@@ -342,7 +361,7 @@ r_latent_GGe2 <- r_latent_dich |> filter(lhs == "height" & rhs == "weight") |> p
 ```{r}
 (r_real_poly <- corx(data = dat_poly |>
     select(Alter_realW, Koerpergroesse_realW, Koerpergewicht_realW),
-  method = "pearson"))
+  method = "pearson", stars = c(0.05, 0.01, 0.001)))
 
 r_real_AG6 <- r_real_poly$apa["Alter_realW", "Koerpergroesse_realW"]
 r_real_AGe6 <- r_real_poly$apa["Alter_realW", "Koerpergewicht_realW"]
@@ -350,7 +369,7 @@ r_real_GGe6 <- r_real_poly$apa["Koerpergroesse_realW", "Koerpergewicht_realW"]
 
 (r_real_dich <- corx(data = dat_dich |>
     select(Alter_realW, Koerpergroesse_realW, Koerpergewicht_realW),
-  method = "pearson"))
+  method = "pearson", stars = c(0.05, 0.01, 0.001)))
 
 r_real_AG2 <- r_real_dich$apa["Alter_realW", "Koerpergroesse_realW"]
 r_real_AGe2 <- r_real_dich$apa["Alter_realW", "Koerpergewicht_realW"]
@@ -412,10 +431,10 @@ rel_Ge2 <- papaja::printnum(rel_Ge2$est, gt1 = FALSE, digits = 3)
 
 ```{r}
 cor_table <- tribble(
-  ~Measure, ~Age_6     , ~Age_2     , ~Height_6   , ~Height_2   , ~Weight_6    , ~Weight_2    ,
-  "Age"   , rel_A6     , rel_A2     , r_latent_AG6, r_latent_AG2, r_latent_AGe6, r_latent_AGe2,
-  "Height", r_real_AG6 , r_real_AG2 , rel_G6      , rel_G2      , r_latent_GGe6, r_latent_GGe2,
-  "Weight", r_real_AGe6, r_real_AGe2, r_real_GGe6 , r_real_GGe2 , rel_Ge6      , rel_Ge2      
+  ~Measure, ~Height_2  , ~Height_6  , ~Weight_2    , ~Weight_6    , ~Age_2       , ~Age_6       ,
+  "Height", rel_G2     , rel_G6     , r_latent_GGe2, r_latent_GGe6, r_latent_AG2 , r_latent_AG6 ,
+  "Weight", r_real_GGe2, r_real_GGe6, rel_Ge2      , rel_Ge6      , r_latent_AGe2, r_latent_AGe6,
+  "Age"   , r_real_AG2 , r_real_AG6 , r_real_AGe2  , r_real_AGe6  , rel_A2       , rel_A6      
 )
 ```
 
@@ -423,14 +442,22 @@ cor_table <- tribble(
 table4 <- flextable::flextable(cor_table) |>
   flextable::set_header_labels(
     Measure = "Categories",
-    Age_6 = "6", Age_2 = "2",
-    Height_6 = 6, Height_2 = 2,
-    Weight_6 = 6, Weight_2 = 2) |>
-  flextable::add_header_row(values = c("Measure", "Age", "Height", "Weight"),
+    Age_6 = "Six", Age_2 = "Two",
+    Height_6 = "Six", Height_2 = "Two",
+    Weight_6 = "Six", Weight_2 = "Two") |>
+  flextable::add_header_row(values = c("Measure", "Height", "Weight", "Age"),
     colwidths = c(1, 2, 2, 2)) |>
   flextable::align(i = 1, align = "center", part = "header") |>
   flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
   flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  
+  flextable::bold(i  = 1, j = 4:7) |>
+  flextable::bold(i  = 2, j = 6:7) |>
+
+  flextable::bg(i  = 1, j = c(2, 3), bg = "grey90") |>
+  flextable::bg(i  = 2, j = c(4, 5), bg = "grey90") |>
+  flextable::bg(i  = 3, j = c(6, 7), bg = "grey90") |>
+  
   flextable::theme_apa() |>
   ftExtra::colformat_md()
 table4

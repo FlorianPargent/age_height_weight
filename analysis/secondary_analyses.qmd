@@ -116,23 +116,33 @@ fit_df <- bind_rows(
   pivot_wider(id_cols = statistic, names_from = c(measure, categories), values_from = est_print)
 
 table5 <- rbind(
-    load_df_mod_proc |> rename(Measure = item) |> mutate(group = "Items"),
-    fit_df |> rename(Measure = statistic) |> mutate(group = "Fit")
+    load_df_mod_proc |> select(item, height_2, height_6, weight_2, weight_6, age_2, age_6) |> rename(Measure = item) |> mutate(group = "Items"),
+    fit_df |> select(statistic, height_2, height_6, weight_2, weight_6, age_2, age_6) |> rename(Measure = statistic) |> mutate(group = "Model fit")
   ) |> 
   group_by(group) |>
   flextable::as_grouped_data(groups = "group") |>
   flextable::as_flextable(hide_grouplabel = TRUE) |>
-  flextable::add_header_row(values = c("Measure", "Age", "Height", "Weight"),
+  flextable::add_header_row(values = c("Measure", "Height", "Weight", "Age"),
     colwidths = c(1, 2, 2, 2)) |>
   flextable::set_header_labels(
     values = list(
       Measure = "Categories",
-      age_6 = "6", age_2 = "2", 
-      height_6 = "6", height_2 = "2",
-      weight_6 = "6", weight_2 = "2")) |>
+      age_6 = "Six", age_2 = "Two", 
+      height_6 = "Six", height_2 = "Two",
+      weight_6 = "Six", weight_2 = "Two")) |>
   flextable::align(i = 1, align = "center", part = "header") |>
   flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
   flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  
+  flextable::bold(i = ~ age_6 > age_6[14], j = "age_6") |>
+  flextable::bold(i = ~ age_2 > age_2[14], j = "age_2") |>
+  flextable::bold(i = ~ height_6 > height_6[14], j = "height_6") |>
+  flextable::bold(i = ~ height_2 > height_2[14], j = "height_2") |>
+  flextable::bold(i = ~ weight_6 > weight_6[14], j = "weight_6") |>
+  flextable::bold(i = ~ weight_2 > weight_2[14], j = "weight_2") |>
+  flextable::bold(i = 15:21, bold = FALSE) |>
+  flextable::bg(i  = 14, bg = "grey90") |>
+  
   flextable::theme_apa() |>
   ftExtra::colformat_md()
 table5

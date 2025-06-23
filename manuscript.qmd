@@ -192,7 +192,7 @@ The total sample consisted of `r nrow(dat_desc)` participants aged between `r mi
 #| tbl-cap: Sample characteristics within response category conditions
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: SD = standard deviation, IQR = interquartile range.
+#| apa-note: SD = standard deviation; IQR = interquartile range.
 
 results$table1
 ```
@@ -210,7 +210,7 @@ results$table1
 #| tbl-cap: Standardized item loadings (correlations with the latent variable) for two and six response categories 
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df (degrees of freedom), and scaled p-value are reported. Correlations with the latent variable higher as the self-reported physical item are printed in bold typeface as well as the best fit indices. The standardized item loadings for the self-reported physical items are presented in grey shaded boxes.
+#| apa-note: CFI = Comparative Fit Index (scaled); RMSEA = Root Mean Squared Error of Approximation (scaled); SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df (degrees of freedom), and scaled p-value are reported. Correlations with the latent variable higher as the self-reported physical item are printed in bold. The standardized item loadings for the self-reported physical items are presented in a grey shaded box.
 
 results$table2
 ```
@@ -302,7 +302,7 @@ Even after allowing for correlated errors as suggested by the modification indic
 #| tbl-cap: Standardized item loadings on the latent variable for two and six categories controlling for the self-reported physical item and self-reported gender
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: Standardized regression weights of the self-reported physical item and self-reported gender greater than .60 are printed in bold typeface. LV = latent variable (height, weight, age).
+#| apa-note: Standardized regression weights greater than .60 are printed in bold. Latent = standardized item loading on the respective latent variable (height, weight or age); Physical = standardized regression weight, predicting the item response by the respective self-reported physical measures (height, weight or age); Gender = standardized regression weight, predicting the item response by the self-reported gender.
 
 results$table3
 ```
@@ -323,15 +323,15 @@ As depicted in @tbl-4, the correlations between the latent variables do not matc
 
 ```{r}
 #| label: "tbl-4"
-#| tbl-cap: Latent correlations between the latent variables age, body height and body weight, reliability estimates, and differences in $r^2$ and the corresponding self-reported physical items for 6 and 2 categories
+#| tbl-cap: Correlations between the latent variables body height, body weight and age, reliability estimates, and correlations between the corresponding self-reported physical items for two and six response categories
 #| ft.align: left
-#| apa-note: !expr 'paste0("Above the diagonal the correlations between the latent variables are shown (printed in bold typeface) and below the diagonal the correlations between the self-reported physical measures are shown. The latent correlations were taken out of latent variable models (two and six response categories) including all self-reported physical items and all latent variables with the allocated items. The models showed the following fit: scaled chi-square (six response categories) = ", printnum(results$fullmodelfit6["chisq.scaled"]), ", df = ", results$fullmodelfit6["df"], ", p ", printp(results$fullmodelfit6["pvalue.scaled"]), ", scaled CFI = ",  printnum(results$fullmodelfit6["cfi.scaled"], gt1 = FALSE), ", scaled RMSEA = ", printnum(results$fullmodelfit6["rmsea.scaled"], gt1 = FALSE), ", SRMR = ", printnum(results$fullmodelfit6["srmr"], gt1 = FALSE), "; scaled chi-square (two response categories) = ", printnum(results$fullmodelfit2["chisq.scaled"]), ", df = ", results$fullmodelfit2["df"], ", p ", printp(results$fullmodelfit2["pvalue.scaled"]), ", scaled CFI = ", printnum(results$fullmodelfit2["cfi.scaled"], gt1 = FALSE), ", scaled RMSEA = ", printnum(results$fullmodelfit2["rmsea.scaled"], gt1 = FALSE), ", SRMR = ", printnum(results$fullmodelfit2["srmr"], gt1 = FALSE), ". In the diagonal (grey shaded boxes) the reliability estimates Omega for the scales can be found. The differences between the correlations of the latent variables and the self-reported physical items are shown in parentheses. * p $\\leq$ .05.")'
+#| apa-note: !expr 'paste0("Correlations between the latent variables are shown above the diagonal (printed in bold) and correlations between the self-reported physical measures are shown below the diagonal. The latent correlations were taken out of latent variable models (two and six response categories) including all self-reported physical items and all latent variables with the allocated items. The models showed the following fit: scaled chi-square (six response categories) = ", printnum(results$fullmodelfit6["chisq.scaled"]), ", df = ", results$fullmodelfit6["df"], ", p ", printp(results$fullmodelfit6["pvalue.scaled"]), ", scaled CFI = ",  printnum(results$fullmodelfit6["cfi.scaled"], gt1 = FALSE), ", scaled RMSEA = ", printnum(results$fullmodelfit6["rmsea.scaled"], gt1 = FALSE), ", SRMR = ", printnum(results$fullmodelfit6["srmr"], gt1 = FALSE), "; scaled chi-square (two response categories) = ", printnum(results$fullmodelfit2["chisq.scaled"]), ", df = ", results$fullmodelfit2["df"], ", p ", printp(results$fullmodelfit2["pvalue.scaled"]), ", scaled CFI = ", printnum(results$fullmodelfit2["cfi.scaled"], gt1 = FALSE), ", scaled RMSEA = ", printnum(results$fullmodelfit2["rmsea.scaled"], gt1 = FALSE), ", SRMR = ", printnum(results$fullmodelfit2["srmr"], gt1 = FALSE), ". In the diagonal (grey shaded boxes) the reliability estimates Omega for the scales can be found. * p $\\leq$ .05, ** p $\\leq$ .01, *** p $\\leq$ .001.")'
 
 
 results$table4
 ```
 ::: {.content-visible when-format="never"}
-*Note.* Above the diagonal the correlations between the latent variables are shown (printed in bold typeface) and below the diagonal the correlations between the self-reported physical measures are shown. The latent correlations were taken out of latent variable models (two and six response categories) including all self-reported physical items and all latent variables with the allocated items. The models showed the following fit: scaled chi-square (six response categories) = `r printnum(results$fullmodelfit6["chisq.scaled"])`, df = `r results$fullmodelfit6["df"]`, p `r printp(results$fullmodelfit6["pvalue.scaled"])`, scaled CFI = `r printnum(results$fullmodelfit6["cfi.scaled"], gt1 = FALSE)`, scaled RMSEA = `r printnum(results$fullmodelfit6["rmsea.scaled"], gt1 = FALSE)`, SRMR= `r printnum(results$fullmodelfit6["srmr"], gt1 = FALSE)`; scaled chi-square (two response categories) = `r printnum(results$fullmodelfit2["chisq.scaled"])`, df = `r results$fullmodelfit2["df"]`, p `r printp(results$fullmodelfit2["pvalue.scaled"])`, scaled CFI = `r printnum(results$fullmodelfit2["cfi.scaled"], gt1 = FALSE)`, scaled RMSEA = `r printnum(results$fullmodelfit2["rmsea.scaled"], gt1 = FALSE)`, SRMR = `r printnum(results$fullmodelfit2["srmr"], gt1 = FALSE)`. In the diagonal (grey shaded boxes) the reliability estimates Omega for the scales can be found. The differences between the correlations of the latent variables and the self-reported physical items are shown in parentheses. * p $\leq$ .05. 
+*Note.* Correlations between the latent variables are shown above the diagonal (printed in bold) and correlations between the self-reported physical items are shown below the diagonal. The latent correlations were taken out of latent variable models (two and six response categories) including all self-reported physical items and all latent variables with the allocated items. The models showed the following fit: scaled chi-square (six response categories) = `r printnum(results$fullmodelfit6["chisq.scaled"])`, df = `r results$fullmodelfit6["df"]`, p `r printp(results$fullmodelfit6["pvalue.scaled"])`, scaled CFI = `r printnum(results$fullmodelfit6["cfi.scaled"], gt1 = FALSE)`, scaled RMSEA = `r printnum(results$fullmodelfit6["rmsea.scaled"], gt1 = FALSE)`, SRMR= `r printnum(results$fullmodelfit6["srmr"], gt1 = FALSE)`; scaled chi-square (two response categories) = `r printnum(results$fullmodelfit2["chisq.scaled"])`, df = `r results$fullmodelfit2["df"]`, p `r printp(results$fullmodelfit2["pvalue.scaled"])`, scaled CFI = `r printnum(results$fullmodelfit2["cfi.scaled"], gt1 = FALSE)`, scaled RMSEA = `r printnum(results$fullmodelfit2["rmsea.scaled"], gt1 = FALSE)`, SRMR = `r printnum(results$fullmodelfit2["srmr"], gt1 = FALSE)`. In the diagonal (grey shaded boxes) the reliability estimates Omega for the scales can be found. * p $\leq$ .05, ** p $\leq$ .01, *** p $\leq$ .001. 
 :::
 
 \
@@ -437,12 +437,12 @@ r_A7_A10_2 <- results_secondary$cor_errors |>
 #| tbl-cap: Latent variable loadings for two and six response categories with correlated errors
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: !expr "paste0('CFI = Comparative Fit Index (scaled). ','RMSEA = Root Mean Squared Error of Approximation (scaled). ','SRMR = Standardized Root Mean Residual. ','Scaled chi-square, scaled df (degrees of freedom), and scaled p-value are reported. ','Best Fit indices are printed in bold typeface. ','Loadings higher than the loading of the self-reported physical item are printed in bold typeface. ','The following correlated errors were specified according to high modification indices and good interpretability (parenthesis error correlations for two and six response categories): ','\"I have to look up when I talk to other people.\" (H10) and \"I have to stand at the front of group photos so that I can be seen clearly.\" (H11) (',printnum(r_H10_H11_2),', ',printnum(r_H10_H11_6),'); ','\"In the supermarket, I can reach the things on the top shelf without any problems.\" (H4) and \"I need a chair if I want to get things from the top shelf.\" (H9) (',printnum(r_H4_H9_2),', ',printnum(r_H4_H9_6),'); ','\"I need to lose weight.\" (W6) and \"I should eat less.\" (W12) (',printnum(r_W6_W12_2),', ',printnum(r_W6_W12_6),'); ','\"I have a wide waistband when it comes to pants.\" (W3) and \"My pants have a small waistband.\" (W7) (',printnum(r_W3_W7_2),', ',printnum(r_W3_W7_6),'); ','\"Over time, my mental capacity has decreased.\" (A3) and \"I have years of work experience.\" (A9) (',printnum(r_A3_A9_2),', ',printnum(r_A3_A9_6),'); ','\"Over time, my mental capacity has decreased.\" (A2) and \"Over time, my memory has deteriorated.\" (A5) (',printnum(r_A2_A5_2),', ',printnum(r_A2_A5_6),'); ','\"I have already lived most of my life.\" (A7) and \"My whole life still lies ahead of me.\" (A10) (',printnum(r_A7_A10_2),', ',printnum(r_A7_A10_6),').')"
+#| apa-note: !expr "paste0('CFI = Comparative Fit Index (scaled). ','RMSEA = Root Mean Squared Error of Approximation (scaled). ','SRMR = Standardized Root Mean Residual. ','Scaled chi-square, scaled df (degrees of freedom), and scaled p-value are reported. ','Correlations with the latent variable higher as the self-reported physical item are printed in bold. The standardized item loadings for the self-reported physical items are presented in a grey shaded box.','The following correlated errors were specified according to high modification indices and good interpretability (parenthesis error correlations for two and six response categories): ','\"I have to look up when I talk to other people.\" (H10) and \"I have to stand at the front of group photos so that I can be seen clearly.\" (H11) (',printnum(r_H10_H11_2),', ',printnum(r_H10_H11_6),'); ','\"In the supermarket, I can reach the things on the top shelf without any problems.\" (H4) and \"I need a chair if I want to get things from the top shelf.\" (H9) (',printnum(r_H4_H9_2),', ',printnum(r_H4_H9_6),'); ','\"I need to lose weight.\" (W6) and \"I should eat less.\" (W12) (',printnum(r_W6_W12_2),', ',printnum(r_W6_W12_6),'); ','\"I have a wide waistband when it comes to pants.\" (W3) and \"My pants have a small waistband.\" (W7) (',printnum(r_W3_W7_2),', ',printnum(r_W3_W7_6),'); ','\"Over time, my mental capacity has decreased.\" (A3) and \"I have years of work experience.\" (A9) (',printnum(r_A3_A9_2),', ',printnum(r_A3_A9_6),'); ','\"Over time, my mental capacity has decreased.\" (A2) and \"Over time, my memory has deteriorated.\" (A5) (',printnum(r_A2_A5_2),', ',printnum(r_A2_A5_6),'); ','\"I have already lived most of my life.\" (A7) and \"My whole life still lies ahead of me.\" (A10) (',printnum(r_A7_A10_2),', ',printnum(r_A7_A10_6),').')"
 
 results_secondary$table5
 ```
 ::: {.content-visible when-format="never"}
-*Note.* CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df (degrees of freedom), and scaled p-value are reported. Best Fit indices are printed in bold typeface. Loadings higher than the loading of the self-reported physical item are printed in bold typeface. The following correlated errors were specified according to high modifications indices and good interpretability (In parenthesis error correlations for two and six response categories): "I have to look up when I talk to other people." (H10) and "I have to stand at the front of group photos so that I can be seen clearly." (H11) (`r printnum(r_H10_H11_2)`, `r printnum(r_H10_H11_6)`); "In the supermarket, I can reach the things on the top shelf without any problems." (H4) and "I need a chair if I want to get things from the top shelf." (H9) (`r printnum(r_H4_H9_2)`, `r printnum(r_H4_H9_6)`); "I need to lose weight." (W6) and "I should eat less." (W12) (`r printnum(r_W6_W12_2)`, `r printnum(r_W6_W12_6)`); "I have a wide waistband when it comes to pants." (W3) and "My pants have a small waistband." (W7) (`r printnum(r_W3_W7_2)`, `r printnum(r_W3_W7_6)`); "Over time, my mental capacity has decreased." (A3) and "I have years of work experience." (A9) (`r printnum(r_A3_A9_2)`, `r printnum(r_A3_A9_6)`); "Over time, my mental capacity has decreased." (A2) and "Over time, my memory has deteriorated." (A5) (`r printnum(r_A2_A5_2)`, `r printnum(r_A2_A5_6)`); "I have already lived most of my life." (A7) and "My whole life still lies ahead of me." (A10) (`r printnum(r_A7_A10_2)`, `r printnum(r_A7_A10_6)`).
+*Note.* CFI = Comparative Fit Index (scaled). RMSEA = Root Mean Squared Error of Approximation (scaled). SRMR = Standardized Root Mean Residual. Scaled $\chi^2$-value, scaled df (degrees of freedom), and scaled p-value are reported. Correlations with the latent variable higher as the self-reported physical item are printed in bold. The standardized item loadings for the self-reported physical items are presented in a grey shaded box. The following correlated errors were specified according to high modifications indices and good interpretability (In parenthesis error correlations for two and six response categories): "I have to look up when I talk to other people." (H10) and "I have to stand at the front of group photos so that I can be seen clearly." (H11) (`r printnum(r_H10_H11_2)`, `r printnum(r_H10_H11_6)`); "In the supermarket, I can reach the things on the top shelf without any problems." (H4) and "I need a chair if I want to get things from the top shelf." (H9) (`r printnum(r_H4_H9_2)`, `r printnum(r_H4_H9_6)`); "I need to lose weight." (W6) and "I should eat less." (W12) (`r printnum(r_W6_W12_2)`, `r printnum(r_W6_W12_6)`); "I have a wide waistband when it comes to pants." (W3) and "My pants have a small waistband." (W7) (`r printnum(r_W3_W7_2)`, `r printnum(r_W3_W7_6)`); "Over time, my mental capacity has decreased." (A3) and "I have years of work experience." (A9) (`r printnum(r_A3_A9_2)`, `r printnum(r_A3_A9_6)`); "Over time, my mental capacity has decreased." (A2) and "Over time, my memory has deteriorated." (A5) (`r printnum(r_A2_A5_2)`, `r printnum(r_A2_A5_6)`); "I have already lived most of my life." (A7) and "My whole life still lies ahead of me." (A10) (`r printnum(r_A7_A10_2)`, `r printnum(r_A7_A10_6)`).
 :::
 
 # Item translations {#apx-2}
@@ -451,49 +451,49 @@ results_secondary$table5
 
 Translated items used in this study
 
-| Item       | Item wording [Item wording German language]                |
-|:-----------|:-----------------------------------------------------------|
-| **Age 1**  | I have physical ailments (Ich habe körperliche Gebrechen)  |
-| **Age 2**  | Over time, my mental capacity has decreased (Im Laufe der Zeit hat meine geistige Leistungsfähigkeit abgenommen) |
-| **Age 3**  | I have a lot of life experience (Ich habe viel Lebenserfahrung) |
-| **Age 4**  | Over time, my ability to react has decreased (Im Laufe der Zeit hat meine Reaktionsfähigkeit abgenommen) |
-| **Age 5**  | Over time, my memory has deteriorated (Im Laufe der Zeit hat meine Merkfähigkeit abgenommen) |
-| **Age 6**  | I worry a lot about getting older (Ich mache mir viele Gedanken über das Älterwerden) |
-| **Age 7**  | I have already lived most of my life (Den größten Teil meines Lebens habe ich bereits gelebt) |
-| **Age 8**  | I find it increasingly difficult to follow technical developments (Ich habe zunehmend Schwierigkeiten technischen Weiterentwicklungen zu folgen) |
-| **Age 9**  | I have years of work experience (Ich habe jahrelange Berufserfahrung) |
-| **Age 10** | My whole life still lies ahead of me (Mein ganzes Leben liegt noch vor mir) |
-| **Age 11** | I used to be more willing to take risks (Früher war ich risikofreudiger) |
-| **Age 12** | I carry out everyday activities more slowly than before (Ich verrichte Alltagstätigkeiten langsamer als früher) |
-| **Height 1**  | I keep my head down when I walk through doors (Ich ziehe den Kopf ein wenn ich durch Türen gehe) |
-| **Height 2**  | In the middle of a crowd, I can see over most other people (Inmitten einer Menschenmenge kann ich über die meisten anderen Menschen hinwegblicken) |
-| **Height 3**  | Chairs and tables are usually too low for me (Stühle und Tische sind meistens zu niedrig für mich) |
-| **Height 4**  | In the supermarket, I can reach the things on the top shelf without any problems (Im Supermarkt komme ich ohne Probleme an die Sachen im obersten Regal) |
-| **Height 5**  | When I drive a car that was previously driven by someone else, I usually have to push the seat backwards (Wenn ich ein Auto fahre, das vorher jemand anderes gefahren hat, muss ich üblicherweise den Sitz nach hinten schieben) |
-| **Height 6**  | When I stretch out straight in hotel beds, my feet overlap (Wenn ich mich in Hotelbetten gerade ausstrecke, dann stehen meine Füße über) |
-| **Height 7**  | On airplanes, I bump my knees against the seat in front of me (Im Flugzeug stoße ich mit den Knien am Vordersitz an) |
-| **Height 8**  | Pants are often too short for me (Hosen sind mir häufig zu kurz) |
-| **Height 9**  | I need a chair if I want to get things from the top shelf (Ich brauche einen Stuhl, wenn ich Sachen aus dem obersten Regal holen möchte) |
-| **Height 10** | I have to look up when I talk to other people (Wenn ich mich mit anderen Menschen unterhalte muss ich nach oben schauen)  |
-| **Height 11** | I have to stand at the front of group photos so that I can be seen clearly (Ich muss mich bei Gruppenfotos nach vorne stellen, damit ich gut zu sehen bin) |
-| **Height 12** | When I hug other people in greeting, I have to bend downwards (Wenn ich andere Menschen zur Begrüßung umarme, muss ich mich nach unten beugen) |
-| **Weight 1**  | I am often afraid that chairs will give way under me (Ich habe oft Angst, dass Stühle unter mir nachgeben) |
-| **Weight 2**  | Other people may think that I sit on the sofa in the evening and eat chocolate and potato chips (Möglicherweise denken andere Menschen von mir, dass ich abends auf dem Sofa sitze und Schokolade und Chips esse) |
-| **Weight 3**  | I have a wide waistband when it comes to pants (Bei Hosen habe ich eine große Bundweite) |
-| **Weight 4**  | I am obese (Ich bin dick) |
-| **Weight 5**  | I weigh a lot (Ich wiege viel) |
-| **Weight 6**  | I need to lose weight (Ich müsste abnehmen) |
-| **Weight 7**  | My pants have a small waistband (Meine Hosen haben eine kleine Bundweite) |
-| **Weight 8**  | I am good at squeezing through narrow gaps (Ich kann mich gut durch enge Spalten quetschen) |
-| **Weight 9**  | I have a lot of space between the armrests in airplane seats (Zwischen den Armlehnen in Flugzeugsitzen habe ich viel Platz) |
-| **Weight 10** | I take up a lot of space in the elevator (Im Aufzug nehme ich viel Platz ein) |
-| **Weight 11** | If I have the choice between the elevator and the stairs, I take the elevator (Wenn ich die Wahl habe zwischen Aufzug und Treppe, dann nehme ich den Aufzug) |
-| **Weight 12** | I should eat less (Ich sollte weniger essen) |
+| Item          | Item wording (Original wording in German) |
+|:--------------|:------------------------------------------|
+| **Height 1**  | I keep my head down when I walk through doors. (Ich ziehe den Kopf ein wenn ich durch Türen gehe.) |
+| **Height 2**  | In the middle of a crowd, I can see over most other people. (Inmitten einer Menschenmenge kann ich über die meisten anderen Menschen hinwegblicken.) |
+| **Height 3**  | Chairs and tables are usually too low for me. (Stühle und Tische sind meistens zu niedrig für mich.) |
+| **Height 4**  | In the supermarket, I can reach the things on the top shelf without any problems. (Im Supermarkt komme ich ohne Probleme an die Sachen im obersten Regal.) |
+| **Height 5**  | When I drive a car that was previously driven by someone else, I usually have to push the seat backwards. (Wenn ich ein Auto fahre, das vorher jemand anderes gefahren hat, muss ich üblicherweise den Sitz nach hinten schieben.) |
+| **Height 6**  | When I stretch out straight in hotel beds, my feet overlap. (Wenn ich mich in Hotelbetten gerade ausstrecke, dann stehen meine Füße über.) |
+| **Height 7**  | On airplanes, I bump my knees against the seat in front of me. (Im Flugzeug stoße ich mit den Knien am Vordersitz an.) |
+| **Height 8**  | Pants are often too short for me. (Hosen sind mir häufig zu kurz.) |
+| **Height 9**  | I need a chair if I want to get things from the top shelf. (Ich brauche einen Stuhl, wenn ich Sachen aus dem obersten Regal holen möchte.) |
+| **Height 10** | I have to look up when I talk to other people. (Wenn ich mich mit anderen Menschen unterhalte muss ich nach oben schauen.)  |
+| **Height 11** | I have to stand at the front of group photos so that I can be seen clearly. (Ich muss mich bei Gruppenfotos nach vorne stellen, damit ich gut zu sehen bin.) |
+| **Height 12** | When I hug other people in greeting, I have to bend downwards. (Wenn ich andere Menschen zur Begrüßung umarme, muss ich mich nach unten beugen.) |
+| **Weight 1**  | I am often afraid that chairs will give way under me. (Ich habe oft Angst, dass Stühle unter mir nachgeben.) |
+| **Weight 2**  | Other people may think that I sit on the sofa in the evening and eat chocolate and potato chips. (Möglicherweise denken andere Menschen von mir, dass ich abends auf dem Sofa sitze und Schokolade und Chips esse.) |
+| **Weight 3**  | I have a wide waistband when it comes to pants. (Bei Hosen habe ich eine große Bundweite.) |
+| **Weight 4**  | I am obese. (Ich bin dick.) |
+| **Weight 5**  | I weigh a lot. (Ich wiege viel.) |
+| **Weight 6**  | I need to lose weight. (Ich müsste abnehmen.) |
+| **Weight 7**  | My pants have a small waistband. (Meine Hosen haben eine kleine Bundweite.) |
+| **Weight 8**  | I am good at squeezing through narrow gaps. (Ich kann mich gut durch enge Spalten quetschen.) |
+| **Weight 9**  | I have a lot of space between the armrests in airplane seats. (Zwischen den Armlehnen in Flugzeugsitzen habe ich viel Platz.) |
+| **Weight 10** | I take up a lot of space in the elevator. (Im Aufzug nehme ich viel Platz ein.) |
+| **Weight 11** | If I have the choice between the elevator and the stairs, I take the elevator. (Wenn ich die Wahl habe zwischen Aufzug und Treppe, dann nehme ich den Aufzug.) |
+| **Weight 12** | I should eat less. (Ich sollte weniger essen.) |
+| **Age 1**  | I have physical ailments. (Ich habe körperliche Gebrechen.)  |
+| **Age 2**  | Over time, my mental capacity has decreased. (Im Laufe der Zeit hat meine geistige Leistungsfähigkeit abgenommen.) |
+| **Age 3**  | I have a lot of life experience. (Ich habe viel Lebenserfahrung.) |
+| **Age 4**  | Over time, my ability to react has decreased. (Im Laufe der Zeit hat meine Reaktionsfähigkeit abgenommen.) |
+| **Age 5**  | Over time, my memory has deteriorated. (Im Laufe der Zeit hat meine Merkfähigkeit abgenommen.) |
+| **Age 6**  | I worry a lot about getting older. (Ich mache mir viele Gedanken über das Älterwerden.) |
+| **Age 7**  | I have already lived most of my life. (Den größten Teil meines Lebens habe ich bereits gelebt.) |
+| **Age 8**  | I find it increasingly difficult to follow technical developments. (Ich habe zunehmend Schwierigkeiten technischen Weiterentwicklungen zu folgen.) |
+| **Age 9**  | I have years of work experience. (Ich habe jahrelange Berufserfahrung.) |
+| **Age 10** | My whole life still lies ahead of me. (Mein ganzes Leben liegt noch vor mir.) |
+| **Age 11** | I used to be more willing to take risks. (Früher war ich risikofreudiger.) |
+| **Age 12** | I carry out everyday activities more slowly than before. (Ich verrichte Alltagstätigkeiten langsamer als früher.) |
 
-*Note:* Original German wording shown in parenthesis.
+*Note:* Original wording in German shown in parenthesis.
 
 # Software versions {#apx-3}
 
-Quarto [@allaireQuarto2025] version {{< version >}} was used together with RStudio [@positRstudio2025] to build the manuscript and the manuscript website.  
+Quarto [@allaireQuarto2025] version {{< version >}} and the extension apaquarto [@schneiderApaquarto2025] were used together with RStudio [@positRstudio2025] to build the manuscript and the manuscript website.  
 `r papaja::cite_r(file = "r-references.bib")` were used for data analysis.  
 Some dependencies are not included in this list but can be found in the `renv.lock` file in our online repository.
