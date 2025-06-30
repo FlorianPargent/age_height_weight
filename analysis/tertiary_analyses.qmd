@@ -1,0 +1,76 @@
+---
+title: "Tertiary analyses (scale construction)"
+format:
+  html:
+    theme:
+      - cosmo
+      - ../notebooks.scss
+    grid:
+      body-width: 900px
+---
+
+::: {.callout-note appearance="simple"}
+
+In this notebook, we reproduce the analyses of the scale construction dataset to select and reformulate the final item set used in the main study reported in the manuscript.
+
+More details on the procedures that were used to construct the final item set used in the main study are reported in @eichhornItem2019, the German dissertation of the first author of the current manuscript.
+
+:::
+
+## Load packages
+
+```{r}
+library(foreign)
+library(tidyverse)
+library(psych)
+```
+
+```{r}
+#| include: false
+# record R packages
+papaja::r_refs(file = "../r-references.bib")
+```
+
+## Load datasets
+
+```{r}
+dat_pilot <- read.spss("../data/Pilottest_Studie_3.sav", 
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+```
+
+## Exploratory factor analysis
+
+```{r}
+fit <- fa(dat_pilot |> select(KGr_22:KGr_40), 
+  nfactors = 3, rotate = "Promax", fm = "ml")
+
+print(fit, sort = TRUE, cut = 0.15)
+```
+
+### Item total correlations
+
+```{r}
+neg_items <- c("A_13", "A_14", "A_21",
+  "KGr_35", "KGr_36", "KGr_37", "KGr_38", "KGr_39", "KGr_40", "KGr_41", "KGr_43",
+  "KGe_52", "KGe_53", "KGe_54", "KGe_55", "KGe_56", "KGe_57", "KGe_58")
+dat_pilot_recode <- dat_pilot |> 
+  select(KGr_22:KGr_40) |>
+  mutate(across(all_of(neg_items), ~ 7 - .))
+  
+rel_age <- psych::alpha(dat_pilot_recode |> select(starts_with("A")))
+rel_height <- psych::alpha(dat_pilot_recode |> select(starts_with("KGr")))
+rel_weight <- psych::alpha(dat_pilot_recode |> select(starts_with("KGe")))
+```
+
+The part-whole corrected item total correlations are displayed in column `r.drop`
+
+```{r}
+rel_age$item.stats
+rel_height$item.stats
+rel_weight$item.stats
+```
+
+## References
+
+::: {#refs}
+:::

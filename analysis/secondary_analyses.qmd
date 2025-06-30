@@ -1,5 +1,5 @@
 ---
-title: "Secondary analyses"
+title: "Secondary analyses (appendices)"
 format:
   html:
     theme:
@@ -8,6 +8,14 @@ format:
     grid:
       body-width: 900px
 ---
+
+::: {.callout-note appearance="simple"}
+
+In this notebook, we record the analyses that are reported in the appendices of the manuscript.
+
+The section [Save results for manuscript](primary_analyses.qmd#sec-saveresults) lists all results objects and tables that are exported to be used in the main manuscript file and can be used to retrace all reported numbers.
+
+:::
 
 ## Load packages
 
@@ -174,7 +182,7 @@ mod_indGe2 <- lavaan::modificationindices(fit1Ge2)
 subset(mod_indGe2[order(mod_indGe2$mi, decreasing=TRUE), ], mi > 4)
 ```
 
-# Save Results for Manuscript
+## Save results for manuscript {#sec-saveresults}
 
 ```{r}
 results <- saveRDS(

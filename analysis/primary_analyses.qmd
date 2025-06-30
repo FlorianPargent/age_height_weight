@@ -1,5 +1,5 @@
 ---
-title: "Primary analyses"
+title: "Primary analyses (manuscript)"
 format:
   html:
     theme:
@@ -8,6 +8,14 @@ format:
     grid:
       body-width: 900px
 ---
+
+::: {.callout-note appearance="simple"}
+
+In this notebook, we record the analyses that are reported in the main body of the manuscript.
+
+The section [Save results for manuscript](primary_analyses.qmd#sec-saveresults) lists all results objects and tables that are exported to be used in the main manuscript file and can be used to retrace all reported numbers.
+
+:::
 
 ## Load packages
 
@@ -55,6 +63,7 @@ table1 <- dat_desc |>
   ftExtra::colformat_md()
 table1
 ```
+
 
 ## Fit and analyze CFA models
 
@@ -363,7 +372,6 @@ r_latent_GGe2 <- r_latent_dich |> filter(lhs == "height" & rhs == "weight") |> p
 ```
 
 
-
 ## Correlations between physical variables
 
 
@@ -396,14 +404,14 @@ r_real_GGe2 <- r_real_dich$apa["Koerpergroesse_realW", "Koerpergewicht_realW"]
 # recode 6-point scale
 recode_inverse_6 <- c('1' = 6L, '2' = 5L, '3' = 4L, '4' = 3L, '5' = 2L, '6' = 1L)
 
-dat_poly_r <- dat_poly %>%
+dat_poly_r <- dat_poly |>
   mutate(across(all_of(c("A_10", "KGr_21", "KGr_22", "KGr_23", "KGe_31", "KGe_32", "KGe_33")),
                 ~ recode(.x, !!!recode_inverse_6)))
 
 # recode 2-point scale
 recode_inverse_2 <- c('1' = 0L, '0' = 1L)
 
-dat_dich_r <- dat_dich %>%
+dat_dich_r <- dat_dich |>
   mutate(across(all_of(c("A_10", "KGr_21", "KGr_22", "KGr_23", "KGe_31", "KGe_32", "KGe_33")),
                 ~ recode(.x, !!!recode_inverse_2)))
 
@@ -435,8 +443,6 @@ rel_G2 <- papaja::printnum(rel_G2$est, gt1 = FALSE, digits = 3)
 (rel_Ge2 <- ci.reliability(data = dat_dich_r[, items_weight], type = "omega", interval.type = "ml"))
 rel_Ge2 <- papaja::printnum(rel_Ge2$est, gt1 = FALSE, digits = 3)
 ```
-
-## Table 4
 
 ```{r}
 cor_table <- tribble(
@@ -472,7 +478,7 @@ table4 <- flextable::flextable(cor_table) |>
 table4
 ```
 
-# Save Results for Manuscript
+## Save results for manuscript {#sec-saveresults}
 
 ```{r}
 results <- saveRDS(
