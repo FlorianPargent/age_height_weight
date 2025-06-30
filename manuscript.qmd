@@ -205,7 +205,7 @@ results$table1
 
 ## *Assumption 1:* The self-reported physical body height, weight, and age have the highest loadings on their latent variables.
 
-@tbl-2 exhibits the measurement models for the three scales for body height, body weight, and age for two and six response categories each.
+@tbl-2 displays the measurement models for the three scales for body height, body weight, and age for two and six response categories each.
 
 ```{r}
 #| label: "tbl-2"
@@ -219,7 +219,7 @@ results$table2
 
 \
 
-Both response formats exhibited similar loading patterns, but those with two response categories obtained slightly higher loadings compared to six response categories for most items. On average, questionnaires with two response categories showed slightly better fit indices than those with six categories. All model fits were within the expected range for questionnaire items [@goretzkoEvaluatingModelFit2024]. In particular, the fit indices for the questionnaires on body height and weight with two response categories showed the best fit.
+Overall, both response formats produced similar loading patterns, but those with two response categories obtained slightly higher loadings compared to six response categories for most items. Questionnaires with two response categories showed slightly better fit indices than those with six categories. All model fits were within the expected range for questionnaire items [@goretzkoEvaluatingModelFit2024]. In particular, the fit indices for the questionnaires on body height and weight with two response categories showed the best fit.
 
 ```{r}
 #| eval: false
@@ -228,7 +228,7 @@ higher_load <- results$load_df_nomod |> group_by(measure, categories) |>
 ```
 
 For the body height scales, the self-reported physical height loaded higher or similarly high on the latent variables compared to questionnaire items.
-However, the pattern was different the weight and age scales, where several items loaded substantially higher on the latent variable than the physical items:
+However, this pattern slightly differed for the weight and age scales, where several items loaded substantially higher on the latent variable than the physical items:
 For weight, the items 4 ("I am obese.") and 5 ("I weigh a lot.") had especially high loadings on the latent variable for the questionnaire with with two and six response categories.
 For age, item 7 ("My pants have a small waistband.") had especially high loadings on the latent variable for the questionnaire with two and six response categories.
 The item loadings for the weight and age scales suggest that the gold-standard items were not essential for measuring the latent variable. 
@@ -242,7 +242,7 @@ r_loadings <- cor.test(
 r_loadings <- apa_print(r_loadings)$table
 ```
 
-Even after allowing for correlated errors as suggested by the modification indices, the loading patterns did not improve (see notes in @tbl-5). Loading patterns with and without modifications correlated above `r r_loadings$estimate` across all questionnaires (body height, body weight, age) and response variants (two and six categories; *p* `r r_loadings$p.value`). Therefore, no correlated errors were specified.
+Even after allowing for correlated errors as suggested by standard modification indices, the loading patterns did not improve (see @tbl-5). Loading patterns with and without modifications correlated `r r_loadings$estimate` (*p* `r r_loadings$p.value`) across all questionnaires (body height, body weight, age) and response variants (two and six categories).
 
 ## *Assumption 2:* The measurement has a psychological component, and the item responses cannot be fully explained by the self-reported physical measurement and gender. A systemic residual remains when corrected for self-reported physical height and gender.
 
@@ -253,20 +253,22 @@ Even after allowing for correlated errors as suggested by the modification indic
 #| tbl-cap: Standardized item loadings on the latent variable for two and six categories controlling for the self-reported physical item and self-reported gender
 #| ft.align: left
 #| disable-apaquarto-processing: false
-#| apa-note: Standardized regression weights greater than .60 are printed in bold. Latent = standardized item loading on the respective latent variable (height, weight or age); Physical = standardized regression weight, predicting the item response by the respective self-reported physical measures (height, weight or age); Gender = standardized regression weight, predicting the item response by the self-reported gender.
+#| apa-note: Standardized regression weights greater than .60 in absolute values are printed in bold. Latent = standardized item loading on the respective latent variable (height, weight or age); Physical = standardized regression weight, predicting the item response by the respective self-reported physical measures (height, weight or age); Gender = standardized regression weight, predicting the item response by the self-reported gender.
 
 results$table3
 ```
 
 \
 
-For body height, we obtained overall lower item loadings on the latent variable – i.e., below .41 – but high correlations with the gold-standard physical body height item. In particular, the third item "Chairs and tables are usually too low for me." exhibited the highest loadings on the latent variable (two response categories: `r results$load_df_bifac |> filter(categories == 2, lhs == "height", rhs == "KGr_15") |> pull(est.std) |> printnum(gt = FALSE)`, and six response categories: `r results$load_df_bifac |> filter(categories == 6, lhs == "height", rhs == "KGr_15") |> pull(est.std) |> printnum(gt = FALSE)`). In contrast, item 11 "I have to stand at the front of group photos so that I can be seen clearly." and item 12 "When I hug other people in greeting, I have to bend downwards." were explained best by the self-reported physical body height independently of the response format. This pattern does not convincingly confirm the existence of a psychological latent variable after controlling for the self-reported physical measure and gender.
+For body height, we obtained overall lower item loadings on the latent variable but high correlations with the gold-standard item of physical body height. In particular, the third item ("Chairs and tables are usually too low for me.") exhibited the highest loadings on the latent variable (two response categories: `r results$load_df_bifac |> filter(categories == 2, lhs == "height", rhs == "KGr_15") |> pull(est.std) |> printnum(gt = FALSE)`, and six response categories: `r results$load_df_bifac |> filter(categories == 6, lhs == "height", rhs == "KGr_15") |> pull(est.std) |> printnum(gt = FALSE)`). In contrast, item 11 ("I have to stand at the front of group photos so that I can be seen clearly.") and item 12 ("When I hug other people in greeting, I have to bend downwards.") were explained best by the self-reported physical body height independently of the response format.[^loadingsgreaterone] This pattern does not convincingly confirm the existence of a psychological latent variable after controlling for the self-reported physical measure and gender.
 
-For body weight, the items with the highest loadings on the latent variable also exhibited high associations with the self-reported physical body weight (e.g., item 4 "I am obese."). Item 5 "I weigh a lot.", and item 6 "I need to lose weight." show the highest correlation were explained best by the self-reported physical body weight. Item 9 "I have a lot of space between the armrests in airplane seats." had a low loading on the latent variable but was well explained by the self-reported physical body weight. Notably, item 11 "If I have the choice between the elevator and the stairs, I take the elevator." was not related to either the self-reported physical item or the latent variable, indicating that it may represent a more health-related perspective. Taken together, the resulting latent variable is hardly interpretable. The results for the two and six response categories show the same pattern.
+[^loadingsgreaterone]: Note that although the models for height (controlling for the physical item and gender) estimated some absolute standardized loadings greater than 1, all models converged and the diagnostics used by the *lavaan* package [@R-lavaan] did not report any problems. 
 
-As we can see in @tbl-3, not all questionnaires show systematically correlated residuals. For age, two items did not load on the latent variable after controlling for physical age and gender. Instead, the two items (item 3 "I have a lot of life experience.", and item 9 "I have years of work experience.") showed a high association with self-reported physical age. In contrast, the three items most prototypical of the latent variable were item 2 "Over time, my mental capacity has decreased.", item 5 "Over time, my memory has deteriorated.", and item 4 "Over time, my ability to react has decreased.". Thus, the latent variable might be interpreted as mental age, but not all items have loading on the general factor. These patterns were highly similar for both the two- and the six-category response scales.
+For body weight, the items with the highest loadings on the latent variable also exhibited high associations with the self-reported physical body weight (e.g., item 4 "I am obese."). Item 5 ("I weigh a lot."), and item 6 ("I need to lose weight.") show the highest correlation were explained best by the self-reported physical body weight. Item 9 ("I have a lot of space between the armrests in airplane seats.") had a low loading on the latent variable but was well explained by the self-reported physical body weight. Notably, item 11 ("If I have the choice between the elevator and the stairs, I take the elevator.") was not related to either the self-reported physical item or the latent variable, indicating that it may represent a more health-related perspective. Taken together, the resulting latent variable is hardly interpretable. The results for the two and six response categories show the same pattern.
 
-When looking at self-reported gender, there are some items with moderate standardized regression weights predicting body height [e.g., item 8 ("Pants are often so short for me.")] and body weight [e.g., item 6 ("I need to lose weight.")]. These items may cause problems when applied to men and women [differential item functioning\; see @hilbertWhatMeasureEmpirical2022, for a comparable case]. Finally, there are only non-significant low standardized regression weights of self-reported gender predicting age items.
+As we can see in @tbl-3, not all questionnaires show systematically correlated residuals. For age, item 3 ("I have a lot of life experience.") and item 9 ("I have years of work experience.") did not load on the latent variable after controlling for physical age and gender. Instead, the two items showed a high association with self-reported physical age. In contrast, the three items most prototypical of the latent variable were item 2 ("Over time, my mental capacity has decreased."), item 5 ("Over time, my memory has deteriorated."), and item 4 ("Over time, my ability to react has decreased."). Thus, the latent variable might be interpreted as mental age, but not all items have loading on the general factor. These patterns were highly similar for both the two- and the six-category response scales.
+
+When looking at self-reported gender, there are some items with moderate standardized regression weights predicting body height [e.g., item 8 ("Pants are often so short for me.")] and body weight [e.g., item 6 ("I need to lose weight.")]. These items may cause problems when applied to both men and women [differential item functioning\; see @hilbertWhatMeasureEmpirical2022, for a comparable case]. Notably, there are only non-significant low standardized regression weights of self-reported gender predicting age items.
 
 ## Assumption 3a, b: It is assumed that the correlational pattern between the latent variables for the construct corresponds to correlation of the self-reported gold standard items and the validity is higher for the 6-point response categories compared to the 2-point response categories.
 
