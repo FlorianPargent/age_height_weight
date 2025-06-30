@@ -2,3 +2,5 @@
 library(ragg)
 library(lavaan.mi)
 library(svglite)
+library(rmarkdown)
+library(yaml)
