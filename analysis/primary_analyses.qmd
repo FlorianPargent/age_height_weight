@@ -287,15 +287,15 @@ table3 <- load_df_bifac_proc |>
   flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
   flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
   
-  flextable::bold(i = ~ age_age > 0.6, j = "age_age") |>
-  flextable::bold(i = ~ age_Alter_realW > 0.6, j = "age_Alter_realW") |>
-  flextable::bold(i = ~ age_Geschlecht > 0.6, j = "age_Geschlecht") |>
-  flextable::bold(i = ~ height_height > 0.6, j = "height_height") |>
-  flextable::bold(i = ~ height_Koerpergroesse_realW > 0.6, j = "height_Koerpergroesse_realW") |>
-  flextable::bold(i = ~ height_Geschlecht > 0.6, j = "height_Geschlecht") |>
-  flextable::bold(i = ~ weight_weight > 0.6, j = "weight_weight") |>
-  flextable::bold(i = ~ weight_Koerpergewicht_realW > 0.6, j = "weight_Koerpergewicht_realW") |>
-  flextable::bold(i = ~ weight_Geschlecht > 0.6, j = "weight_Geschlecht") |>
+  flextable::bold(i = ~ abs(parse_number(age_age)) > 0.6, j = "age_age") |>
+  flextable::bold(i = ~ abs(parse_number(age_Alter_realW)) > 0.6, j = "age_Alter_realW") |>
+  flextable::bold(i = ~ abs(parse_number(age_Geschlecht)) > 0.6, j = "age_Geschlecht") |>
+  flextable::bold(i = ~ abs(parse_number(height_height)) > 0.6, j = "height_height") |>
+  flextable::bold(i = ~ abs(parse_number(height_Koerpergroesse_realW)) > 0.6, j = "height_Koerpergroesse_realW") |>
+  flextable::bold(i = ~ abs(parse_number(height_Geschlecht)) > 0.6, j = "height_Geschlecht") |>
+  flextable::bold(i = ~ abs(parse_number(weight_weight)) > 0.6, j = "weight_weight") |>
+  flextable::bold(i = ~ abs(parse_number(weight_Koerpergewicht_realW)) > 0.6, j = "weight_Koerpergewicht_realW") |>
+  flextable::bold(i = ~ abs(parse_number(weight_Geschlecht)) > 0.6, j = "weight_Geschlecht") |>
   
   flextable::theme_apa() |>
   ftExtra::colformat_md()
