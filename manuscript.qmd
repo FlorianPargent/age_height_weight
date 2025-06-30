@@ -219,70 +219,20 @@ results$table2
 
 \
 
-Both scale lengths exhibited similar loading patterns, but those with two response categories obtained slightly higher loadings compared to the six response categories in most cases. On average, questionnaires with two response categories showed better descriptive fit indices than those with six. Model fits were within the expected range for questionnaire items [@goretzkoEvaluatingModelFit2024]. In particular, the fit indices for the questionnaires on body height and weight with two response categories showed the best fit.
+Both response formats exhibited similar loading patterns, but those with two response categories obtained slightly higher loadings compared to six response categories for most items. On average, questionnaires with two response categories showed slightly better fit indices than those with six categories. All model fits were within the expected range for questionnaire items [@goretzkoEvaluatingModelFit2024]. In particular, the fit indices for the questionnaires on body height and weight with two response categories showed the best fit.
 
 ```{r}
 #| eval: false
-
-# height
-gold_loading_h6 <- results$load_df_nomod |>
-  filter(categories == 6, measure == "height", rhs == "Koerpergroesse_realW") |>
-  pull(est.std)
-higher_load_h6 <- results$load_df_nomod |> 
-  filter(categories == 6, str_detect(results$load_df_nomod$item_name, "KGr_")) |>
-  summarize(higher_load = sum(est.std > gold_loading_h6))
-
-gold_loading_h2 <- results$load_df_nomod |>
-  filter(categories == 2, measure == "height", rhs == "Koerpergroesse_realW") |>
-  pull(est.std)
-higher_load_h2 <- results$load_df_nomod |> 
-  filter(categories == 2, str_detect(results$load_df_nomod$item_name, "KGr_")) |>
-  summarize(higher_load = sum(est.std > gold_loading_h2))
-
-# weight
-gold_loading_w6 <- results$load_df_nomod |>
-  filter(categories == 6, measure == "weight", rhs == "Koerpergewicht_realW") |>
-  pull(est.std)
-higher_load_w6 <- results$load_df_nomod |> 
-  filter(categories == 6, str_detect(results$load_df_nomod$item_name, "KGe_")) |>
-  summarize(higher_load = sum(est.std > gold_loading_w6))
-
-gold_loading_w2 <- results$load_df_nomod |>
-  filter(categories == 2, measure == "weight", rhs == "Koerpergewicht_realW") |>
-  pull(est.std)
-higher_load_w2 <- results$load_df_nomod |> 
-  filter(categories == 2, str_detect(results$load_df_nomod$item_name, "KGe_")) |>
-  summarize(higher_load = sum(est.std > gold_loading_w2))
-
-# age
-gold_loading_a6 <- results$load_df_nomod |>
-  filter(categories == 6, measure == "weight", rhs == "Alter_realW") |>
-  pull(est.std)
-higher_load_a6 <- results$load_df_nomod |> 
-  filter(categories == 6, str_detect(results$load_df_nomod$item_name, "A_")) |>
-  summarize(higher_load = sum(est.std > gold_loading_a6))
-
-gold_loading_a2 <- results$load_df_nomod |>
-  filter(categories == 2, measure == "age", rhs == "Alter_realW") |>
-  pull(est.std)
-higher_load_a2 <- results$load_df_nomod |> 
-  filter(categories == 2, str_detect(results$load_df_nomod$item_name, "A_")) |>
-  summarize(higher_load = sum(est.std > gold_loading_a2))
-```
-
-```{r}
 higher_load <- results$load_df_nomod |> group_by(measure, categories) |>
-  reframe(freq = mean(head(abs(est.std), 12) > tail(abs(est.std), 1)))
+  reframe(freq = sum(head(abs(est.std), 12) > tail(abs(est.std), 1)))
 ```
 
+For the body height scales, the self-reported physical height loaded higher or similarly high on the latent variables compared to questionnaire items.
+However, the pattern was different the weight and age scales, where several items loaded substantially higher on the latent variable than the physical items:
+For weight, the items 4 ("I am obese.") and 5 ("I weigh a lot.") had especially high loadings on the latent variable for the questionnaire with with two and six response categories.
+For age, item 7 ("My pants have a small waistband.") had especially high loadings on the latent variable for the questionnaire with two and six response categories.
 
-For the body height scales, the self-reported physical height loaded highest (six response categories) or similarly high (two response categories) on the latent variables compared to the remaining items. However, that was not the case for the weight and age scales.
-
-For weight, the items 7 ("My pants have a small waistband.") and 4 ("I am obese.") had highest loadings on the latent variable for the questionnaire with six response categories and the items 5 ("I weigh a lot.") on the latent variable for the questionnaire with two response categories scale. Here, 50.0% of items loaded higher than the gold-standard physical weight report for both scales.
-
-For age, the items 5 ("I've already lived most of my life.") and 7 ("Over time, my memory has deteriorated.") had the highest loadings on the latent variable for the questionnaire with six response categories and the items 10 ("My whole life still lies ahead of me.") and 5 for the questionnaire with two response categories. Overall, 30.0% (six categories) respectively. 40.0% (two categories) of the items loaded higher than the gold-standard physical age report. **TODO**
-
-The items loadings for both weight and age scales suggest that the gold-standard items were not essential for measuring the latent variable. 
+The item loadings for the weight and age scales suggest that the gold-standard items were not essential for measuring the latent variable. 
 
 ```{r}
 # correlation of loadings between cfa models with and without correlated errors

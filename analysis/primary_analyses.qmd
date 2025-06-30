@@ -1,5 +1,12 @@
 ---
 title: "Primary analyses"
+format:
+  html:
+    theme:
+      - cosmo
+      - ../notebooks.scss
+    grid:
+      body-width: 900px
 ---
 
 ## Load packages
@@ -120,6 +127,8 @@ fit_df <- bind_rows(
   filter(statistic %in% c("chisq.scaled", "pvalue.scaled", "df.scaled", "cfi.scaled", "rmsea.scaled", "srmr")) |>
   mutate(statistic = case_match(statistic, "chisq.scaled" ~ "$\\chi^2$", "pvalue.scaled" ~ "p", "df.scaled" ~ "df", "cfi.scaled" ~ "CFI", "rmsea.scaled" ~ "RMSEA", "srmr" ~ "SRMR")) |>
   mutate(est_print = papaja::printnum(est, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print = if_else(statistic == "df", as.character(est), est_print)) |>
+  mutate(est_print = if_else(statistic == "p", papaja::printp(as.numeric(est_print)), est_print)) |>
   pivot_wider(id_cols = statistic, names_from = c(measure, categories), values_from = est_print)
 
 
@@ -143,12 +152,12 @@ table2 <- rbind(
   flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
   flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
   
-  flextable::bold(i = ~ age_6 > age_6[14], j = "age_6") |>
-  flextable::bold(i = ~ age_2 > age_2[14], j = "age_2") |>
-  flextable::bold(i = ~ height_6 > height_6[14], j = "height_6") |>
-  flextable::bold(i = ~ height_2 > height_2[14], j = "height_2") |>
-  flextable::bold(i = ~ weight_6 > weight_6[14], j = "weight_6") |>
-  flextable::bold(i = ~ weight_2 > weight_2[14], j = "weight_2") |>
+  flextable::bold(i = ~ abs(parse_number(age_6)) > parse_number(age_6[14]), j = "age_6") |>
+  flextable::bold(i = ~ abs(parse_number(age_2)) > parse_number(age_2[14]), j = "age_2") |>
+  flextable::bold(i = ~ abs(parse_number(height_6)) > parse_number(height_6[14]), j = "height_6") |>
+  flextable::bold(i = ~ abs(parse_number(height_2)) > parse_number(height_2[14]), j = "height_2") |>
+  flextable::bold(i = ~ abs(parse_number(weight_6)) > parse_number(weight_6[14]), j = "weight_6") |>
+  flextable::bold(i = ~ abs(parse_number(weight_2)) > parse_number(weight_2[14]), j = "weight_2") |>
   flextable::bold(i = 15:21, bold = FALSE) |>
   flextable::bg(i  = 14, bg = "grey90") |>
   
