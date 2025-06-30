@@ -231,7 +231,6 @@ For the body height scales, the self-reported physical height loaded higher or s
 However, the pattern was different the weight and age scales, where several items loaded substantially higher on the latent variable than the physical items:
 For weight, the items 4 ("I am obese.") and 5 ("I weigh a lot.") had especially high loadings on the latent variable for the questionnaire with with two and six response categories.
 For age, item 7 ("My pants have a small waistband.") had especially high loadings on the latent variable for the questionnaire with two and six response categories.
-
 The item loadings for the weight and age scales suggest that the gold-standard items were not essential for measuring the latent variable. 
 
 ```{r}
@@ -271,7 +270,7 @@ When looking at self-reported gender, there are some items with moderate standar
 
 ## Assumption 3a, b: It is assumed that the correlational pattern between the latent variables for the construct corresponds to correlation of the self-reported gold standard items and the validity is higher for the 6-point response categories compared to the 2-point response categories.
 
-As depicted in @tbl-4, the correlations between the latent variables do not match those between the self-reported physical items. While height and age obtained relatively similar correlations, the correlations of weight and age were overestimated by the latent variables and those between height and weight were underestimated (difference in $r^2$ > .06) by the latent variables (difference in $r^2$ > .30). Most notably, correlations did not differ substantially between the questionnaires with two and with six response categories. Descriptively, there seems to be a slight advantage for the two response categories. However, reliability estimates (Omega) were lower for this condition compared to the six response categories. **TODO**
+As depicted in @tbl-4, the correlations between the latent variables do not match those between the self-reported physical items. While height and age showed relatively similar low correlations, the physical correlations of weight and age were overestimated by the correlations between the latent variables and the physical correlations between height and weight were underestimated. Most notably, correlations did not differ substantially between the questionnaires with two and with six response categories. Descriptively, the physical correlations seemed to be reproduced by the latent correlations slightly better for the two response categories. However, reliability estimates (Omega) were lower for two response categories condition compared to six response categories.
 
 ```{r}
 #| label: "tbl-4"
