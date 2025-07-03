@@ -1,3 +1,30 @@
+```{r}
+#| label: setup
+#| include: false
+# load datasets and results objects
+# place chunk before the yaml header, so sample sizes can be reported in the abstract
+library(papaja)
+library(flextable)
+library(tidyverse)
+library(foreign)
+dat_poly <- read.spss("data/Haupterhebung Studie III (Polytom 6PS).sav", 
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+dat_dich <- read.spss("data/Haupterhebung Studie III (Dichotom 2PS).sav",
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+dat_desc <- bind_rows(
+  dat_poly |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "6 categories"),
+  dat_dich |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "2 categories"))
+dat_interviews <- read.spss("data/Stichprobe kognitive Interviews.sav", 
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+dat_pilot <- read.spss("data/Pilottest_Studie_3.sav", 
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+
+results <- readRDS("results/results.rds")
+results_secondary <- readRDS("results/results_secondary.rds")
+
+papaja::r_refs(file = "r-references.bib")
+```
+
 ---
 title: "Item Construction Rules Revisited: Learnings from Measurement of Latent Variables with Gold Standard Items"
 shorttitle: "Measuring latent variables with gold standard items"
@@ -92,8 +119,7 @@ author-note:
     authorship-agreements: ~
 language:
   title-block-role-introduction: "Author roles were classified using the Contributor Role Taxonomy (CRediT; <https://credit.niso.org/>):"
-abstract: This article presents four studies (one qualitative study with n = 8, three quantitative studies with n = 390, n = 921, n = 931) to investigate whether gold-standard items are helpful for questionnaire construction. We constructed three 12-item scales to measure the physical traits of body height, body weight, and age, based on a 2- and a 6-response category response format. In addition, we assessed numeric self-reports of body weight, body height, and age as gold-standard items. Confirmatory factor analyses revealed that the gold-standard items did not always exhibit the highest loading on their latent variable. Furthermore, when controlling for the self-reported physical body height, body weight, and age as gold-standard items and gender, an interpretable, systematic residual variance did not always remain. Finally, the pattern of correlations between the latent variables did not reflect the correlations between the self-reported gold standard items indicating that they do not have the same validity. While these results are in line with existing literature, our analyses also showed that items with two response categories were at least as valid as those with six categories, which contradicts past recommendations. When constructing the questionnaire, the items that are intended to measure the latent variable itself should have the highest loading on the latent variable. If this is not the case, the content validity is at least questionable. Implications are that intensive cognitive pretesting is necessary. Questionnaires with different response formats should be empirically compared and most important, hypotheses about items which should represent the latent variable best should be tested.
-keywords: [item construction, latent variable modeling, physical scales, gold standard items, response categories]
+abstract: "This article investigates whether gold-standard items are helpful for questionnaire construction. Based on cognitive interviews (n = `r nrow(dat_interviews)`) and a pilot study (n = `r nrow(dat_pilot)`) with an initial item set, three 12-item scales were constructed to measure the physical traits of body height, body weight, and age. We collected data on these scales using response formats with either two (n = `r nrow(dat_dich)`) or six (n = `r nrow(dat_poly)`) categories. We also collected numeric self-reports of body weight, body height, and age as gold-standard items. Confirmatory factor analyses revealed that the gold-standard items did not consistently exhibit the highest loading on their corresponding latent variable. Furthermore, when controlling for the self-reported physical body height, body weight, and age as gold-standard items, as well as gender, we did not always find an interpretable, systematic residual variance. Finally, the pattern of correlations between the latent variables did not reflect the correlations between the self-reported gold-standard items, suggesting that the item scales and the gold-standard items do not have the same validity. While these results are consistent with previous studies, our analyses also showed that items with two response categories were at least as valid as those with six categories, contradicting past recommendations. When constructing a questionnaire, we argue that items intended to measure the latent variable most directly should have the highest loading on that variable. If this is not the case, the content validity is questionable at best. The implications are that intensive cognitive pretesting is necessary. Questionnaires with different response formats should be compared empirically compared and hypotheses about which items best represent the latent variable should be tested."
 license: CC BY 4.0
 bibliography: [references.bib, r-references.bib]
 floatsintext: true
@@ -101,43 +127,13 @@ numbered-lines: false
 csl: apa.csl
 ---
 
-```{r}
-#| label: setup
-#| include: false
-
-library(papaja)
-library(flextable)
-library(tidyverse)
-library(foreign)
-dat_poly <- read.spss("data/Haupterhebung Studie III (Polytom 6PS).sav", 
-  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
-dat_dich <- read.spss("data/Haupterhebung Studie III (Dichotom 2PS).sav",
-  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
-
-dat_desc <- bind_rows(
-  dat_poly |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "6 categories"),
-  dat_dich |> select(Geschlecht, Bildung, Muttersprache, Alter_realW) |> mutate(categories = "2 categories")
-)
-
-dat_interviews <- read.spss("data/Stichprobe kognitive Interviews.sav", 
-  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
-
-dat_pilot <- read.spss("data/Pilottest_Studie_3.sav", 
-  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
-
-results <- readRDS("results/results.rds")
-results_secondary <- readRDS("results/results_secondary.rds")
-
-papaja::r_refs(file = "r-references.bib")
-```
-
 \
 
 ::: {.content-visible when-format="html"}
 # Introduction
 :::
 
-In psychological research, studies typically develop questionnaires and use latent variable ap-proaches to test whether they measure the intended latent variables [@tenholtScaleConstructionEvaluation2010]. According to the most applied test models (e.g., factor analytic models) especially item discrimination parameters are interpreted as how well items correlate with the latent variable [see @lordStatisticalTheoriesMental1968]. Highly correlated items with the latent variable indicate that these items are more important to measure the latent variable compared to items with lower correlations with the latent variable. Thus, the item discrimination parameter is typically used to assess the quality of an item measuring the latent variable.
+In psychological research, studies typically develop questionnaires and use latent variable approaches to test whether they measure the intended latent variables [@tenholtScaleConstructionEvaluation2010]. According to the most applied test models (e.g., factor analytic models) especially item discrimination parameters are interpreted as how well items correlate with the latent variable [see @lordStatisticalTheoriesMental1968]. Highly correlated items with the latent variable indicate that these items are more important to measure the latent variable compared to items with lower correlations with the latent variable. Thus, the item discrimination parameter is typically used to assess the quality of an item measuring the latent variable.
 
 To assure that we obtain high item discrimination parameters it is essential to start with a precise definition of the latent variable. The definition is the starting point for deriving content valid items. The item construction is believed to be theoretically sound if items are selected from a larger population of possible items of the latent variable in a representative manner to achieve high content validity. Applying this procedure, we have no doubt that we measure the indented latent variable. Let us assume we try to measure the latent variable warmth with the following adjectives: *affectionate*, *friendly*, *talkative*, *unprejudiced*. We ask how well each adjective describe yourself from *not at all* (0) to *fully and entirely* (4) with five response categories. If these items measure warmth, they should at least all significantly correlate with the adjective *warmth* measured with the same response format. Even more, the warmth adjective should have the highest discrimination parameter conducting a factor analysis with empirical data, otherwise a different construct is measured, e.g., friendliness, in the case that the adjective *friendly* has the highest loading on the latent variable. This can be seen as kind of prove that the intended latent variable has the intended meaning. We name such items in the following sections as *gold standard items* helping to assure that we measure the intended latent variable.
 
