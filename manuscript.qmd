@@ -33,7 +33,6 @@ date-modified: 2025-07-17
 date-format: iso
 author:
   - name: Kathryn Eichhorn
-    equal-contributor: true
     orcid: 0000-0003-3676-9420
     role: 
       - conceptualization
@@ -48,7 +47,6 @@ author:
         country: Germany
   - name: Markus Bühner
     corresponding: true
-    equal-contributor: true
     email: buehner@lmu.de
     orcid: 0000-0002-0597-8708
     role: 
@@ -118,7 +116,7 @@ author-note:
     gratitude: ~
     authorship-agreements: ~
 language:
-  title-block-role-introduction: "Author roles were classified using the Contributor Role Taxonomy (CRediT; <https://credit.niso.org/>):"
+  title-block-role-introduction: "Kathryn Eichhorn and Markus Bühner contributed equally to this manuscript. Author roles were classified using the Contributor Role Taxonomy (CRediT; <https://credit.niso.org/>):"
 abstract: "This article investigates whether gold-standard items are helpful for questionnaire construction. Based on cognitive interviews (n = `r nrow(dat_interviews)`) and a pilot study (n = `r nrow(dat_pilot)`) with an initial item set, three 12-item scales were constructed to measure the physical traits of body height, body weight, and age. We collected data on these scales using response formats with either two (n = `r nrow(dat_dich)`) or six (n = `r nrow(dat_poly)`) categories. We also collected numeric self-reports of body weight, body height, and age as gold-standard items. Confirmatory factor analyses revealed that the gold-standard items did not consistently exhibit the highest loading on their corresponding latent variable. Furthermore, when controlling for the self-reported physical body height, body weight, and age as gold-standard items, as well as gender, we did not always find an interpretable, systematic residual variance. Finally, the pattern of correlations between the latent variables did not reflect the correlations between the self-reported gold-standard items, suggesting that the item scales and the gold-standard items do not have the same validity. While these results are consistent with previous studies, our analyses also showed that items with two response categories were at least as valid as those with six categories, contradicting past recommendations. When constructing a questionnaire, we would argue that the items intended to measure the latent variable most directly should have the highest loading on that variable. If this is not the case, the content validity is questionable at best. The implications are that intensive cognitive pretesting is necessary. Questionnaires with different response formats should be compared empirically and hypotheses about which items best represent the latent variable should be tested."
 license: CC BY 4.0
 bibliography: [references.bib, r-references.bib]
