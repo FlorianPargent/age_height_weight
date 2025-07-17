@@ -47,7 +47,7 @@ fit <- fa(dat_pilot |> select(KGr_22:KGr_40),
 print(fit, sort = TRUE, cut = 0.15)
 ```
 
-### Item total correlations
+### Reliability estimates and item total correlations
 
 ```{r}
 neg_items <- c("A_13", "A_14", "A_21",
@@ -56,7 +56,9 @@ neg_items <- c("A_13", "A_14", "A_21",
 dat_pilot_recode <- dat_pilot |> 
   select(KGr_22:KGr_40) |>
   mutate(across(all_of(neg_items), ~ 7 - .))
-  
+```
+
+```{r}
 rel_age <- psych::alpha(dat_pilot_recode |> select(starts_with("A")))
 rel_height <- psych::alpha(dat_pilot_recode |> select(starts_with("KGr")))
 rel_weight <- psych::alpha(dat_pilot_recode |> select(starts_with("KGe")))
@@ -65,9 +67,9 @@ rel_weight <- psych::alpha(dat_pilot_recode |> select(starts_with("KGe")))
 The part-whole corrected item total correlations are displayed in column `r.drop`
 
 ```{r}
-rel_age$item.stats
-rel_height$item.stats
-rel_weight$item.stats
+rel_age
+rel_height
+rel_weight
 ```
 
 ## References
