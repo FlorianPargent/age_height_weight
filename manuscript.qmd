@@ -28,7 +28,8 @@ papaja::r_refs(file = "r-references.bib")
 ---
 title: "Item Construction Rules Revisited: Learnings from Measurement of Latent Variables with Gold Standard Items"
 shorttitle: "Measuring latent variables with gold standard items"
-date: today
+date: 2025-07-17
+date-modified: 2025-07-17
 date-format: iso
 author:
   - name: Kathryn Eichhorn
@@ -111,7 +112,7 @@ author:
     
 author-note:
   disclosures:
-    data-sharing: This is version 1 (last modification {{< meta date >}}) of our preprint published on PsyArXiv. All materials (reproducible manuscript, analysis code, datasets, codebooks, questionnaires) are available in the project's repository on the Open Science Framework (OSF) at <https://osf.io/p7492/>. A Quarto Manuscripts website is hosted at <https://florianpargent.github.io/gold-standard-items/>. The data has previously been analyzed in the dissertation thesis of the first author at <https://doi.org/10.5282/edoc.23628>. As part of the dissertation, a preregistration was published at <https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9> that differs from the analyses reported in the current manuscript.
+    data-sharing: This is version 1 (last modification {{< meta date-modified >}}) of our preprint published on PsyArXiv. All materials (reproducible manuscript, analysis code, datasets, codebooks, questionnaires) are available in the project's repository on the Open Science Framework (OSF) at <https://osf.io/p7492/>. A Quarto Manuscripts website is hosted at <https://florianpargent.github.io/gold-standard-items/>. The data has previously been analyzed in the dissertation thesis of the first author at <https://doi.org/10.5282/edoc.23628>. As part of the dissertation, a preregistration was published at <https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9> that differs from the analyses reported in the current manuscript.
     conflict-of-interest: The authors declare that there were no conflicts of interest concerning the authorship or the publication of this article.
     financial-support: ~
     gratitude: ~
