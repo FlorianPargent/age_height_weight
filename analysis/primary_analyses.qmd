@@ -25,7 +25,6 @@ library(tidyverse, quietly = TRUE, warn.conflicts = FALSE)
 library(semTools, quietly = TRUE, warn.conflicts = FALSE)
 library(lavaan, quietly = TRUE, warn.conflicts = FALSE)
 library(MBESS, quietly = TRUE, warn.conflicts = FALSE)
-library(corx)
 ```
 
 ```{r}
@@ -374,23 +373,41 @@ r_latent_GGe2 <- r_latent_dich |> filter(lhs == "height" & rhs == "weight") |> p
 
 ## Correlations between physical variables
 
-
 ```{r}
-(r_real_poly <- corx(data = dat_poly |>
-    select(Alter_realW, Koerpergroesse_realW, Koerpergewicht_realW),
-  method = "pearson", stars = c(0.05, 0.01, 0.001)))
+(r_phys_poly <- standardizedSolution(fit1ges6, type = "std.all") |>
+  filter(op == "~~" & 
+      lhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW") &
+      rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW") &
+      lhs != rhs) |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print_star = case_when(
+    pvalue < 0.05 & pvalue > 0.01 ~ paste0(est_print, "*"),
+    pvalue < 0.01 & pvalue > 0.001 ~ paste0(est_print, "**"),
+    pvalue < 0.001 ~ paste0(est_print, "***"),
+    .default = est_print 
+  )))
 
-r_real_AG6 <- r_real_poly$apa["Alter_realW", "Koerpergroesse_realW"]
-r_real_AGe6 <- r_real_poly$apa["Alter_realW", "Koerpergewicht_realW"]
-r_real_GGe6 <- r_real_poly$apa["Koerpergroesse_realW", "Koerpergewicht_realW"]
+r_phys_AG6 <- r_phys_poly |> filter(lhs == "Alter_realW" & rhs == "Koerpergroesse_realW") |> pull(est_print_star)
+r_phys_AGe6 <- r_phys_poly |> filter(lhs == "Alter_realW" & rhs == "Koerpergewicht_realW") |> pull(est_print_star)
+r_phys_GGe6 <- r_phys_poly |> filter(lhs == "Koerpergewicht_realW" & rhs == "Koerpergroesse_realW") |> pull(est_print_star)
 
-(r_real_dich <- corx(data = dat_dich |>
-    select(Alter_realW, Koerpergroesse_realW, Koerpergewicht_realW),
-  method = "pearson", stars = c(0.05, 0.01, 0.001)))
 
-r_real_AG2 <- r_real_dich$apa["Alter_realW", "Koerpergroesse_realW"]
-r_real_AGe2 <- r_real_dich$apa["Alter_realW", "Koerpergewicht_realW"]
-r_real_GGe2 <- r_real_dich$apa["Koerpergroesse_realW", "Koerpergewicht_realW"]
+(r_phys_dich <- standardizedSolution(fit1ges2, type = "std.all") |>
+  filter(op == "~~" & 
+      lhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW") &
+      rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW") &
+      lhs != rhs) |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print_star = case_when(
+    pvalue < 0.05 & pvalue > 0.01 ~ paste0(est_print, "*"),
+    pvalue < 0.01 & pvalue > 0.001 ~ paste0(est_print, "**"),
+    pvalue < 0.001 ~ paste0(est_print, "***"),
+    .default = est_print 
+  )))
+
+r_phys_AG2 <- r_phys_dich |> filter(lhs == "Alter_realW" & rhs == "Koerpergroesse_realW") |> pull(est_print_star)
+r_phys_AGe2 <- r_phys_dich |> filter(lhs == "Alter_realW" & rhs == "Koerpergewicht_realW") |> pull(est_print_star)
+r_phys_GGe2 <- r_phys_dich |> filter(lhs == "Koerpergewicht_realW" & rhs == "Koerpergroesse_realW") |> pull(est_print_star)
 ```
 
 
@@ -448,8 +465,8 @@ rel_Ge2 <- papaja::printnum(rel_Ge2$est, gt1 = FALSE, digits = 3)
 cor_table <- tribble(
   ~Measure, ~Height_2  , ~Height_6  , ~Weight_2    , ~Weight_6    , ~Age_2       , ~Age_6       ,
   "Height", rel_G2     , rel_G6     , r_latent_GGe2, r_latent_GGe6, r_latent_AG2 , r_latent_AG6 ,
-  "Weight", r_real_GGe2, r_real_GGe6, rel_Ge2      , rel_Ge6      , r_latent_AGe2, r_latent_AGe6,
-  "Age"   , r_real_AG2 , r_real_AG6 , r_real_AGe2  , r_real_AGe6  , rel_A2       , rel_A6      
+  "Weight", r_phys_GGe2, r_phys_GGe6, rel_Ge2      , rel_Ge6      , r_latent_AGe2, r_latent_AGe6,
+  "Age"   , r_phys_AG2 , r_phys_AG6 , r_phys_AGe2  , r_phys_AGe6  , rel_A2       , rel_A6      
 )
 ```
 
