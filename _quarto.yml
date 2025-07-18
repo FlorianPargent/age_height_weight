@@ -12,10 +12,6 @@ manuscript:
       title: "2. Secondary analyses (appendices)"
     - notebook: analysis/tertiary_analyses.qmd
       title: "3. Tertiary analyses (scale construction)"
-  resources:
-    - data/
-    - materials/
-    - results/
 
 format:
   apaquarto-html:
