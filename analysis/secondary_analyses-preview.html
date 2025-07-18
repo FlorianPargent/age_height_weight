@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.7.32">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+    <title>Secondary analyses (appendices)</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      html { -webkit-text-size-adjust: 100%; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "../index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="../site_libs/manuscript-notebook/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-cb14dbda5391634e2881ab467e788e7e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+     <link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>  
+      </head>
+
+  <body class="quarto-notebook quarto-light">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link" href=""><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> 2. Secondary analyses (appendices)</h6>
+
+            <a href="../analysis/secondary_analyses.qmd" class="btn btn-primary quarto-download-embed" download="secondary_analyses.qmd">Download Source</a>
+          </div>
+
+     <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Secondary analyses (appendices)</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+        
+        <div class="quarto-title-meta">
+
+                
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      </div>
+    </div>
+
+
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link active" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#load-datasets" id="toc-load-datasets" class="nav-link" data-scroll-target="#load-datasets">Load datasets</a></li>
+  <li><a href="#fit-and-analyze-cfa-models-with-correlated-errors" id="toc-fit-and-analyze-cfa-models-with-correlated-errors" class="nav-link" data-scroll-target="#fit-and-analyze-cfa-models-with-correlated-errors">Fit and analyze CFA models with correlated errors</a></li>
+  <li><a href="#modification-indices" id="toc-modification-indices" class="nav-link" data-scroll-target="#modification-indices">Modification indices</a></li>
+  <li><a href="#sec-saveresults" id="toc-sec-saveresults" class="nav-link" data-scroll-target="#sec-saveresults">Save results for manuscript</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">      
+
+       <div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In this notebook, we record the analyses that are reported in the appendices of the manuscript.</p>
+<p>The section <a href="../analysis/primary_analyses-preview.html#sec-saveresults">Save results for manuscript</a> lists all results objects and tables that are exported to be used in the main manuscript file and can be used to retrace all reported numbers.</p>
+</div>
+</div>
+</div>
+<section id="load-packages" class="level2">
+<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreign)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(semTools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lavaan
+This is lavaan 0.6-19
+lavaan is FREE software! Please report any bugs.
+ 
+###############################################################################
+This is semTools 0.5-7
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+
+Attaching package: 'semTools'
+
+The following object is masked from 'package:readr':
+
+    clipboard</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># record R packages</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">r_refs</span>(<span class="at">file =</span> <span class="st">"../r-references.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="load-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="load-datasets">Load datasets</h2>
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dat_poly <span class="ot">&lt;-</span> <span class="fu">read.spss</span>(<span class="st">"../data/Haupterhebung Studie III (Polytom 6PS).sav"</span>, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">to.data.frame =</span> <span class="cn">TRUE</span>, <span class="at">use.value.labels =</span> <span class="cn">FALSE</span>, <span class="at">na.omit =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>dat_dich <span class="ot">&lt;-</span> <span class="fu">read.spss</span>(<span class="st">"../data/Haupterhebung Studie III (Dichotom 2PS).sav"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">to.data.frame =</span> <span class="cn">TRUE</span>, <span class="at">use.value.labels =</span> <span class="cn">FALSE</span>, <span class="at">na.omit =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="fit-and-analyze-cfa-models-with-correlated-errors" class="level2">
+<h2 class="anchored" data-anchor-id="fit-and-analyze-cfa-models-with-correlated-errors">Fit and analyze CFA models with correlated errors</h2>
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">### tau-kongeneric models with correlated errors </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>modelA <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">  f1 =~ A_1 +  A_2 + A_3 + A_4 + A_5 + A_6 + A_7 + A_8 + A_9 +A_10 + A_11 + A_12 + Alter_realW</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">  A_3 ~~ A_9</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">  A_2 ~~ A_5</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">  A_7 ~~ A_10"</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>modelG <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">  f1 =~ KGr_13 + KGr_14 + KGr_15 + KGr_16 + KGr_17 + KGr_18 + KGr_19 + KGr_20 + KGr_21 + KGr_22 + KGr_23 + KGr_24 + Koerpergroesse_realW</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">  KGr_22 ~~ KGr_23 </span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">  KGr_16 ~~ KGr_21"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>modelGe <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="st">  f1 =~ KGe_25 + KGe_26 + KGe_27 + KGe_28 + KGe_29 + KGe_30 + KGe_31 + KGe_32 + KGe_33 + KGe_34 + KGe_35 + KGe_36 + Koerpergewicht_realW</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="st">  KGe_30 ~~ KGe_36</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="st">  KGe_27 ~~ KGe_31"</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="do">### run model test with MIIVsem</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="do">### fit1 &lt;- MIIVsem::miive(model = model1, data = dat_poly)</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>fit1A6 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">model =</span> modelA, <span class="at">data =</span> dat_poly, <span class="at">ordered =</span> <span class="fu">c</span>(<span class="st">"A_1"</span>,<span class="st">"A_2"</span>, <span class="st">"A_3"</span>, <span class="st">"A_4"</span>, <span class="st">"A_5"</span>, <span class="st">"A_6"</span>, <span class="st">"A_7"</span>,<span class="st">"A_8"</span>, <span class="st">"A_9"</span>, <span class="st">"A_10"</span>, <span class="st">"A_11"</span>,<span class="st">"A_12"</span>), <span class="at">std.lv=</span><span class="cn">TRUE</span>, <span class="at">meanstructure=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>fit1A2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">model =</span> modelA, <span class="at">data =</span> dat_dich, <span class="at">ordered =</span> <span class="fu">c</span>(<span class="st">"A_1"</span>,<span class="st">"A_2"</span>, <span class="st">"A_3"</span>, <span class="st">"A_4"</span>, <span class="st">"A_5"</span>, <span class="st">"A_6"</span>, <span class="st">"A_7"</span>,<span class="st">"A_8"</span>, <span class="st">"A_9"</span>, <span class="st">"A_10"</span>, <span class="st">"A_11"</span>,<span class="st">"A_12"</span>), <span class="at">std.lv=</span><span class="cn">TRUE</span>, <span class="at">meanstructure=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>fit1G6 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">model =</span> modelG, <span class="at">data =</span> dat_poly, <span class="at">ordered =</span> <span class="fu">c</span>(<span class="st">"KGr_13"</span>,<span class="st">"KGr_14"</span>, <span class="st">"KGr_15"</span>, <span class="st">"KGr_16"</span>, <span class="st">"KGr_17"</span>, <span class="st">"KGr_18"</span>, <span class="st">"KGr_19"</span>,<span class="st">"KGr_20"</span>, <span class="st">"KGr_21"</span>, <span class="st">"KGr_22"</span>, <span class="st">"KGr_23"</span>,<span class="st">"KGr_24"</span>), <span class="at">std.lv=</span><span class="cn">TRUE</span>, <span class="at">meanstructure=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>fit1G2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">model =</span> modelG, <span class="at">data =</span> dat_dich, <span class="at">ordered =</span> <span class="fu">c</span>(<span class="st">"KGr_13"</span>,<span class="st">"KGr_14"</span>, <span class="st">"KGr_15"</span>, <span class="st">"KGr_16"</span>, <span class="st">"KGr_17"</span>, <span class="st">"KGr_18"</span>, <span class="st">"KGr_19"</span>,<span class="st">"KGr_20"</span>, <span class="st">"KGr_21"</span>, <span class="st">"KGr_22"</span>, <span class="st">"KGr_23"</span>,<span class="st">"KGr_24"</span>), <span class="at">std.lv=</span><span class="cn">TRUE</span>, <span class="at">meanstructure=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>fit1Ge6 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">model =</span> modelGe, <span class="at">data =</span> dat_poly, <span class="at">ordered =</span> <span class="fu">c</span>(<span class="st">"KGe_25"</span>,<span class="st">"KGe_26"</span>, <span class="st">"KGe_27"</span>, <span class="st">"KGe_28"</span>, <span class="st">"KGe_29"</span>, <span class="st">"KGe_30"</span>, <span class="st">"KGe_31"</span>,<span class="st">"KGe_32"</span>, <span class="st">"KGe_33"</span>, <span class="st">"KGe_34"</span>, <span class="st">"KGe_35"</span>,<span class="st">"KGe_36"</span>), <span class="at">std.lv=</span><span class="cn">TRUE</span>, <span class="at">meanstructure=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>fit1Ge2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">model =</span> modelGe, <span class="at">data =</span> dat_dich, <span class="at">ordered =</span> <span class="fu">c</span>(<span class="st">"KGe_25"</span>,<span class="st">"KGe_26"</span>, <span class="st">"KGe_27"</span>, <span class="st">"KGe_28"</span>, <span class="st">"KGe_29"</span>, <span class="st">"KGe_30"</span>, <span class="st">"KGe_31"</span>,<span class="st">"KGe_32"</span>, <span class="st">"KGe_33"</span>, <span class="st">"KGe_34"</span>, <span class="st">"KGe_35"</span>,<span class="st">"KGe_36"</span>), <span class="at">std.lv=</span><span class="cn">TRUE</span>, <span class="at">meanstructure=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1A6, <span class="at">fit.measures=</span><span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>, <span class="at">modindices =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-19 ended normally after 28 iterations
+
+  Estimator                                       DWLS
+  Optimization method                           NLMINB
+  Number of model parameters                        78
+
+  Number of observations                           933
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                               806.781    1167.002
+  Degrees of freedom                                62          62
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  0.703
+  Shift parameter                                           18.878
+    simple second-order correction                                
+
+Model Test Baseline Model:
+
+  Test statistic                             20936.426    9407.573
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  2.236
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.964       0.882
+  Tucker-Lewis Index (TLI)                       0.955       0.851
+                                                                  
+  Robust Comparative Fit Index (CFI)                            NA
+  Robust Tucker-Lewis Index (TLI)                               NA
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.114       0.138
+  90 Percent confidence interval - lower         0.107       0.131
+  90 Percent confidence interval - upper         0.121       0.145
+  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.000
+  P-value H_0: RMSEA &gt;= 0.080                    1.000       1.000
+                                                                  
+  Robust RMSEA                                                  NA
+  90 Percent confidence interval - lower                        NA
+  90 Percent confidence interval - upper                        NA
+  P-value H_0: Robust RMSEA &lt;= 0.050                            NA
+  P-value H_0: Robust RMSEA &gt;= 0.080                            NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.091       0.091
+
+Parameter Estimates:
+
+  Parameterization                               Delta
+  Standard errors                           Robust.sem
+  Information                                 Expected
+  Information saturated (h1) model        Unstructured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  f1 =~                                                                 
+    A_1               0.509    0.028   18.277    0.000    0.509    0.509
+    A_2               0.705    0.019   36.407    0.000    0.705    0.705
+    A_3               0.468    0.027   17.137    0.000    0.468    0.468
+    A_4               0.766    0.018   43.112    0.000    0.766    0.766
+    A_5               0.727    0.018   40.197    0.000    0.727    0.727
+    A_6               0.240    0.031    7.707    0.000    0.240    0.240
+    A_7               0.789    0.017   46.377    0.000    0.789    0.789
+    A_8               0.591    0.024   24.626    0.000    0.591    0.591
+    A_9               0.660    0.022   30.088    0.000    0.660    0.660
+    A_10             -0.607    0.023  -26.995    0.000   -0.607   -0.607
+    A_11              0.505    0.026   19.732    0.000    0.505    0.505
+    A_12              0.767    0.018   43.503    0.000    0.767    0.767
+    Alter_realW      11.797    0.603   19.555    0.000   11.797    0.732
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .A_3 ~~                                                                
+   .A_9               0.326    0.024   13.397    0.000    0.326    0.492
+ .A_2 ~~                                                                
+   .A_5               0.197    0.018   11.096    0.000    0.197    0.405
+ .A_7 ~~                                                                
+   .A_10             -0.232    0.020  -11.881    0.000   -0.232   -0.476
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .Alter_realW      32.563    0.838   38.843    0.000   32.563    2.021
+
+Thresholds:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    A_1|t1           -0.009    0.041   -0.229    0.819   -0.009   -0.009
+    A_1|t2            0.574    0.044   13.164    0.000    0.574    0.574
+    A_1|t3            0.911    0.048   19.025    0.000    0.911    0.911
+    A_1|t4            1.327    0.057   23.157    0.000    1.327    1.327
+    A_1|t5            1.742    0.074   23.532    0.000    1.742    1.742
+    A_2|t1           -0.375    0.042   -8.911    0.000   -0.375   -0.375
+    A_2|t2            0.313    0.042    7.481    0.000    0.313    0.313
+    A_2|t3            0.679    0.045   15.190    0.000    0.679    0.679
+    A_2|t4            1.315    0.057   23.086    0.000    1.315    1.315
+    A_2|t5            1.821    0.078   23.215    0.000    1.821    1.821
+    A_3|t1           -2.142    0.103  -20.902    0.000   -2.142   -2.142
+    A_3|t2           -0.961    0.049  -19.715    0.000   -0.961   -0.961
+    A_3|t3           -0.282    0.042   -6.764    0.000   -0.282   -0.282
+    A_3|t4            0.494    0.043   11.498    0.000    0.494    0.494
+    A_3|t5            1.271    0.056   22.820    0.000    1.271    1.271
+    A_4|t1           -0.463    0.043  -10.853    0.000   -0.463   -0.463
+    A_4|t2            0.347    0.042    8.262    0.000    0.347    0.347
+    A_4|t3            0.799    0.046   17.294    0.000    0.799    0.799
+    A_4|t4            1.381    0.059   23.413    0.000    1.381    1.381
+    A_4|t5            1.948    0.087   22.483    0.000    1.948    1.948
+    A_5|t1           -0.571    0.044  -13.100    0.000   -0.571   -0.571
+    A_5|t2            0.106    0.041    2.585    0.010    0.106    0.106
+    A_5|t3            0.475    0.043   11.111    0.000    0.475    0.475
+    A_5|t4            1.138    0.052   21.744    0.000    1.138    1.138
+    A_5|t5            1.742    0.074   23.532    0.000    1.742    1.742
+    A_6|t1           -1.069    0.051  -21.031    0.000   -1.069   -1.069
+    A_6|t2           -0.440    0.043  -10.336    0.000   -0.440   -0.440
+    A_6|t3            0.015    0.041    0.360    0.719    0.015    0.015
+    A_6|t4            0.609    0.044   13.864    0.000    0.609    0.609
+    A_6|t5            1.321    0.057   23.122    0.000    1.321    1.321
+    A_7|t1           -0.246    0.042   -5.917    0.000   -0.246   -0.246
+    A_7|t2            0.419    0.042    9.884    0.000    0.419    0.419
+    A_7|t3            0.795    0.046   17.233    0.000    0.795    0.795
+    A_7|t4            1.108    0.052   21.444    0.000    1.108    1.108
+    A_7|t5            1.402    0.060   23.497    0.000    1.402    1.402
+    A_8|t1           -0.296    0.042   -7.090    0.000   -0.296   -0.296
+    A_8|t2            0.422    0.042    9.948    0.000    0.422    0.422
+    A_8|t3            0.788    0.046   17.111    0.000    0.788    0.788
+    A_8|t4            1.277    0.056   22.860    0.000    1.277    1.277
+    A_8|t5            1.835    0.079   23.145    0.000    1.835    1.835
+    A_9|t1           -0.290    0.042   -6.960    0.000   -0.290   -0.290
+    A_9|t2            0.109    0.041    2.650    0.008    0.109    0.109
+    A_9|t3            0.310    0.042    7.416    0.000    0.310    0.310
+    A_9|t4            0.555    0.043   12.781    0.000    0.555    0.555
+    A_9|t5            0.915    0.048   19.083    0.000    0.915    0.915
+    A_10|t1          -1.402    0.060  -23.497    0.000   -1.402   -1.402
+    A_10|t2          -0.948    0.049  -19.544    0.000   -0.948   -0.948
+    A_10|t3          -0.396    0.042   -9.365    0.000   -0.396   -0.396
+    A_10|t4           0.150    0.041    3.631    0.000    0.150    0.150
+    A_10|t5           0.940    0.048   19.430    0.000    0.940    0.940
+    A_11|t1          -0.675    0.045  -15.127    0.000   -0.675   -0.675
+    A_11|t2          -0.177    0.041   -4.284    0.000   -0.177   -0.177
+    A_11|t3           0.147    0.041    3.565    0.000    0.147    0.147
+    A_11|t4           0.577    0.044   13.228    0.000    0.577    0.577
+    A_11|t5           1.253    0.055   22.699    0.000    1.253    1.253
+    A_12|t1          -0.204    0.041   -4.938    0.000   -0.204   -0.204
+    A_12|t2           0.463    0.043   10.853    0.000    0.463    0.463
+    A_12|t3           0.795    0.046   17.233    0.000    0.795    0.795
+    A_12|t4           1.302    0.057   23.013    0.000    1.302    1.302
+    A_12|t5           1.865    0.081   22.990    0.000    1.865    1.865
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .A_1               0.741                               0.741    0.741
+   .A_2               0.503                               0.503    0.503
+   .A_3               0.781                               0.781    0.781
+   .A_4               0.413                               0.413    0.413
+   .A_5               0.472                               0.472    0.472
+   .A_6               0.942                               0.942    0.942
+   .A_7               0.378                               0.378    0.378
+   .A_8               0.651                               0.651    0.651
+   .A_9               0.564                               0.564    0.564
+   .A_10              0.631                               0.631    0.631
+   .A_11              0.745                               0.745    0.745
+   .A_12              0.412                               0.412    0.412
+   .Alter_realW     120.395    6.318   19.056    0.000  120.395    0.464
+    f1                1.000                               1.000    1.000
+
+R-Square:
+                   Estimate
+    A_1               0.259
+    A_2               0.497
+    A_3               0.219
+    A_4               0.587
+    A_5               0.528
+    A_6               0.058
+    A_7               0.622
+    A_8               0.349
+    A_9               0.436
+    A_10              0.369
+    A_11              0.255
+    A_12              0.588
+    Alter_realW       0.536
+
+Modification Indices:
+
+    lhs op         rhs     mi    epc sepc.lv sepc.all sepc.nox
+1   A_1 ~~         A_2  1.952 -0.045  -0.045   -0.074   -0.074
+2   A_1 ~~         A_3  1.276  0.039   0.039    0.052    0.052
+3   A_1 ~~         A_4  0.552 -0.024  -0.024   -0.044   -0.044
+4   A_1 ~~         A_5  0.065 -0.008  -0.008   -0.014   -0.014
+5   A_1 ~~         A_6  5.016 -0.081  -0.081   -0.097   -0.097
+6   A_1 ~~         A_7  0.546  0.025   0.025    0.048    0.048
+7   A_1 ~~         A_8  0.235 -0.017  -0.017   -0.025   -0.025
+8   A_1 ~~         A_9  5.642  0.092   0.092    0.142    0.142
+9   A_1 ~~        A_10  0.215  0.015   0.015    0.022    0.022
+10  A_1 ~~        A_11  0.073 -0.010  -0.010   -0.013   -0.013
+11  A_1 ~~        A_12  5.683 -0.077  -0.077   -0.139   -0.139
+12  A_1 ~~ Alter_realW 13.439  2.177   2.177    0.230    0.230
+13  A_2 ~~         A_3 15.257  0.131   0.131    0.209    0.209
+14  A_2 ~~         A_4 67.641 -0.201  -0.201   -0.441   -0.441
+15  A_2 ~~         A_6  0.000 -0.001  -0.001   -0.001   -0.001
+16  A_2 ~~         A_7 21.261  0.151   0.151    0.346    0.346
+17  A_2 ~~         A_8  0.192 -0.013  -0.013   -0.023   -0.023
+18  A_2 ~~         A_9 21.590  0.164   0.164    0.308    0.308
+19  A_2 ~~        A_10  9.231 -0.099  -0.099   -0.176   -0.176
+20  A_2 ~~        A_11  6.733 -0.081  -0.081   -0.133   -0.133
+21  A_2 ~~        A_12  9.239 -0.081  -0.081   -0.177   -0.177
+22  A_2 ~~ Alter_realW 34.110  3.696   3.696    0.475    0.475
+23  A_3 ~~         A_4 37.350  0.214   0.214    0.378    0.378
+24  A_3 ~~         A_5  9.514  0.104   0.104    0.171    0.171
+25  A_3 ~~         A_6  0.682  0.027   0.027    0.032    0.032
+26  A_3 ~~         A_7 39.846 -0.187  -0.187   -0.344   -0.344
+27  A_3 ~~         A_8  0.700  0.029   0.029    0.041    0.041
+28  A_3 ~~        A_10 19.527  0.126   0.126    0.180    0.180
+29  A_3 ~~        A_11  3.239  0.064   0.064    0.083    0.083
+30  A_3 ~~        A_12  8.605  0.100   0.100    0.176    0.176
+31  A_3 ~~ Alter_realW 54.467 -4.326  -4.326   -0.446   -0.446
+32  A_4 ~~         A_5 50.182 -0.173  -0.173   -0.392   -0.392
+33  A_4 ~~         A_6  1.709 -0.045  -0.045   -0.072   -0.072
+34  A_4 ~~         A_7 34.077  0.191   0.191    0.483    0.483
+35  A_4 ~~         A_8  0.000 -0.001  -0.001   -0.001   -0.001
+36  A_4 ~~         A_9 58.591  0.287   0.287    0.594    0.594
+37  A_4 ~~        A_10 17.253 -0.130  -0.130   -0.256   -0.256
+38  A_4 ~~        A_11  0.152 -0.013  -0.013   -0.023   -0.023
+39  A_4 ~~        A_12  5.609 -0.062  -0.062   -0.152   -0.152
+40  A_4 ~~ Alter_realW 34.330  3.805   3.805    0.540    0.540
+41  A_5 ~~         A_6  0.282 -0.018  -0.018   -0.027   -0.027
+42  A_5 ~~         A_7  8.675  0.092   0.092    0.218    0.218
+43  A_5 ~~         A_8  0.092  0.009   0.009    0.017    0.017
+44  A_5 ~~         A_9 22.580  0.165   0.165    0.320    0.320
+45  A_5 ~~        A_10  7.785 -0.091  -0.091   -0.166   -0.166
+46  A_5 ~~        A_11  0.020 -0.005  -0.005   -0.008   -0.008
+47  A_5 ~~        A_12 11.388 -0.087  -0.087   -0.198   -0.198
+48  A_5 ~~ Alter_realW 13.450  2.384   2.384    0.316    0.316
+49  A_6 ~~         A_7  0.644  0.029   0.029    0.048    0.048
+50  A_6 ~~         A_8  8.795 -0.098  -0.098   -0.126   -0.126
+51  A_6 ~~         A_9  4.520  0.079   0.079    0.108    0.108
+52  A_6 ~~        A_10  8.860 -0.096  -0.096   -0.124   -0.124
+53  A_6 ~~        A_11  5.413 -0.076  -0.076   -0.091   -0.091
+54  A_6 ~~        A_12  1.537 -0.044  -0.044   -0.070   -0.070
+55  A_6 ~~ Alter_realW  8.901  1.624   1.624    0.152    0.152
+56  A_7 ~~         A_8  0.577 -0.024  -0.024   -0.048   -0.048
+57  A_7 ~~         A_9 66.729 -0.224  -0.224   -0.486   -0.486
+58  A_7 ~~        A_11  0.987  0.034   0.034    0.065    0.065
+59  A_7 ~~        A_12  6.940  0.081   0.081    0.205    0.205
+60  A_7 ~~ Alter_realW 26.359 -3.410  -3.410   -0.506   -0.506
+61  A_8 ~~         A_9  1.765  0.048   0.048    0.080    0.080
+62  A_8 ~~        A_10  0.535 -0.024  -0.024   -0.038   -0.038
+63  A_8 ~~        A_11  1.865 -0.045  -0.045   -0.065   -0.065
+64  A_8 ~~        A_12  0.031  0.006   0.006    0.011    0.011
+65  A_8 ~~ Alter_realW  1.069  0.664   0.664    0.075    0.075
+66  A_9 ~~        A_10 33.010  0.164   0.164    0.275    0.275
+67  A_9 ~~        A_11  1.197  0.039   0.039    0.061    0.061
+68  A_9 ~~        A_12 27.560  0.186   0.186    0.386    0.386
+69  A_9 ~~ Alter_realW 91.615 -5.755  -5.755   -0.698   -0.698
+70 A_10 ~~        A_11  2.324 -0.051  -0.051   -0.075   -0.075
+71 A_10 ~~        A_12  5.378 -0.073  -0.073   -0.144   -0.144
+72 A_10 ~~ Alter_realW 45.640  4.101   4.101    0.471    0.471
+73 A_11 ~~        A_12  2.159 -0.047  -0.047   -0.086   -0.086
+74 A_11 ~~ Alter_realW  8.906  1.837   1.837    0.194    0.194
+75 A_12 ~~ Alter_realW 11.299  2.229   2.229    0.317    0.317</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1A2, <span class="at">fit.measures=</span><span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>, <span class="at">modindices =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-19 ended normally after 23 iterations
+
+  Estimator                                       DWLS
+  Optimization method                           NLMINB
+  Number of model parameters                        30
+
+  Number of observations                           921
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                               333.360     489.419
+  Degrees of freedom                                62          62
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  0.699
+  Shift parameter                                           12.525
+    simple second-order correction                                
+
+Model Test Baseline Model:
+
+  Test statistic                              9520.005    5306.474
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  1.806
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.971       0.918
+  Tucker-Lewis Index (TLI)                       0.964       0.897
+                                                                  
+  Robust Comparative Fit Index (CFI)                            NA
+  Robust Tucker-Lewis Index (TLI)                               NA
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.069       0.087
+  90 Percent confidence interval - lower         0.062       0.080
+  90 Percent confidence interval - upper         0.076       0.094
+  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.007       0.938
+                                                                  
+  Robust RMSEA                                                  NA
+  90 Percent confidence interval - lower                        NA
+  90 Percent confidence interval - upper                        NA
+  P-value H_0: Robust RMSEA &lt;= 0.050                            NA
+  P-value H_0: Robust RMSEA &gt;= 0.080                            NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.088       0.088
+
+Parameter Estimates:
+
+  Parameterization                               Delta
+  Standard errors                           Robust.sem
+  Information                                 Expected
+  Information saturated (h1) model        Unstructured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  f1 =~                                                                 
+    A_1               0.440    0.049    8.935    0.000    0.440    0.440
+    A_2               0.575    0.039   14.787    0.000    0.575    0.575
+    A_3               0.604    0.034   17.905    0.000    0.604    0.604
+    A_4               0.787    0.029   26.906    0.000    0.787    0.787
+    A_5               0.727    0.029   25.455    0.000    0.727    0.727
+    A_6               0.131    0.047    2.809    0.005    0.131    0.131
+    A_7               0.909    0.023   39.826    0.000    0.909    0.909
+    A_8               0.600    0.039   15.478    0.000    0.600    0.600
+    A_9               0.756    0.028   26.931    0.000    0.756    0.756
+    A_10             -0.790    0.027  -29.131    0.000   -0.790   -0.790
+    A_11              0.465    0.040   11.641    0.000    0.465    0.465
+    A_12              0.715    0.034   21.094    0.000    0.715    0.715
+    Alter_realW      12.431    0.654   18.993    0.000   12.431    0.782
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .A_3 ~~                                                                
+   .A_9               0.279    0.039    7.226    0.000    0.279    0.534
+ .A_2 ~~                                                                
+   .A_5               0.351    0.038    9.229    0.000    0.351    0.625
+ .A_7 ~~                                                                
+   .A_10             -0.105    0.030   -3.512    0.000   -0.105   -0.411
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .Alter_realW      32.832    0.820   40.047    0.000   32.832    2.065
+
+Thresholds:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    A_1|t1            0.974    0.049   19.758    0.000    0.974    0.974
+    A_2|t1            0.728    0.046   15.972    0.000    0.728    0.728
+    A_3|t1           -0.135    0.041   -3.259    0.001   -0.135   -0.135
+    A_4|t1            0.742    0.046   16.222    0.000    0.742    0.742
+    A_5|t1            0.431    0.043   10.077    0.000    0.431    0.431
+    A_6|t1            0.190    0.042    4.575    0.000    0.190    0.190
+    A_7|t1            0.789    0.046   17.026    0.000    0.789    0.789
+    A_8|t1            0.767    0.046   16.656    0.000    0.767    0.767
+    A_9|t1            0.226    0.042    5.430    0.000    0.226    0.226
+    A_10|t1          -0.404    0.043   -9.490    0.000   -0.404   -0.404
+    A_11|t1           0.171    0.042    4.115    0.000    0.171    0.171
+    A_12|t1           0.839    0.047   17.819    0.000    0.839    0.839
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .A_1               0.806                               0.806    0.806
+   .A_2               0.670                               0.670    0.670
+   .A_3               0.635                               0.635    0.635
+   .A_4               0.381                               0.381    0.381
+   .A_5               0.472                               0.472    0.472
+   .A_6               0.983                               0.983    0.983
+   .A_7               0.174                               0.174    0.174
+   .A_8               0.640                               0.640    0.640
+   .A_9               0.429                               0.429    0.429
+   .A_10              0.376                               0.376    0.376
+   .A_11              0.784                               0.784    0.784
+   .A_12              0.489                               0.489    0.489
+   .Alter_realW      98.184    4.254   23.079    0.000   98.184    0.389
+    f1                1.000                               1.000    1.000
+
+R-Square:
+                   Estimate
+    A_1               0.194
+    A_2               0.330
+    A_3               0.365
+    A_4               0.619
+    A_5               0.528
+    A_6               0.017
+    A_7               0.826
+    A_8               0.360
+    A_9               0.571
+    A_10              0.624
+    A_11              0.216
+    A_12              0.511
+    Alter_realW       0.611
+
+Modification Indices:
+
+    lhs op         rhs     mi    epc sepc.lv sepc.all sepc.nox
+1   A_1 ~~         A_2  1.073 -0.066  -0.066   -0.090   -0.090
+2   A_1 ~~         A_3  1.753  0.084   0.084    0.118    0.118
+3   A_1 ~~         A_4  0.041 -0.013  -0.013   -0.023   -0.023
+4   A_1 ~~         A_5  0.891 -0.057  -0.057   -0.092   -0.092
+5   A_1 ~~         A_6  9.057 -0.182  -0.182   -0.204   -0.204
+6   A_1 ~~         A_7  0.960  0.065   0.065    0.173    0.173
+7   A_1 ~~         A_8  0.096 -0.020  -0.020   -0.028   -0.028
+8   A_1 ~~         A_9  2.347  0.097   0.097    0.164    0.164
+9   A_1 ~~        A_10  0.009  0.006   0.006    0.010    0.010
+10  A_1 ~~        A_11  0.088 -0.018  -0.018   -0.023   -0.023
+11  A_1 ~~        A_12  6.196 -0.150  -0.150   -0.240   -0.240
+12  A_1 ~~ Alter_realW  1.915  1.126   1.126    0.127    0.127
+13  A_2 ~~         A_3 10.889  0.197   0.197    0.301    0.301
+14  A_2 ~~         A_4 37.594 -0.284  -0.284   -0.563   -0.563
+15  A_2 ~~         A_6  2.816 -0.097  -0.097   -0.119   -0.119
+16  A_2 ~~         A_7  2.851  0.100   0.100    0.292    0.292
+17  A_2 ~~         A_8  2.490 -0.089  -0.089   -0.137   -0.137
+18  A_2 ~~         A_9  8.387  0.168   0.168    0.314    0.314
+19  A_2 ~~        A_10  1.917 -0.078  -0.078   -0.156   -0.156
+20  A_2 ~~        A_11  0.001  0.002   0.002    0.002    0.002
+21  A_2 ~~        A_12 15.905 -0.204  -0.204   -0.357   -0.357
+22  A_2 ~~ Alter_realW 19.707  3.454   3.454    0.426    0.426
+23  A_3 ~~         A_4 11.732  0.202   0.202    0.411    0.411
+24  A_3 ~~         A_5  9.689  0.172   0.172    0.313    0.313
+25  A_3 ~~         A_6  0.027 -0.009  -0.009   -0.011   -0.011
+26  A_3 ~~         A_7 12.156 -0.173  -0.173   -0.519   -0.519
+27  A_3 ~~         A_8  0.019  0.008   0.008    0.012    0.012
+28  A_3 ~~        A_10  0.032 -0.009  -0.009   -0.019   -0.019
+29  A_3 ~~        A_11  0.723  0.045   0.045    0.064    0.064
+30  A_3 ~~        A_12  1.324  0.067   0.067    0.121    0.121
+31  A_3 ~~ Alter_realW 26.361 -3.681  -3.681   -0.466   -0.466
+32  A_4 ~~         A_5 36.375 -0.252  -0.252   -0.595   -0.595
+33  A_4 ~~         A_6  0.113 -0.020  -0.020   -0.033   -0.033
+34  A_4 ~~         A_7  8.673  0.156   0.156    0.606    0.606
+35  A_4 ~~         A_8  0.152  0.022   0.022    0.045    0.045
+36  A_4 ~~         A_9  7.191  0.144   0.144    0.357    0.357
+37  A_4 ~~        A_10  1.984 -0.072  -0.072   -0.191   -0.191
+38  A_4 ~~        A_11  0.213  0.026   0.026    0.048    0.048
+39  A_4 ~~        A_12  3.087 -0.088  -0.088   -0.203   -0.203
+40  A_4 ~~ Alter_realW 12.546  2.819   2.819    0.461    0.461
+41  A_5 ~~         A_6  0.814 -0.050  -0.050   -0.074   -0.074
+42  A_5 ~~         A_7  5.961  0.128   0.128    0.448    0.448
+43  A_5 ~~         A_8  0.083 -0.016  -0.016   -0.028   -0.028
+44  A_5 ~~         A_9 11.582  0.180   0.180    0.400    0.400
+45  A_5 ~~        A_10  1.634 -0.064  -0.064   -0.152   -0.152
+46  A_5 ~~        A_11  0.307 -0.029  -0.029   -0.048   -0.048
+47  A_5 ~~        A_12 16.006 -0.185  -0.185   -0.386   -0.386
+48  A_5 ~~ Alter_realW  8.981  2.362   2.362    0.347    0.347
+49  A_6 ~~         A_7  0.045 -0.013  -0.013   -0.031   -0.031
+50  A_6 ~~         A_8  7.073 -0.153  -0.153   -0.193   -0.193
+51  A_6 ~~         A_9  8.530  0.162   0.162    0.250    0.250
+52  A_6 ~~        A_10  3.684 -0.109  -0.109   -0.179   -0.179
+53  A_6 ~~        A_11  5.178 -0.119  -0.119   -0.136   -0.136
+54  A_6 ~~        A_12  0.444 -0.040  -0.040   -0.058   -0.058
+55  A_6 ~~ Alter_realW  8.224  2.080   2.080    0.212    0.212
+56  A_7 ~~         A_8  0.314 -0.030  -0.030   -0.090   -0.090
+57  A_7 ~~         A_9  3.983 -0.089  -0.089   -0.327   -0.327
+58  A_7 ~~        A_11  0.568  0.043   0.043    0.117    0.117
+59  A_7 ~~        A_12  1.766  0.071   0.071    0.245    0.245
+60  A_7 ~~ Alter_realW  6.810 -2.048  -2.048   -0.496   -0.496
+61  A_8 ~~         A_9  2.373  0.087   0.087    0.166    0.166
+62  A_8 ~~        A_10  0.094  0.016   0.016    0.034    0.034
+63  A_8 ~~        A_11  1.101 -0.059  -0.059   -0.083   -0.083
+64  A_8 ~~        A_12  0.139 -0.022  -0.022   -0.039   -0.039
+65  A_8 ~~ Alter_realW  2.911  1.302   1.302    0.164    0.164
+66  A_9 ~~        A_10  7.723  0.121   0.121    0.302    0.302
+67  A_9 ~~        A_11  0.017 -0.007  -0.007   -0.012   -0.012
+68  A_9 ~~        A_12 13.012  0.211   0.211    0.460    0.460
+69  A_9 ~~ Alter_realW 33.104 -4.084  -4.084   -0.629   -0.629
+70 A_10 ~~        A_11  0.902  0.049   0.049    0.090    0.090
+71 A_10 ~~        A_12  4.911 -0.124  -0.124   -0.290   -0.290
+72 A_10 ~~ Alter_realW  3.060  1.354   1.354    0.223    0.223
+73 A_11 ~~        A_12  0.017  0.008   0.008    0.012    0.012
+74 A_11 ~~ Alter_realW  0.639  0.601   0.601    0.069    0.069
+75 A_12 ~~ Alter_realW  8.406  2.302   2.302    0.332    0.332</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1G6, <span class="at">fit.measures=</span><span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>, <span class="at">modindices =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-19 ended normally after 31 iterations
+
+  Estimator                                       DWLS
+  Optimization method                           NLMINB
+  Number of model parameters                        77
+
+  Number of observations                           933
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                               432.471     844.509
+  Degrees of freedom                                63          63
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  0.525
+  Shift parameter                                           20.926
+    simple second-order correction                                
+
+Model Test Baseline Model:
+
+  Test statistic                             52160.203   16417.273
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  3.188
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.993       0.952
+  Tucker-Lewis Index (TLI)                       0.991       0.941
+                                                                  
+  Robust Comparative Fit Index (CFI)                            NA
+  Robust Tucker-Lewis Index (TLI)                               NA
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.079       0.115
+  90 Percent confidence interval - lower         0.072       0.109
+  90 Percent confidence interval - upper         0.086       0.122
+  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.447       1.000
+                                                                  
+  Robust RMSEA                                                  NA
+  90 Percent confidence interval - lower                        NA
+  90 Percent confidence interval - upper                        NA
+  P-value H_0: Robust RMSEA &lt;= 0.050                            NA
+  P-value H_0: Robust RMSEA &gt;= 0.080                            NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.060       0.060
+
+Parameter Estimates:
+
+  Parameterization                               Delta
+  Standard errors                           Robust.sem
+  Information                                 Expected
+  Information saturated (h1) model        Unstructured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  f1 =~                                                                 
+    KGr_13            0.616    0.026   23.377    0.000    0.616    0.616
+    KGr_14            0.839    0.012   67.254    0.000    0.839    0.839
+    KGr_15            0.745    0.019   39.636    0.000    0.745    0.745
+    KGr_16            0.824    0.014   60.915    0.000    0.824    0.824
+    KGr_17            0.749    0.018   42.684    0.000    0.749    0.749
+    KGr_18            0.822    0.016   52.120    0.000    0.822    0.822
+    KGr_19            0.815    0.013   60.400    0.000    0.815    0.815
+    KGr_20            0.725    0.019   38.143    0.000    0.725    0.725
+    KGr_21           -0.805    0.014  -58.783    0.000   -0.805   -0.805
+    KGr_22           -0.673    0.020  -32.941    0.000   -0.673   -0.673
+    KGr_23           -0.792    0.015  -53.502    0.000   -0.792   -0.792
+    KGr_24            0.822    0.013   61.067    0.000    0.822    0.822
+    Koerprgrss_rlW    8.381    0.297   28.262    0.000    8.381    0.871
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .KGr_22 ~~                                                             
+   .KGr_23            0.200    0.017   11.477    0.000    0.200    0.443
+ .KGr_16 ~~                                                             
+   .KGr_21           -0.133    0.014   -9.771    0.000   -0.133   -0.397
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .Koerprgrss_rlW  173.392    0.322  538.893    0.000  173.392   18.025
+
+Thresholds:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    KGr_13|t1         0.390    0.042    9.236    0.000    0.390    0.390
+    KGr_13|t2         0.887    0.047   18.673    0.000    0.887    0.887
+    KGr_13|t3         1.093    0.051   21.291    0.000    1.093    1.093
+    KGr_13|t4         1.432    0.061   23.596    0.000    1.432    1.432
+    KGr_13|t5         1.948    0.087   22.483    0.000    1.948    1.948
+    KGr_14|t1        -0.431    0.042  -10.142    0.000   -0.431   -0.431
+    KGr_14|t2         0.071    0.041    1.734    0.083    0.071    0.071
+    KGr_14|t3         0.410    0.042    9.689    0.000    0.410    0.410
+    KGr_14|t4         0.852    0.047   18.139    0.000    0.852    0.852
+    KGr_14|t5         1.381    0.059   23.413    0.000    1.381    1.381
+    KGr_15|t1         0.082    0.041    1.996    0.046    0.082    0.082
+    KGr_15|t2         0.587    0.044   13.419    0.000    0.587    0.587
+    KGr_15|t3         0.983    0.049   19.997    0.000    0.983    0.983
+    KGr_15|t4         1.395    0.059   23.470    0.000    1.395    1.395
+    KGr_15|t5         2.025    0.092   21.916    0.000    2.025    2.025
+    KGr_16|t1        -0.919    0.048  -19.141    0.000   -0.919   -0.919
+    KGr_16|t2        -0.561    0.043  -12.909    0.000   -0.561   -0.561
+    KGr_16|t3        -0.324    0.042   -7.741    0.000   -0.324   -0.324
+    KGr_16|t4        -0.106    0.041   -2.585    0.010   -0.106   -0.106
+    KGr_16|t5         0.431    0.042   10.142    0.000    0.431    0.431
+    KGr_17|t1        -0.212    0.041   -5.134    0.000   -0.212   -0.212
+    KGr_17|t2         0.087    0.041    2.127    0.033    0.087    0.087
+    KGr_17|t3         0.355    0.042    8.457    0.000    0.355    0.355
+    KGr_17|t4         0.603    0.044   13.737    0.000    0.603    0.603
+    KGr_17|t5         1.123    0.052   21.595    0.000    1.123    1.123
+    KGr_18|t1         0.304    0.042    7.286    0.000    0.304    0.304
+    KGr_18|t2         0.672    0.045   15.064    0.000    0.672    0.672
+    KGr_18|t3         0.883    0.047   18.614    0.000    0.883    0.883
+    KGr_18|t4         1.186    0.053   22.173    0.000    1.186    1.186
+    KGr_18|t5         1.707    0.072   23.637    0.000    1.707    1.707
+    KGr_19|t1        -0.335    0.042   -8.002    0.000   -0.335   -0.335
+    KGr_19|t2         0.074    0.041    1.800    0.072    0.074    0.074
+    KGr_19|t3         0.352    0.042    8.392    0.000    0.352    0.352
+    KGr_19|t4         0.696    0.045   15.503    0.000    0.696    0.696
+    KGr_19|t5         1.219    0.054   22.443    0.000    1.219    1.219
+    KGr_20|t1         0.147    0.041    3.565    0.000    0.147    0.147
+    KGr_20|t2         0.603    0.044   13.737    0.000    0.603    0.603
+    KGr_20|t3         0.848    0.047   18.079    0.000    0.848    0.848
+    KGr_20|t4         1.133    0.052   21.694    0.000    1.133    1.133
+    KGr_20|t5         1.582    0.066   23.812    0.000    1.582    1.582
+    KGr_21|t1        -0.375    0.042   -8.911    0.000   -0.375   -0.375
+    KGr_21|t2         0.161    0.041    3.892    0.000    0.161    0.161
+    KGr_21|t3         0.361    0.042    8.586    0.000    0.361    0.361
+    KGr_21|t4         0.616    0.044   13.991    0.000    0.616    0.616
+    KGr_21|t5         1.009    0.050   20.331    0.000    1.009    1.009
+    KGr_22|t1        -0.428    0.042  -10.078    0.000   -0.428   -0.428
+    KGr_22|t2         0.223    0.041    5.395    0.000    0.223    0.223
+    KGr_22|t3         0.577    0.044   13.228    0.000    0.577    0.577
+    KGr_22|t4         0.940    0.048   19.430    0.000    0.940    0.940
+    KGr_22|t5         1.573    0.066   23.813    0.000    1.573    1.573
+    KGr_23|t1        -0.372    0.042   -8.846    0.000   -0.372   -0.372
+    KGr_23|t2         0.123    0.041    2.977    0.003    0.123    0.123
+    KGr_23|t3         0.475    0.043   11.111    0.000    0.475    0.475
+    KGr_23|t4         0.734    0.045   16.188    0.000    0.734    0.734
+    KGr_23|t5         1.219    0.054   22.443    0.000    1.219    1.219
+    KGr_24|t1        -0.123    0.041   -2.977    0.003   -0.123   -0.123
+    KGr_24|t2         0.307    0.042    7.351    0.000    0.307    0.307
+    KGr_24|t3         0.616    0.044   13.991    0.000    0.616    0.616
+    KGr_24|t4         1.045    0.050   20.766    0.000    1.045    1.045
+    KGr_24|t5         1.652    0.070   23.753    0.000    1.652    1.652
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .KGr_13            0.621                               0.621    0.621
+   .KGr_14            0.295                               0.295    0.295
+   .KGr_15            0.446                               0.446    0.446
+   .KGr_16            0.321                               0.321    0.321
+   .KGr_17            0.440                               0.440    0.440
+   .KGr_18            0.325                               0.325    0.325
+   .KGr_19            0.336                               0.336    0.336
+   .KGr_20            0.474                               0.474    0.474
+   .KGr_21            0.352                               0.352    0.352
+   .KGr_22            0.547                               0.547    0.547
+   .KGr_23            0.373                               0.373    0.373
+   .KGr_24            0.325                               0.325    0.325
+   .Koerprgrss_rlW   22.297    0.950   23.475    0.000   22.297    0.241
+    f1                1.000                               1.000    1.000
+
+R-Square:
+                   Estimate
+    KGr_13            0.379
+    KGr_14            0.705
+    KGr_15            0.554
+    KGr_16            0.679
+    KGr_17            0.560
+    KGr_18            0.675
+    KGr_19            0.664
+    KGr_20            0.526
+    KGr_21            0.648
+    KGr_22            0.453
+    KGr_23            0.627
+    KGr_24            0.675
+    Koerprgrss_rlW    0.759
+
+Modification Indices:
+
+      lhs op                  rhs     mi    epc sepc.lv sepc.all sepc.nox
+1  KGr_13 ~~               KGr_14  2.624 -0.046  -0.046   -0.108   -0.108
+2  KGr_13 ~~               KGr_15  6.495 -0.082  -0.082   -0.156   -0.156
+3  KGr_13 ~~               KGr_16  5.322  0.078   0.078    0.174    0.174
+4  KGr_13 ~~               KGr_17  2.684 -0.053  -0.053   -0.102   -0.102
+5  KGr_13 ~~               KGr_18 12.558 -0.110  -0.110   -0.244   -0.244
+6  KGr_13 ~~               KGr_19  0.714 -0.027  -0.027   -0.058   -0.058
+7  KGr_13 ~~               KGr_20  0.984 -0.035  -0.035   -0.064   -0.064
+8  KGr_13 ~~               KGr_21 18.444 -0.154  -0.154   -0.329   -0.329
+9  KGr_13 ~~               KGr_22 22.780 -0.184  -0.184   -0.316   -0.316
+10 KGr_13 ~~               KGr_23 19.818 -0.161  -0.161   -0.335   -0.335
+11 KGr_13 ~~               KGr_24  3.258 -0.055  -0.055   -0.123   -0.123
+12 KGr_13 ~~ Koerpergroesse_realW  0.037 -0.068  -0.068   -0.018   -0.018
+13 KGr_14 ~~               KGr_15  0.624  0.021   0.021    0.059    0.059
+14 KGr_14 ~~               KGr_16  0.607 -0.016  -0.016   -0.052   -0.052
+15 KGr_14 ~~               KGr_17  0.001  0.001   0.001    0.002    0.002
+16 KGr_14 ~~               KGr_18  0.060  0.006   0.006    0.020    0.020
+17 KGr_14 ~~               KGr_19  0.656  0.018   0.018    0.058    0.058
+18 KGr_14 ~~               KGr_20  2.473  0.045   0.045    0.120    0.120
+19 KGr_14 ~~               KGr_21  1.052  0.022   0.022    0.069    0.069
+20 KGr_14 ~~               KGr_22  1.438  0.030   0.030    0.075    0.075
+21 KGr_14 ~~               KGr_23  1.193 -0.026  -0.026   -0.078   -0.078
+22 KGr_14 ~~               KGr_24  0.008 -0.002  -0.002   -0.006   -0.006
+23 KGr_14 ~~ Koerpergroesse_realW  0.020  0.047   0.047    0.018    0.018
+24 KGr_15 ~~               KGr_16 11.656  0.104   0.104    0.276    0.276
+25 KGr_15 ~~               KGr_17  1.558 -0.035  -0.035   -0.080   -0.080
+26 KGr_15 ~~               KGr_18 22.782 -0.118  -0.118   -0.309   -0.309
+27 KGr_15 ~~               KGr_19  2.998 -0.046  -0.046   -0.119   -0.119
+28 KGr_15 ~~               KGr_20 11.526 -0.092  -0.092   -0.200   -0.200
+29 KGr_15 ~~               KGr_21  7.510 -0.086  -0.086   -0.218   -0.218
+30 KGr_15 ~~               KGr_22 20.964 -0.163  -0.163   -0.330   -0.330
+31 KGr_15 ~~               KGr_23 18.598 -0.146  -0.146   -0.358   -0.358
+32 KGr_15 ~~               KGr_24  0.827 -0.023  -0.023   -0.061   -0.061
+33 KGr_15 ~~ Koerpergroesse_realW  2.827  0.586   0.586    0.186    0.186
+34 KGr_16 ~~               KGr_17  0.825  0.023   0.023    0.060    0.060
+35 KGr_16 ~~               KGr_18 16.024  0.117   0.117    0.363    0.363
+36 KGr_16 ~~               KGr_19  6.092  0.062   0.062    0.189    0.189
+37 KGr_16 ~~               KGr_20  0.456  0.020   0.020    0.052    0.052
+38 KGr_16 ~~               KGr_22 13.163  0.089   0.089    0.214    0.214
+39 KGr_16 ~~               KGr_23 36.184  0.123   0.123    0.354    0.354
+40 KGr_16 ~~               KGr_24  0.515  0.017   0.017    0.051    0.051
+41 KGr_16 ~~ Koerpergroesse_realW  0.695 -0.272  -0.272   -0.102   -0.102
+42 KGr_17 ~~               KGr_18  0.418 -0.018  -0.018   -0.047   -0.047
+43 KGr_17 ~~               KGr_19  3.225 -0.044  -0.044   -0.114   -0.114
+44 KGr_17 ~~               KGr_20 10.019  0.104   0.104    0.228    0.228
+45 KGr_17 ~~               KGr_21  1.457 -0.032  -0.032   -0.080   -0.080
+46 KGr_17 ~~               KGr_22  0.129  0.010   0.010    0.021    0.021
+47 KGr_17 ~~               KGr_23  0.488 -0.019  -0.019   -0.046   -0.046
+48 KGr_17 ~~               KGr_24  0.328  0.015   0.015    0.039    0.039
+49 KGr_17 ~~ Koerpergroesse_realW  1.028 -0.339  -0.339   -0.108   -0.108
+50 KGr_18 ~~               KGr_19  8.883 -0.069  -0.069   -0.208   -0.208
+51 KGr_18 ~~               KGr_20  1.139 -0.030  -0.030   -0.076   -0.076
+52 KGr_18 ~~               KGr_21 18.164 -0.135  -0.135   -0.400   -0.400
+53 KGr_18 ~~               KGr_22 20.144 -0.161  -0.161   -0.381   -0.381
+54 KGr_18 ~~               KGr_23 16.760 -0.127  -0.127   -0.366   -0.366
+55 KGr_18 ~~               KGr_24  2.511 -0.037  -0.037   -0.113   -0.113
+56 KGr_18 ~~ Koerpergroesse_realW  0.031  0.060   0.060    0.022    0.022
+57 KGr_19 ~~               KGr_20  0.184 -0.012  -0.012   -0.030   -0.030
+58 KGr_19 ~~               KGr_21  6.304 -0.064  -0.064   -0.187   -0.187
+59 KGr_19 ~~               KGr_22  0.347 -0.018  -0.018   -0.041   -0.041
+60 KGr_19 ~~               KGr_23  2.536 -0.043  -0.043   -0.122   -0.122
+61 KGr_19 ~~               KGr_24  0.372 -0.014  -0.014   -0.043   -0.043
+62 KGr_19 ~~ Koerpergroesse_realW  0.156  0.135   0.135    0.049    0.049
+63 KGr_20 ~~               KGr_21  5.772 -0.075  -0.075   -0.184   -0.184
+64 KGr_20 ~~               KGr_22  6.791 -0.096  -0.096   -0.189   -0.189
+65 KGr_20 ~~               KGr_23  0.521 -0.024  -0.024   -0.056   -0.056
+66 KGr_20 ~~               KGr_24 20.751 -0.106  -0.106   -0.269   -0.269
+67 KGr_20 ~~ Koerpergroesse_realW  5.280  0.833   0.833    0.256    0.256
+68 KGr_21 ~~               KGr_22 48.094 -0.162  -0.162   -0.370   -0.370
+69 KGr_21 ~~               KGr_23 38.251 -0.129  -0.129   -0.355   -0.355
+70 KGr_21 ~~               KGr_24  6.632 -0.066  -0.066   -0.196   -0.196
+71 KGr_21 ~~ Koerpergroesse_realW  1.065  0.340   0.340    0.121    0.121
+72 KGr_22 ~~               KGr_24 11.668 -0.109  -0.109   -0.258   -0.258
+73 KGr_22 ~~ Koerpergroesse_realW  0.757  0.297   0.297    0.085    0.085
+74 KGr_23 ~~               KGr_24  8.600 -0.075  -0.075   -0.217   -0.217
+75 KGr_23 ~~ Koerpergroesse_realW  0.223  0.157   0.157    0.054    0.054
+76 KGr_24 ~~ Koerpergroesse_realW  0.005  0.024   0.024    0.009    0.009</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1G2, <span class="at">fit.measures=</span><span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>, <span class="at">modindices =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-19 ended normally after 27 iterations
+
+  Estimator                                       DWLS
+  Optimization method                           NLMINB
+  Number of model parameters                        29
+
+  Number of observations                           921
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                               245.536     339.111
+  Degrees of freedom                                63          63
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  0.766
+  Shift parameter                                           18.489
+    simple second-order correction                                
+
+Model Test Baseline Model:
+
+  Test statistic                             25383.952   12259.663
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  2.077
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.993       0.977
+  Tucker-Lewis Index (TLI)                       0.991       0.972
+                                                                  
+  Robust Comparative Fit Index (CFI)                            NA
+  Robust Tucker-Lewis Index (TLI)                               NA
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.056       0.069
+  90 Percent confidence interval - lower         0.049       0.062
+  90 Percent confidence interval - upper         0.064       0.076
+  P-value H_0: RMSEA &lt;= 0.050                    0.083       0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.000       0.006
+                                                                  
+  Robust RMSEA                                                  NA
+  90 Percent confidence interval - lower                        NA
+  90 Percent confidence interval - upper                        NA
+  P-value H_0: Robust RMSEA &lt;= 0.050                            NA
+  P-value H_0: Robust RMSEA &gt;= 0.080                            NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.080       0.080
+
+Parameter Estimates:
+
+  Parameterization                               Delta
+  Standard errors                           Robust.sem
+  Information                                 Expected
+  Information saturated (h1) model        Unstructured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  f1 =~                                                                 
+    KGr_13            0.782    0.036   21.504    0.000    0.782    0.782
+    KGr_14            0.823    0.021   38.786    0.000    0.823    0.823
+    KGr_15            0.788    0.032   24.428    0.000    0.788    0.788
+    KGr_16            0.854    0.021   41.631    0.000    0.854    0.854
+    KGr_17            0.785    0.023   33.670    0.000    0.785    0.785
+    KGr_18            0.880    0.022   39.918    0.000    0.880    0.880
+    KGr_19            0.850    0.019   45.146    0.000    0.850    0.850
+    KGr_20            0.627    0.036   17.404    0.000    0.627    0.627
+    KGr_21           -0.859    0.018  -47.270    0.000   -0.859   -0.859
+    KGr_22           -0.799    0.026  -30.665    0.000   -0.799   -0.799
+    KGr_23           -0.844    0.020  -43.183    0.000   -0.844   -0.844
+    KGr_24            0.881    0.019   47.024    0.000    0.881    0.881
+    Koerprgrss_rlW    8.380    0.287   29.206    0.000    8.380    0.884
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .KGr_22 ~~                                                             
+   .KGr_23            0.183    0.030    6.150    0.000    0.183    0.568
+ .KGr_16 ~~                                                             
+   .KGr_21           -0.135    0.024   -5.557    0.000   -0.135   -0.506
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .Koerprgrss_rlW  173.718    0.319  544.623    0.000  173.718   18.320
+
+Thresholds:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    KGr_13|t1         1.320    0.057   22.968    0.000    1.320    1.320
+    KGr_14|t1         0.425    0.043    9.947    0.000    0.425    0.425
+    KGr_15|t1         1.135    0.053   21.577    0.000    1.135    1.135
+    KGr_16|t1        -0.389    0.042   -9.164    0.000   -0.389   -0.389
+    KGr_17|t1         0.288    0.042    6.874    0.000    0.288    0.288
+    KGr_18|t1         0.948    0.049   19.415    0.000    0.948    0.948
+    KGr_19|t1         0.413    0.043    9.686    0.000    0.413    0.413
+    KGr_20|t1         0.890    0.048   18.597    0.000    0.890    0.890
+    KGr_21|t1         0.386    0.042    9.099    0.000    0.386    0.386
+    KGr_22|t1         0.686    0.045   15.219    0.000    0.686    0.686
+    KGr_23|t1         0.516    0.043   11.894    0.000    0.516    0.516
+    KGr_24|t1         0.665    0.045   14.840    0.000    0.665    0.665
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .KGr_13            0.389                               0.389    0.389
+   .KGr_14            0.323                               0.323    0.323
+   .KGr_15            0.378                               0.378    0.378
+   .KGr_16            0.271                               0.271    0.271
+   .KGr_17            0.383                               0.383    0.383
+   .KGr_18            0.225                               0.225    0.225
+   .KGr_19            0.278                               0.278    0.278
+   .KGr_20            0.607                               0.607    0.607
+   .KGr_21            0.262                               0.262    0.262
+   .KGr_22            0.362                               0.362    0.362
+   .KGr_23            0.287                               0.287    0.287
+   .KGr_24            0.223                               0.223    0.223
+   .Koerprgrss_rlW   19.683    1.051   18.723    0.000   19.683    0.219
+    f1                1.000                               1.000    1.000
+
+R-Square:
+                   Estimate
+    KGr_13            0.611
+    KGr_14            0.677
+    KGr_15            0.622
+    KGr_16            0.729
+    KGr_17            0.617
+    KGr_18            0.775
+    KGr_19            0.722
+    KGr_20            0.393
+    KGr_21            0.738
+    KGr_22            0.638
+    KGr_23            0.713
+    KGr_24            0.777
+    Koerprgrss_rlW    0.781
+
+Modification Indices:
+
+      lhs op                  rhs     mi    epc sepc.lv sepc.all sepc.nox
+1  KGr_13 ~~               KGr_14  0.916 -0.050  -0.050   -0.141   -0.141
+2  KGr_13 ~~               KGr_15  0.985 -0.056  -0.056   -0.146   -0.146
+3  KGr_13 ~~               KGr_16  7.318  0.200   0.200    0.617    0.617
+4  KGr_13 ~~               KGr_17  0.485 -0.039  -0.039   -0.100   -0.100
+5  KGr_13 ~~               KGr_18  4.914 -0.102  -0.102   -0.345   -0.345
+6  KGr_13 ~~               KGr_19  0.321  0.031   0.031    0.096    0.096
+7  KGr_13 ~~               KGr_20  2.226  0.106   0.106    0.219    0.219
+8  KGr_13 ~~               KGr_21  1.942 -0.102  -0.102   -0.318   -0.318
+9  KGr_13 ~~               KGr_22  0.530 -0.063  -0.063   -0.169   -0.169
+10 KGr_13 ~~               KGr_23  3.171 -0.139  -0.139   -0.415   -0.415
+11 KGr_13 ~~               KGr_24  0.001 -0.002  -0.002   -0.006   -0.006
+12 KGr_13 ~~ Koerpergroesse_realW  0.442 -0.275  -0.275   -0.099   -0.099
+13 KGr_14 ~~               KGr_15  4.965 -0.099  -0.099   -0.282   -0.282
+14 KGr_14 ~~               KGr_16  2.369  0.067   0.067    0.227    0.227
+15 KGr_14 ~~               KGr_17  0.726 -0.033  -0.033   -0.094   -0.094
+16 KGr_14 ~~               KGr_18  0.657 -0.032  -0.032   -0.119   -0.119
+17 KGr_14 ~~               KGr_19  0.203  0.017   0.017    0.058    0.058
+18 KGr_14 ~~               KGr_20  1.538 -0.061  -0.061   -0.138   -0.138
+19 KGr_14 ~~               KGr_21  1.986 -0.061  -0.061   -0.209   -0.209
+20 KGr_14 ~~               KGr_22  4.159 -0.105  -0.105   -0.308   -0.308
+21 KGr_14 ~~               KGr_23  3.186 -0.083  -0.083   -0.271   -0.271
+22 KGr_14 ~~               KGr_24  5.084 -0.078  -0.078   -0.289   -0.289
+23 KGr_14 ~~ Koerpergroesse_realW  1.907  0.521   0.521    0.207    0.207
+24 KGr_15 ~~               KGr_16  5.981  0.159   0.159    0.495    0.495
+25 KGr_15 ~~               KGr_17  0.368  0.032   0.032    0.085    0.085
+26 KGr_15 ~~               KGr_18  0.100 -0.015  -0.015   -0.052   -0.052
+27 KGr_15 ~~               KGr_19  6.570 -0.109  -0.109   -0.337   -0.337
+28 KGr_15 ~~               KGr_20  7.715 -0.146  -0.146   -0.306   -0.306
+29 KGr_15 ~~               KGr_21  9.942 -0.207  -0.207   -0.658   -0.658
+30 KGr_15 ~~               KGr_22  4.632 -0.160  -0.160   -0.434   -0.434
+31 KGr_15 ~~               KGr_23  5.127 -0.155  -0.155   -0.470   -0.470
+32 KGr_15 ~~               KGr_24  3.152 -0.076  -0.076   -0.260   -0.260
+33 KGr_15 ~~ Koerpergroesse_realW  6.479  1.119   1.119    0.410    0.410
+34 KGr_16 ~~               KGr_17  0.108 -0.013  -0.013   -0.041   -0.041
+35 KGr_16 ~~               KGr_18 11.032  0.189   0.189    0.765    0.765
+36 KGr_16 ~~               KGr_19  5.922  0.108   0.108    0.392    0.392
+37 KGr_16 ~~               KGr_20  4.096  0.121   0.121    0.298    0.298
+38 KGr_16 ~~               KGr_22 19.642  0.157   0.157    0.500    0.500
+39 KGr_16 ~~               KGr_23 12.812  0.120   0.120    0.430    0.430
+40 KGr_16 ~~               KGr_24  4.050  0.093   0.093    0.379    0.379
+41 KGr_16 ~~ Koerpergroesse_realW  4.249 -0.737  -0.737   -0.319   -0.319
+42 KGr_17 ~~               KGr_18  1.409 -0.049  -0.049   -0.166   -0.166
+43 KGr_17 ~~               KGr_19  0.838 -0.035  -0.035   -0.106   -0.106
+44 KGr_17 ~~               KGr_20  0.490  0.038   0.038    0.078    0.078
+45 KGr_17 ~~               KGr_21  0.986 -0.042  -0.042   -0.134   -0.134
+46 KGr_17 ~~               KGr_22  1.695 -0.064  -0.064   -0.173   -0.173
+47 KGr_17 ~~               KGr_23  2.593 -0.074  -0.074   -0.222   -0.222
+48 KGr_17 ~~               KGr_24  0.192 -0.017  -0.017   -0.058   -0.058
+49 KGr_17 ~~ Koerpergroesse_realW  0.014  0.045   0.045    0.016    0.016
+50 KGr_18 ~~               KGr_19  5.060 -0.081  -0.081   -0.322   -0.322
+51 KGr_18 ~~               KGr_20  0.887 -0.049  -0.049   -0.133   -0.133
+52 KGr_18 ~~               KGr_21  4.234 -0.112  -0.112   -0.461   -0.461
+53 KGr_18 ~~               KGr_22 16.880 -0.277  -0.277   -0.971   -0.971
+54 KGr_18 ~~               KGr_23  6.419 -0.150  -0.150   -0.591   -0.591
+55 KGr_18 ~~               KGr_24  1.748 -0.047  -0.047   -0.211   -0.211
+56 KGr_18 ~~ Koerpergroesse_realW  0.374  0.246   0.246    0.117    0.117
+57 KGr_19 ~~               KGr_20  1.179 -0.053  -0.053   -0.130   -0.130
+58 KGr_19 ~~               KGr_21  4.518 -0.092  -0.092   -0.341   -0.341
+59 KGr_19 ~~               KGr_22  2.859 -0.084  -0.084   -0.267   -0.267
+60 KGr_19 ~~               KGr_23  1.148 -0.047  -0.047   -0.166   -0.166
+61 KGr_19 ~~               KGr_24  0.609 -0.028  -0.028   -0.111   -0.111
+62 KGr_19 ~~ Koerpergroesse_realW  0.001  0.013   0.013    0.005    0.005
+63 KGr_20 ~~               KGr_21  5.225 -0.137  -0.137   -0.344   -0.344
+64 KGr_20 ~~               KGr_22  3.502 -0.124  -0.124   -0.264   -0.264
+65 KGr_20 ~~               KGr_23  0.185 -0.026  -0.026   -0.062   -0.062
+66 KGr_20 ~~               KGr_24  9.704 -0.140  -0.140   -0.381   -0.381
+67 KGr_20 ~~ Koerpergroesse_realW  5.874  1.199   1.199    0.347    0.347
+68 KGr_21 ~~               KGr_22 20.290 -0.158  -0.158   -0.514   -0.514
+69 KGr_21 ~~               KGr_23 12.714 -0.119  -0.119   -0.434   -0.434
+70 KGr_21 ~~               KGr_24  5.637 -0.111  -0.111   -0.459   -0.459
+71 KGr_21 ~~ Koerpergroesse_realW  4.404  0.756   0.756    0.333    0.333
+72 KGr_22 ~~               KGr_24 10.543 -0.186  -0.186   -0.655   -0.655
+73 KGr_22 ~~ Koerpergroesse_realW  0.510  0.277   0.277    0.104    0.104
+74 KGr_23 ~~               KGr_24  5.221 -0.114  -0.114   -0.449   -0.449
+75 KGr_23 ~~ Koerpergroesse_realW  1.123  0.393   0.393    0.165    0.165
+76 KGr_24 ~~ Koerpergroesse_realW  1.382  0.442   0.442    0.211    0.211</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1Ge6, <span class="at">fit.measures=</span><span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>, <span class="at">modindices =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-19 ended normally after 32 iterations
+
+  Estimator                                       DWLS
+  Optimization method                           NLMINB
+  Number of model parameters                        77
+
+  Number of observations                           933
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                               368.026     686.681
+  Degrees of freedom                                63          63
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  0.547
+  Shift parameter                                           13.873
+    simple second-order correction                                
+
+Model Test Baseline Model:
+
+  Test statistic                             45552.959   18030.793
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  2.533
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.993       0.965
+  Tucker-Lewis Index (TLI)                       0.992       0.957
+                                                                  
+  Robust Comparative Fit Index (CFI)                            NA
+  Robust Tucker-Lewis Index (TLI)                               NA
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.072       0.103
+  90 Percent confidence interval - lower         0.065       0.096
+  90 Percent confidence interval - upper         0.079       0.110
+  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.035       1.000
+                                                                  
+  Robust RMSEA                                                  NA
+  90 Percent confidence interval - lower                        NA
+  90 Percent confidence interval - upper                        NA
+  P-value H_0: Robust RMSEA &lt;= 0.050                            NA
+  P-value H_0: Robust RMSEA &gt;= 0.080                            NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.061       0.061
+
+Parameter Estimates:
+
+  Parameterization                               Delta
+  Standard errors                           Robust.sem
+  Information                                 Expected
+  Information saturated (h1) model        Unstructured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  f1 =~                                                                 
+    KGe_25            0.571    0.036   16.029    0.000    0.571    0.571
+    KGe_26            0.510    0.027   18.870    0.000    0.510    0.510
+    KGe_27            0.800    0.015   54.663    0.000    0.800    0.800
+    KGe_28            0.958    0.007  140.932    0.000    0.958    0.958
+    KGe_29            0.913    0.008  111.708    0.000    0.913    0.913
+    KGe_30            0.861    0.011   81.763    0.000    0.861    0.861
+    KGe_31           -0.719    0.017  -41.240    0.000   -0.719   -0.719
+    KGe_32           -0.627    0.021  -30.200    0.000   -0.627   -0.627
+    KGe_33           -0.427    0.028  -15.519    0.000   -0.427   -0.427
+    KGe_34            0.692    0.021   32.547    0.000    0.692    0.692
+    KGe_35            0.264    0.033    8.113    0.000    0.264    0.264
+    KGe_36            0.678    0.019   34.839    0.000    0.678    0.678
+    Korprgwcht_rlW   10.830    0.374   28.938    0.000   10.830    0.700
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .KGe_30 ~~                                                             
+   .KGe_36            0.206    0.016   12.590    0.000    0.206    0.550
+ .KGe_27 ~~                                                             
+   .KGe_31           -0.138    0.015   -9.488    0.000   -0.138   -0.331
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .Korprgwcht_rlW   70.540    0.591  119.407    0.000   70.540    4.557
+
+Thresholds:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    KGe_25|t1         0.923    0.048   19.199    0.000    0.923    0.923
+    KGe_25|t2         1.462    0.062   23.679    0.000    1.462    1.462
+    KGe_25|t3         1.673    0.071   23.715    0.000    1.673    1.673
+    KGe_25|t4         2.025    0.092   21.916    0.000    2.025    2.025
+    KGe_25|t5         2.199    0.108   20.357    0.000    2.199    2.199
+    KGe_26|t1        -0.180    0.041   -4.350    0.000   -0.180   -0.180
+    KGe_26|t2         0.370    0.042    8.781    0.000    0.370    0.370
+    KGe_26|t3         0.777    0.046   16.927    0.000    0.777    0.777
+    KGe_26|t4         1.191    0.054   22.219    0.000    1.191    1.191
+    KGe_26|t5         1.546    0.065   23.804    0.000    1.546    1.546
+    KGe_27|t1        -0.299    0.042   -7.155    0.000   -0.299   -0.299
+    KGe_27|t2         0.338    0.042    8.067    0.000    0.338    0.338
+    KGe_27|t3         0.821    0.047   17.658    0.000    0.821    0.821
+    KGe_27|t4         1.265    0.056   22.780    0.000    1.265    1.265
+    KGe_27|t5         1.807    0.078   23.279    0.000    1.807    1.807
+    KGe_28|t1         0.185    0.041    4.480    0.000    0.185    0.185
+    KGe_28|t2         0.675    0.045   15.127    0.000    0.675    0.675
+    KGe_28|t3         1.000    0.049   20.220    0.000    1.000    1.000
+    KGe_28|t4         1.361    0.058   23.322    0.000    1.361    1.361
+    KGe_28|t5         1.707    0.072   23.637    0.000    1.707    1.707
+    KGe_29|t1        -0.265    0.042   -6.373    0.000   -0.265   -0.265
+    KGe_29|t2         0.352    0.042    8.392    0.000    0.352    0.352
+    KGe_29|t3         0.713    0.045   15.815    0.000    0.713    0.713
+    KGe_29|t4         1.164    0.053   21.985    0.000    1.164    1.164
+    KGe_29|t5         1.582    0.066   23.812    0.000    1.582    1.582
+    KGe_30|t1        -0.237    0.041   -5.721    0.000   -0.237   -0.237
+    KGe_30|t2         0.193    0.041    4.676    0.000    0.193    0.193
+    KGe_30|t3         0.431    0.042   10.142    0.000    0.431    0.431
+    KGe_30|t4         0.855    0.047   18.199    0.000    0.855    0.855
+    KGe_30|t5         1.242    0.055   22.615    0.000    1.242    1.242
+    KGe_31|t1        -1.074    0.051  -21.084    0.000   -1.074   -1.074
+    KGe_31|t2        -0.685    0.045  -15.315    0.000   -0.685   -0.685
+    KGe_31|t3        -0.212    0.041   -5.134    0.000   -0.212   -0.212
+    KGe_31|t4         0.226    0.041    5.460    0.000    0.226    0.226
+    KGe_31|t5         1.098    0.051   21.343    0.000    1.098    1.098
+    KGe_32|t1        -1.439    0.061  -23.618    0.000   -1.439   -1.439
+    KGe_32|t2        -0.840    0.047  -17.959    0.000   -0.840   -0.840
+    KGe_32|t3        -0.413    0.042   -9.754    0.000   -0.413   -0.413
+    KGe_32|t4         0.077    0.041    1.865    0.062    0.077    0.077
+    KGe_32|t5         0.953    0.049   19.601    0.000    0.953    0.953
+    KGe_33|t1        -1.143    0.052  -21.793    0.000   -1.143   -1.143
+    KGe_33|t2        -0.561    0.043  -12.909    0.000   -0.561   -0.561
+    KGe_33|t3        -0.031    0.041   -0.753    0.452   -0.031   -0.031
+    KGe_33|t4         0.466    0.043   10.918    0.000    0.466    0.466
+    KGe_33|t5         1.103    0.052   21.394    0.000    1.103    1.103
+    KGe_34|t1        -0.001    0.041   -0.033    0.974   -0.001   -0.001
+    KGe_34|t2         0.692    0.045   15.440    0.000    0.692    0.692
+    KGe_34|t3         1.164    0.053   21.985    0.000    1.164    1.164
+    KGe_34|t4         1.546    0.065   23.804    0.000    1.546    1.546
+    KGe_34|t5         2.046    0.094   21.745    0.000    2.046    2.046
+    KGe_35|t1        -0.524    0.043  -12.140    0.000   -0.524   -0.524
+    KGe_35|t2        -0.063    0.041   -1.538    0.124   -0.063   -0.063
+    KGe_35|t3         0.378    0.042    8.976    0.000    0.378    0.378
+    KGe_35|t4         0.762    0.046   16.682    0.000    0.762    0.762
+    KGe_35|t5         1.236    0.055   22.573    0.000    1.236    1.236
+    KGe_36|t1        -0.460    0.043  -10.789    0.000   -0.460   -0.460
+    KGe_36|t2         0.090    0.041    2.192    0.028    0.090    0.090
+    KGe_36|t3         0.384    0.042    9.106    0.000    0.384    0.384
+    KGe_36|t4         0.773    0.046   16.866    0.000    0.773    0.773
+    KGe_36|t5         1.277    0.056   22.860    0.000    1.277    1.277
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .KGe_25            0.674                               0.674    0.674
+   .KGe_26            0.740                               0.740    0.740
+   .KGe_27            0.360                               0.360    0.360
+   .KGe_28            0.082                               0.082    0.082
+   .KGe_29            0.167                               0.167    0.167
+   .KGe_30            0.259                               0.259    0.259
+   .KGe_31            0.482                               0.482    0.482
+   .KGe_32            0.607                               0.607    0.607
+   .KGe_33            0.817                               0.817    0.817
+   .KGe_34            0.522                               0.522    0.522
+   .KGe_35            0.930                               0.930    0.930
+   .KGe_36            0.540                               0.540    0.540
+   .Korprgwcht_rlW  122.360    5.612   21.804    0.000  122.360    0.511
+    f1                1.000                               1.000    1.000
+
+R-Square:
+                   Estimate
+    KGe_25            0.326
+    KGe_26            0.260
+    KGe_27            0.640
+    KGe_28            0.918
+    KGe_29            0.833
+    KGe_30            0.741
+    KGe_31            0.518
+    KGe_32            0.393
+    KGe_33            0.183
+    KGe_34            0.478
+    KGe_35            0.070
+    KGe_36            0.460
+    Korprgwcht_rlW    0.489
+
+Modification Indices:
+
+      lhs op                  rhs     mi    epc sepc.lv sepc.all sepc.nox
+1  KGe_25 ~~               KGe_26  2.295 -0.066  -0.066   -0.093   -0.093
+2  KGe_25 ~~               KGe_27  0.174 -0.017  -0.017   -0.035   -0.035
+3  KGe_25 ~~               KGe_28  0.362  0.026   0.026    0.109    0.109
+4  KGe_25 ~~               KGe_29  0.590  0.033   0.033    0.098    0.098
+5  KGe_25 ~~               KGe_30  2.514  0.075   0.075    0.179    0.179
+6  KGe_25 ~~               KGe_31  3.962 -0.085  -0.085   -0.149   -0.149
+7  KGe_25 ~~               KGe_32  0.574  0.030   0.030    0.047    0.047
+8  KGe_25 ~~               KGe_33  0.525  0.034   0.034    0.045    0.045
+9  KGe_25 ~~               KGe_34 21.353 -0.176  -0.176   -0.298   -0.298
+10 KGe_25 ~~               KGe_35  2.784 -0.080  -0.080   -0.101   -0.101
+11 KGe_25 ~~               KGe_36  5.367  0.107   0.107    0.177    0.177
+12 KGe_25 ~~ Koerpergewicht_realW  0.440  0.420   0.420    0.046    0.046
+13 KGe_26 ~~               KGe_27  0.057  0.008   0.008    0.015    0.015
+14 KGe_26 ~~               KGe_28  1.110 -0.034  -0.034   -0.136   -0.136
+15 KGe_26 ~~               KGe_29  0.242  0.015   0.015    0.043    0.043
+16 KGe_26 ~~               KGe_30  6.548 -0.076  -0.076   -0.173   -0.173
+17 KGe_26 ~~               KGe_31  6.222 -0.084  -0.084   -0.140   -0.140
+18 KGe_26 ~~               KGe_32  0.803 -0.029  -0.029   -0.043   -0.043
+19 KGe_26 ~~               KGe_33  7.920 -0.099  -0.099   -0.128   -0.128
+20 KGe_26 ~~               KGe_34  1.348  0.041   0.041    0.065    0.065
+21 KGe_26 ~~               KGe_35 15.020 -0.136  -0.136   -0.164   -0.164
+22 KGe_26 ~~               KGe_36  8.238 -0.087  -0.087   -0.137   -0.137
+23 KGe_26 ~~ Koerpergewicht_realW 12.114  1.841   1.841    0.193    0.193
+24 KGe_27 ~~               KGe_28  0.604  0.017   0.017    0.099    0.099
+25 KGe_27 ~~               KGe_29  0.976 -0.020  -0.020   -0.083   -0.083
+26 KGe_27 ~~               KGe_30  6.930  0.066   0.066    0.215    0.215
+27 KGe_27 ~~               KGe_32  1.198  0.029   0.029    0.063    0.063
+28 KGe_27 ~~               KGe_33  0.542  0.024   0.024    0.044    0.044
+29 KGe_27 ~~               KGe_34  2.634 -0.043  -0.043   -0.099   -0.099
+30 KGe_27 ~~               KGe_35  1.462  0.045   0.045    0.077    0.077
+31 KGe_27 ~~               KGe_36  0.676  0.023   0.023    0.052    0.052
+32 KGe_27 ~~ Koerpergewicht_realW  1.733 -0.629  -0.629   -0.095   -0.095
+33 KGe_28 ~~               KGe_29  2.424  0.029   0.029    0.250    0.250
+34 KGe_28 ~~               KGe_30 41.901 -0.120  -0.120   -0.818   -0.818
+35 KGe_28 ~~               KGe_31  1.246 -0.029  -0.029   -0.147   -0.147
+36 KGe_28 ~~               KGe_32  6.326 -0.074  -0.074   -0.329   -0.329
+37 KGe_28 ~~               KGe_33 15.994 -0.153  -0.153   -0.588   -0.588
+38 KGe_28 ~~               KGe_34 12.987  0.110   0.110    0.531    0.531
+39 KGe_28 ~~               KGe_35  0.497  0.028   0.028    0.102    0.102
+40 KGe_28 ~~               KGe_36 10.398 -0.079  -0.079   -0.372   -0.372
+41 KGe_28 ~~ Koerpergewicht_realW 14.949  2.002   2.002    0.630    0.630
+42 KGe_29 ~~               KGe_30  1.022 -0.020  -0.020   -0.095   -0.095
+43 KGe_29 ~~               KGe_31  1.504  0.028   0.028    0.098    0.098
+44 KGe_29 ~~               KGe_32  3.427 -0.049  -0.049   -0.154   -0.154
+45 KGe_29 ~~               KGe_33  5.205 -0.077  -0.077   -0.209   -0.209
+46 KGe_29 ~~               KGe_34  0.000  0.000   0.000    0.001    0.001
+47 KGe_29 ~~               KGe_35  0.569  0.028   0.028    0.071    0.071
+48 KGe_29 ~~               KGe_36  4.564 -0.052  -0.052   -0.172   -0.172
+49 KGe_29 ~~ Koerpergewicht_realW  0.060  0.116   0.116    0.026    0.026
+50 KGe_30 ~~               KGe_31  0.747 -0.022  -0.022   -0.062   -0.062
+51 KGe_30 ~~               KGe_32 10.659 -0.097  -0.097   -0.244   -0.244
+52 KGe_30 ~~               KGe_33 17.094 -0.147  -0.147   -0.320   -0.320
+53 KGe_30 ~~               KGe_34 27.984  0.170   0.170    0.462    0.462
+54 KGe_30 ~~               KGe_35  0.203 -0.016  -0.016   -0.033   -0.033
+55 KGe_30 ~~ Koerpergewicht_realW 11.635  1.808   1.808    0.321    0.321
+56 KGe_31 ~~               KGe_32  6.680 -0.066  -0.066   -0.122   -0.122
+57 KGe_31 ~~               KGe_33  0.799 -0.027  -0.027   -0.043   -0.043
+58 KGe_31 ~~               KGe_34  1.149 -0.032  -0.032   -0.064   -0.064
+59 KGe_31 ~~               KGe_35  0.715 -0.030  -0.030   -0.044   -0.044
+60 KGe_31 ~~               KGe_36  0.007 -0.002  -0.002   -0.004   -0.004
+61 KGe_31 ~~ Koerpergewicht_realW  3.194  0.823   0.823    0.107    0.107
+62 KGe_32 ~~               KGe_33 17.772 -0.122  -0.122   -0.173   -0.173
+63 KGe_32 ~~               KGe_34  6.277  0.069   0.069    0.123    0.123
+64 KGe_32 ~~               KGe_35  0.050  0.007   0.007    0.010    0.010
+65 KGe_32 ~~               KGe_36  9.513 -0.098  -0.098   -0.172   -0.172
+66 KGe_32 ~~ Koerpergewicht_realW 10.653  1.493   1.493    0.173    0.173
+67 KGe_33 ~~               KGe_34 17.971  0.139   0.139    0.213    0.213
+68 KGe_33 ~~               KGe_35  1.389 -0.042  -0.042   -0.048   -0.048
+69 KGe_33 ~~               KGe_36  3.934 -0.069  -0.069   -0.104   -0.104
+70 KGe_33 ~~ Koerpergewicht_realW 27.834  2.494   2.494    0.249    0.249
+71 KGe_34 ~~               KGe_35  1.148 -0.039  -0.039   -0.056   -0.056
+72 KGe_34 ~~               KGe_36  6.132  0.083   0.083    0.156    0.156
+73 KGe_34 ~~ Koerpergewicht_realW 22.622 -2.228  -2.228   -0.279   -0.279
+74 KGe_35 ~~               KGe_36  0.160  0.014   0.014    0.020    0.020
+75 KGe_35 ~~ Koerpergewicht_realW  0.242  0.259   0.259    0.024    0.024
+76 KGe_36 ~~ Koerpergewicht_realW  9.814  1.708   1.708    0.210    0.210</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1Ge2, <span class="at">fit.measures=</span><span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>, <span class="at">modindices =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-19 ended normally after 23 iterations
+
+  Estimator                                       DWLS
+  Optimization method                           NLMINB
+  Number of model parameters                        29
+
+  Number of observations                           921
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                               162.953     240.293
+  Degrees of freedom                                63          63
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  0.714
+  Shift parameter                                           12.045
+    simple second-order correction                                
+
+Model Test Baseline Model:
+
+  Test statistic                             11668.046    6695.698
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  1.751
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.991       0.973
+  Tucker-Lewis Index (TLI)                       0.989       0.967
+                                                                  
+  Robust Comparative Fit Index (CFI)                            NA
+  Robust Tucker-Lewis Index (TLI)                               NA
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.042       0.055
+  90 Percent confidence interval - lower         0.034       0.048
+  90 Percent confidence interval - upper         0.049       0.063
+  P-value H_0: RMSEA &lt;= 0.050                    0.962       0.114
+  P-value H_0: RMSEA &gt;= 0.080                    0.000       0.000
+                                                                  
+  Robust RMSEA                                                  NA
+  90 Percent confidence interval - lower                        NA
+  90 Percent confidence interval - upper                        NA
+  P-value H_0: Robust RMSEA &lt;= 0.050                            NA
+  P-value H_0: Robust RMSEA &gt;= 0.080                            NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.074       0.074
+
+Parameter Estimates:
+
+  Parameterization                               Delta
+  Standard errors                           Robust.sem
+  Information                                 Expected
+  Information saturated (h1) model        Unstructured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  f1 =~                                                                 
+    KGe_25            0.572    0.072    7.970    0.000    0.572    0.572
+    KGe_26            0.462    0.044   10.399    0.000    0.462    0.462
+    KGe_27            0.817    0.029   27.848    0.000    0.817    0.817
+    KGe_28            0.938    0.020   46.321    0.000    0.938    0.938
+    KGe_29            0.969    0.014   68.277    0.000    0.969    0.969
+    KGe_30            0.832    0.022   37.533    0.000    0.832    0.832
+    KGe_31           -0.741    0.029  -25.552    0.000   -0.741   -0.741
+    KGe_32           -0.664    0.034  -19.661    0.000   -0.664   -0.664
+    KGe_33           -0.433    0.041  -10.540    0.000   -0.433   -0.433
+    KGe_34            0.626    0.051   12.166    0.000    0.626    0.626
+    KGe_35            0.248    0.048    5.211    0.000    0.248    0.248
+    KGe_36            0.582    0.037   15.607    0.000    0.582    0.582
+    Korprgwcht_rlW   10.751    0.451   23.828    0.000   10.751    0.717
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .KGe_30 ~~                                                             
+   .KGe_36            0.318    0.034    9.327    0.000    0.318    0.706
+ .KGe_27 ~~                                                             
+   .KGe_31           -0.213    0.040   -5.322    0.000   -0.213   -0.552
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .Korprgwcht_rlW   70.174    0.570  123.056    0.000   70.174    4.677
+
+Thresholds:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    KGe_25|t1         1.844    0.080   22.951    0.000    1.844    1.844
+    KGe_26|t1         0.738    0.046   16.159    0.000    0.738    0.738
+    KGe_27|t1         1.001    0.050   20.095    0.000    1.001    1.001
+    KGe_28|t1         1.240    0.055   22.457    0.000    1.240    1.240
+    KGe_29|t1         0.866    0.047   18.240    0.000    0.866    0.866
+    KGe_30|t1         0.497    0.043   11.506    0.000    0.497    0.497
+    KGe_31|t1        -0.113    0.041   -2.733    0.006   -0.113   -0.113
+    KGe_32|t1        -0.507    0.043  -11.700    0.000   -0.507   -0.507
+    KGe_33|t1        -0.026    0.041   -0.626    0.531   -0.026   -0.026
+    KGe_34|t1         1.448    0.062   23.489    0.000    1.448    1.448
+    KGe_35|t1         0.494    0.043   11.441    0.000    0.494    0.494
+    KGe_36|t1         0.343    0.042    8.118    0.000    0.343    0.343
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .KGe_25            0.672                               0.672    0.672
+   .KGe_26            0.786                               0.786    0.786
+   .KGe_27            0.333                               0.333    0.333
+   .KGe_28            0.119                               0.119    0.119
+   .KGe_29            0.061                               0.061    0.061
+   .KGe_30            0.307                               0.307    0.307
+   .KGe_31            0.450                               0.450    0.450
+   .KGe_32            0.559                               0.559    0.559
+   .KGe_33            0.813                               0.813    0.813
+   .KGe_34            0.608                               0.608    0.608
+   .KGe_35            0.938                               0.938    0.938
+   .KGe_36            0.662                               0.662    0.662
+   .Korprgwcht_rlW  109.490    5.858   18.690    0.000  109.490    0.486
+    f1                1.000                               1.000    1.000
+
+R-Square:
+                   Estimate
+    KGe_25            0.328
+    KGe_26            0.214
+    KGe_27            0.667
+    KGe_28            0.881
+    KGe_29            0.939
+    KGe_30            0.693
+    KGe_31            0.550
+    KGe_32            0.441
+    KGe_33            0.187
+    KGe_34            0.392
+    KGe_35            0.062
+    KGe_36            0.338
+    Korprgwcht_rlW    0.514
+
+Modification Indices:
+
+      lhs op                  rhs     mi    epc sepc.lv sepc.all sepc.nox
+1  KGe_25 ~~               KGe_26  1.226 -0.106  -0.106   -0.146   -0.146
+2  KGe_25 ~~               KGe_27  0.029 -0.016  -0.016   -0.034   -0.034
+3  KGe_25 ~~               KGe_28  1.727  0.139   0.139    0.490    0.490
+4  KGe_25 ~~               KGe_29  0.841 -0.078  -0.078   -0.383   -0.383
+5  KGe_25 ~~               KGe_30  1.608  0.124   0.124    0.272    0.272
+6  KGe_25 ~~               KGe_31  1.366 -0.118  -0.118   -0.214   -0.214
+7  KGe_25 ~~               KGe_32  1.570 -0.126  -0.126   -0.205   -0.205
+8  KGe_25 ~~               KGe_33  0.006 -0.008  -0.008   -0.011   -0.011
+9  KGe_25 ~~               KGe_34  2.944 -0.170  -0.170   -0.265   -0.265
+10 KGe_25 ~~               KGe_35  0.662 -0.081  -0.081   -0.102   -0.102
+11 KGe_25 ~~               KGe_36  0.203 -0.043  -0.043   -0.065   -0.065
+12 KGe_25 ~~ Koerpergewicht_realW  0.340 -0.540  -0.540   -0.063   -0.063
+13 KGe_26 ~~               KGe_27  1.102 -0.064  -0.064   -0.125   -0.125
+14 KGe_26 ~~               KGe_28  5.532 -0.142  -0.142   -0.464   -0.464
+15 KGe_26 ~~               KGe_29  0.689 -0.048  -0.048   -0.219   -0.219
+16 KGe_26 ~~               KGe_30  0.154 -0.022  -0.022   -0.045   -0.045
+17 KGe_26 ~~               KGe_31  3.012 -0.101  -0.101   -0.170   -0.170
+18 KGe_26 ~~               KGe_32  4.011 -0.121  -0.121   -0.182   -0.182
+19 KGe_26 ~~               KGe_33  3.882 -0.116  -0.116   -0.145   -0.145
+20 KGe_26 ~~               KGe_34  0.496  0.057   0.057    0.082    0.082
+21 KGe_26 ~~               KGe_35  3.884 -0.115  -0.115   -0.134   -0.134
+22 KGe_26 ~~               KGe_36  7.860 -0.151  -0.151   -0.209   -0.209
+23 KGe_26 ~~ Koerpergewicht_realW 10.433  2.170   2.170    0.234    0.234
+24 KGe_27 ~~               KGe_28  0.699  0.042   0.042    0.213    0.213
+25 KGe_27 ~~               KGe_29  0.791  0.041   0.041    0.286    0.286
+26 KGe_27 ~~               KGe_30  0.676  0.041   0.041    0.127    0.127
+27 KGe_27 ~~               KGe_32  1.971  0.072   0.072    0.168    0.168
+28 KGe_27 ~~               KGe_33  1.674  0.077   0.077    0.147    0.147
+29 KGe_27 ~~               KGe_34  6.658 -0.162  -0.162   -0.360   -0.360
+30 KGe_27 ~~               KGe_35  0.359  0.040   0.040    0.071    0.071
+31 KGe_27 ~~               KGe_36  0.923  0.057   0.057    0.121    0.121
+32 KGe_27 ~~ Koerpergewicht_realW  0.024  0.104   0.104    0.017    0.017
+33 KGe_28 ~~               KGe_29  0.992 -0.038  -0.038   -0.450   -0.450
+34 KGe_28 ~~               KGe_30  6.902 -0.111  -0.111   -0.578   -0.578
+35 KGe_28 ~~               KGe_31  4.536 -0.128  -0.128   -0.551   -0.551
+36 KGe_28 ~~               KGe_32  6.120 -0.155  -0.155   -0.600   -0.600
+37 KGe_28 ~~               KGe_33  4.510 -0.149  -0.149   -0.478   -0.478
+38 KGe_28 ~~               KGe_34  0.268  0.038   0.038    0.142    0.142
+39 KGe_28 ~~               KGe_35  0.026  0.012   0.012    0.035    0.035
+40 KGe_28 ~~               KGe_36  3.667 -0.108  -0.108   -0.383   -0.383
+41 KGe_28 ~~ Koerpergewicht_realW  2.567  1.167   1.167    0.323    0.323
+42 KGe_29 ~~               KGe_30  1.272 -0.045  -0.045   -0.326   -0.326
+43 KGe_29 ~~               KGe_31  2.545 -0.078  -0.078   -0.473   -0.473
+44 KGe_29 ~~               KGe_32  1.196 -0.056  -0.056   -0.302   -0.302
+45 KGe_29 ~~               KGe_33  0.594 -0.046  -0.046   -0.205   -0.205
+46 KGe_29 ~~               KGe_34  2.658  0.118   0.118    0.614    0.614
+47 KGe_29 ~~               KGe_35  2.098  0.094   0.094    0.395    0.395
+48 KGe_29 ~~               KGe_36  3.775 -0.097  -0.097   -0.484   -0.484
+49 KGe_29 ~~ Koerpergewicht_realW  0.062  0.165   0.165    0.064    0.064
+50 KGe_30 ~~               KGe_31  0.294  0.024   0.024    0.065    0.065
+51 KGe_30 ~~               KGe_32  2.044 -0.073  -0.073   -0.176   -0.176
+52 KGe_30 ~~               KGe_33  4.764 -0.122  -0.122   -0.244   -0.244
+53 KGe_30 ~~               KGe_34  4.990  0.168   0.168    0.389    0.389
+54 KGe_30 ~~               KGe_35  0.032 -0.010  -0.010   -0.019   -0.019
+55 KGe_30 ~~ Koerpergewicht_realW  2.181  0.980   0.980    0.169    0.169
+56 KGe_31 ~~               KGe_32  8.626 -0.134  -0.134   -0.268   -0.268
+57 KGe_31 ~~               KGe_33  0.865 -0.047  -0.047   -0.078   -0.078
+58 KGe_31 ~~               KGe_34  0.026 -0.012  -0.012   -0.022   -0.022
+59 KGe_31 ~~               KGe_35  7.313 -0.155  -0.155   -0.239   -0.239
+60 KGe_31 ~~               KGe_36  0.018 -0.007  -0.007   -0.012   -0.012
+61 KGe_31 ~~ Koerpergewicht_realW  4.952  1.358   1.358    0.193    0.193
+62 KGe_32 ~~               KGe_33  1.786 -0.070  -0.070   -0.105   -0.105
+63 KGe_32 ~~               KGe_34  0.288  0.038   0.038    0.065    0.065
+64 KGe_32 ~~               KGe_35  0.441  0.038   0.038    0.052    0.052
+65 KGe_32 ~~               KGe_36  2.725 -0.091  -0.091   -0.149   -0.149
+66 KGe_32 ~~ Koerpergewicht_realW  3.574  1.171   1.171    0.150    0.150
+67 KGe_33 ~~               KGe_34  0.702  0.063   0.063    0.090    0.090
+68 KGe_33 ~~               KGe_35  0.530 -0.040  -0.040   -0.046   -0.046
+69 KGe_33 ~~               KGe_36  6.695 -0.142  -0.142   -0.194   -0.194
+70 KGe_33 ~~ Koerpergewicht_realW 15.162  2.504   2.504    0.265    0.265
+71 KGe_34 ~~               KGe_35  0.830 -0.071  -0.071   -0.094   -0.094
+72 KGe_34 ~~               KGe_36  3.085  0.136   0.136    0.215    0.215
+73 KGe_34 ~~ Koerpergewicht_realW  1.338 -0.922  -0.922   -0.113   -0.113
+74 KGe_35 ~~               KGe_36  6.509 -0.138  -0.138   -0.175   -0.175
+75 KGe_35 ~~ Koerpergewicht_realW  0.154 -0.260  -0.260   -0.026   -0.026
+76 KGe_36 ~~ Koerpergewicht_realW  5.938  1.662   1.662    0.195    0.195</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tabelle1a <span class="ot">&lt;-</span> <span class="fu">compareFit</span>(fit1A6, fit1G6, fit1Ge6, <span class="at">nested=</span><span class="cn">FALSE</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>tabelle1b <span class="ot">&lt;-</span> <span class="fu">compareFit</span>(fit1A2, fit1G2, fit1Ge2, <span class="at">nested=</span><span class="cn">FALSE</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tabelle1a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>####################### Model Fit Indices ###########################
+        chisq.scaled df.scaled pvalue.scaled rmsea.scaled cfi.scaled tli.scaled
+fit1A6     1167.002         62          .000        .138       .882       .851 
+fit1G6      844.509         63          .000        .115       .952       .941 
+fit1Ge6     686.681†        63          .000        .103†      .965†      .957†
+         srmr
+fit1A6  .091 
+fit1G6  .060†
+fit1Ge6 .061 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tabelle1b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>####################### Model Fit Indices ###########################
+        chisq.scaled df.scaled pvalue.scaled rmsea.scaled cfi.scaled tli.scaled
+fit1A2      489.419         62          .000        .087       .918       .897 
+fit1G2      339.111         63          .000        .069       .977†      .972†
+fit1Ge2     240.293†        63          .000        .055†      .973       .967 
+         srmr
+fit1A2  .088 
+fit1G2  .080 
+fit1Ge2 .074†</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>cor_errors <span class="ot">&lt;-</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1A6, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"age"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1A2, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"age"</span>, <span class="at">categories =</span> <span class="st">"2"</span>),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1G6, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"height"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1G2, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"height"</span>, <span class="at">categories =</span> <span class="st">"2"</span>),</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1Ge6, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"weight"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1Ge2, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"weight"</span>, <span class="at">categories =</span> <span class="st">"2"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(op <span class="sc">==</span> <span class="st">"~~"</span> <span class="sc">&amp;</span> lhs <span class="sc">!=</span> rhs)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>load_df_mod <span class="ot">&lt;-</span> </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1A6, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"age"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1A2, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"age"</span>, <span class="at">categories =</span> <span class="st">"2"</span>),</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1G6, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"height"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1G2, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"height"</span>, <span class="at">categories =</span> <span class="st">"2"</span>),</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1Ge6, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"weight"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardizedSolution</span>(fit1Ge2, <span class="at">type =</span> <span class="st">"std.all"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"weight"</span>, <span class="at">categories =</span> <span class="st">"2"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lhs <span class="sc">==</span> <span class="st">"f1"</span> <span class="sc">&amp;</span> op <span class="sc">==</span> <span class="st">"=~"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">item_name =</span> rhs)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>load_df_mod_proc <span class="ot">&lt;-</span> load_df_mod <span class="sc">|&gt;</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new columns: prefix (everything before underscore) and suffix (the numeric part)</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prefix =</span> <span class="fu">sub</span>(<span class="st">"_.*"</span>, <span class="st">""</span>, item_name),</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">suffix =</span> <span class="fu">as.numeric</span>(<span class="fu">sub</span>(<span class="st">".*_"</span>, <span class="st">""</span>, item_name))) <span class="sc">|&gt;</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(prefix) <span class="sc">|&gt;</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">item =</span> <span class="fu">match</span>(suffix, <span class="fu">sort</span>(<span class="fu">unique</span>(suffix)))) <span class="sc">|&gt;</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">item =</span> <span class="fu">replace_na</span>(<span class="fu">as.character</span>(item), <span class="st">"Physical item"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">est_print =</span> papaja<span class="sc">::</span><span class="fu">printnum</span>(est.std, <span class="at">gt1 =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">3</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(item, measure, categories, est_print) <span class="sc">|&gt;</span></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(measure, categories), <span class="at">values_from =</span> est_print)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `suffix = as.numeric(sub(".*_", "", item_name))`.
+Caused by warning:
+! NAs introduced by coercion</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fit_df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="fu">as.list</span>(<span class="fu">fitMeasures</span>(fit1A6))) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"age"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="fu">as.list</span>(<span class="fu">fitMeasures</span>(fit1A2))) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"age"</span>, <span class="at">categories =</span> <span class="st">"2"</span>),</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="fu">as.list</span>(<span class="fu">fitMeasures</span>(fit1G6))) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"height"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="fu">as.list</span>(<span class="fu">fitMeasures</span>(fit1G2))) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"height"</span>, <span class="at">categories =</span> <span class="st">"2"</span>),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="fu">as.list</span>(<span class="fu">fitMeasures</span>(fit1Ge6))) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"weight"</span>, <span class="at">categories =</span> <span class="st">"6"</span>),</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="fu">as.list</span>(<span class="fu">fitMeasures</span>(fit1Ge2))) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">measure =</span> <span class="st">"weight"</span>, <span class="at">categories =</span> <span class="st">"2"</span>)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span><span class="fu">c</span>(measure, categories), <span class="at">names_to =</span> <span class="st">"statistic"</span>, <span class="at">values_to =</span> <span class="st">"est"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(statistic <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"chisq.scaled"</span>, <span class="st">"pvalue.scaled"</span>, <span class="st">"df.scaled"</span>, <span class="st">"cfi.scaled"</span>, <span class="st">"rmsea.scaled"</span>, <span class="st">"srmr"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">statistic =</span> <span class="fu">case_match</span>(statistic, <span class="st">"chisq.scaled"</span> <span class="sc">~</span> <span class="st">"$</span><span class="sc">\\</span><span class="st">chi^2$"</span>, <span class="st">"pvalue.scaled"</span> <span class="sc">~</span> <span class="st">"p"</span>, <span class="st">"df.scaled"</span> <span class="sc">~</span> <span class="st">"df"</span>, <span class="st">"cfi.scaled"</span> <span class="sc">~</span> <span class="st">"CFI"</span>, <span class="st">"rmsea.scaled"</span> <span class="sc">~</span> <span class="st">"RMSEA"</span>, <span class="st">"srmr"</span> <span class="sc">~</span> <span class="st">"SRMR"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">est_print =</span> papaja<span class="sc">::</span><span class="fu">printnum</span>(est, <span class="at">gt1 =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">3</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">est_print =</span> <span class="fu">if_else</span>(statistic <span class="sc">==</span> <span class="st">"df"</span>, <span class="fu">as.character</span>(est), est_print)) <span class="sc">|&gt;</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">est_print =</span> <span class="fu">if_else</span>(statistic <span class="sc">==</span> <span class="st">"p"</span>, papaja<span class="sc">::</span><span class="fu">printp</span>(<span class="fu">as.numeric</span>(est_print)), est_print)) <span class="sc">|&gt;</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> statistic, <span class="at">names_from =</span> <span class="fu">c</span>(measure, categories), <span class="at">values_from =</span> est_print)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `est_print = papaja::printnum(est, gt1 = FALSE, digits = 3)`.
+Caused by warning in `apa_num.numeric()`:
+! You specified gt1 = FALSE, but passed absolute value(s) that exceed 1.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 2 warnings in `mutate()`.
+The first warning was:
+ℹ In argument: `est_print = if_else(...)`.
+Caused by warning in `validate()`:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>table5 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    load_df_mod_proc <span class="sc">|&gt;</span> <span class="fu">select</span>(item, height_2, height_6, weight_2, weight_6, age_2, age_6) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Measure =</span> item) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"Items"</span>),</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    fit_df <span class="sc">|&gt;</span> <span class="fu">select</span>(statistic, height_2, height_6, weight_2, weight_6, age_2, age_6) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Measure =</span> statistic) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"Model fit"</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">as_grouped_data</span>(<span class="at">groups =</span> <span class="st">"group"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">as_flextable</span>(<span class="at">hide_grouplabel =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">add_header_row</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Measure"</span>, <span class="st">"Height"</span>, <span class="st">"Weight"</span>, <span class="st">"Age"</span>),</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">colwidths =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">set_header_labels</span>(</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">list</span>(</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">Measure =</span> <span class="st">"Categories"</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">age_6 =</span> <span class="st">"Six"</span>, <span class="at">age_2 =</span> <span class="st">"Two"</span>, </span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">height_6 =</span> <span class="st">"Six"</span>, <span class="at">height_2 =</span> <span class="st">"Two"</span>,</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">weight_6 =</span> <span class="st">"Six"</span>, <span class="at">weight_2 =</span> <span class="st">"Two"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">align</span>(<span class="at">i =</span> <span class="dv">1</span>, <span class="at">align =</span> <span class="st">"center"</span>, <span class="at">part =</span> <span class="st">"header"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">border</span>(<span class="at">i =</span> <span class="dv">2</span>, <span class="at">j =</span> <span class="dv">1</span>, <span class="at">border.top =</span> officer<span class="sc">::</span><span class="fu">fp_border</span>(<span class="at">width =</span> <span class="dv">0</span>), <span class="at">part =</span> <span class="st">"header"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">border</span>(<span class="at">i =</span> <span class="dv">1</span>, <span class="at">j =</span> <span class="dv">1</span>, <span class="at">border.bottom =</span> officer<span class="sc">::</span><span class="fu">fp_border</span>(<span class="at">width =</span> <span class="dv">0</span>), <span class="at">part =</span> <span class="st">"header"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">bold</span>(<span class="at">i =</span> <span class="sc">~</span> <span class="fu">abs</span>(<span class="fu">parse_number</span>(age_6)) <span class="sc">&gt;</span> <span class="fu">parse_number</span>(age_6[<span class="dv">14</span>]), <span class="at">j =</span> <span class="st">"age_6"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">bold</span>(<span class="at">i =</span> <span class="sc">~</span> <span class="fu">abs</span>(<span class="fu">parse_number</span>(age_2)) <span class="sc">&gt;</span> <span class="fu">parse_number</span>(age_2[<span class="dv">14</span>]), <span class="at">j =</span> <span class="st">"age_2"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">bold</span>(<span class="at">i =</span> <span class="sc">~</span> <span class="fu">abs</span>(<span class="fu">parse_number</span>(height_6)) <span class="sc">&gt;</span> <span class="fu">parse_number</span>(height_6[<span class="dv">14</span>]), <span class="at">j =</span> <span class="st">"height_6"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">bold</span>(<span class="at">i =</span> <span class="sc">~</span> <span class="fu">abs</span>(<span class="fu">parse_number</span>(height_2)) <span class="sc">&gt;</span> <span class="fu">parse_number</span>(height_2[<span class="dv">14</span>]), <span class="at">j =</span> <span class="st">"height_2"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">bold</span>(<span class="at">i =</span> <span class="sc">~</span> <span class="fu">abs</span>(<span class="fu">parse_number</span>(weight_6)) <span class="sc">&gt;</span> <span class="fu">parse_number</span>(weight_6[<span class="dv">14</span>]), <span class="at">j =</span> <span class="st">"weight_6"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">bold</span>(<span class="at">i =</span> <span class="sc">~</span> <span class="fu">abs</span>(<span class="fu">parse_number</span>(weight_2)) <span class="sc">&gt;</span> <span class="fu">parse_number</span>(weight_2[<span class="dv">14</span>]), <span class="at">j =</span> <span class="st">"weight_2"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">bold</span>(<span class="at">i =</span> <span class="dv">15</span><span class="sc">:</span><span class="dv">21</span>, <span class="at">bold =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">bg</span>(<span class="at">i  =</span> <span class="dv">14</span>, <span class="at">bg =</span> <span class="st">"grey90"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">theme_apa</span>() <span class="sc">|&gt;</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>  ftExtra<span class="sc">::</span><span class="fu">colformat_md</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'ftExtra':
+  method                  from     
+  as_flextable.data.frame flextable</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-cf5c0c80{}.cl-cf57f244{font-family:'Times New Roman';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cf57f258{font-family:'Times New Roman';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cf57f259{font-family:'Times New Roman';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cf57f262{font-family:'Times New Roman';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-cf59934c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-cf59a328{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0.75pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cf59a329{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cf59a332{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cf59a333{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(0, 0, 0, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cf59a334{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cf59a335{width:0.75in;background-color:rgba(229, 229, 229, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-cf5c0c80"><thead><tr style="overflow-wrap:break-word;"><th class="cl-cf59a328"><p class="cl-cf59934c"><span class="cl-cf57f244">Measure</span></p></th><th colspan="2" class="cl-cf59a329"><p class="cl-cf59934c"><span class="cl-cf57f244">Height</span></p></th><th colspan="2" class="cl-cf59a329"><p class="cl-cf59934c"><span class="cl-cf57f244">Weight</span></p></th><th colspan="2" class="cl-cf59a329"><p class="cl-cf59934c"><span class="cl-cf57f244">Age</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-cf59a332"><p class="cl-cf59934c"><span class="cl-cf57f244">Categories</span></p></th><th class="cl-cf59a333"><p class="cl-cf59934c"><span class="cl-cf57f244">Two</span></p></th><th class="cl-cf59a333"><p class="cl-cf59934c"><span class="cl-cf57f244">Six</span></p></th><th class="cl-cf59a333"><p class="cl-cf59934c"><span class="cl-cf57f244">Two</span></p></th><th class="cl-cf59a333"><p class="cl-cf59934c"><span class="cl-cf57f244">Six</span></p></th><th class="cl-cf59a333"><p class="cl-cf59934c"><span class="cl-cf57f244">Two</span></p></th><th class="cl-cf59a333"><p class="cl-cf59934c"><span class="cl-cf57f244">Six</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td colspan="7" class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">Items</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">1</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.782</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.616</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.572</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.571</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.440</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.509</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">2</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.823</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.839</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.462</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.510</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.575</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.705</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">3</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.788</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.745</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.817</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.800</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.604</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.468</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">4</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.854</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.824</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.938</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.958</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.787</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.766</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">5</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.785</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.749</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.969</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.913</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.727</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.727</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">6</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.880</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.822</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.832</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.861</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.131</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.240</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">7</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.850</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.815</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">-.741</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">-.719</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.909</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.789</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">8</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.627</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.725</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.664</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.627</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.600</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.591</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">9</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.859</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.805</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.433</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.427</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.756</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.660</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">10</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.799</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.673</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.626</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.692</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">-.790</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.607</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">11</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.844</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">-.792</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.248</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.264</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.465</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.505</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">12</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.881</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.822</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.582</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.678</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.715</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f258">.767</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a335"><p class="cl-cf59934c"><span class="cl-cf57f244">Physical</span><span class="cl-cf57f244"> </span><span class="cl-cf57f244">item</span></p></td><td class="cl-cf59a335"><p class="cl-cf59934c"><span class="cl-cf57f244">.884</span></p></td><td class="cl-cf59a335"><p class="cl-cf59934c"><span class="cl-cf57f244">.871</span></p></td><td class="cl-cf59a335"><p class="cl-cf59934c"><span class="cl-cf57f244">.717</span></p></td><td class="cl-cf59a335"><p class="cl-cf59934c"><span class="cl-cf57f244">.700</span></p></td><td class="cl-cf59a335"><p class="cl-cf59934c"><span class="cl-cf57f244">.782</span></p></td><td class="cl-cf59a335"><p class="cl-cf59934c"><span class="cl-cf57f244">.732</span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="7" class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">Model</span><span class="cl-cf57f244"> </span><span class="cl-cf57f244">fit</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f259">χ</span><span class="cl-cf57f262">2</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">339.111</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">844.509</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">24.293</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">686.681</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">489.419</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">1,167.002</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">df</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">63</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">63</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">63</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">63</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">62</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">62</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">p</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">&lt;</span><span class="cl-cf57f244"> </span><span class="cl-cf57f244">.001</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">&lt;</span><span class="cl-cf57f244"> </span><span class="cl-cf57f244">.001</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">&lt;</span><span class="cl-cf57f244"> </span><span class="cl-cf57f244">.001</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">&lt;</span><span class="cl-cf57f244"> </span><span class="cl-cf57f244">.001</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">&lt;</span><span class="cl-cf57f244"> </span><span class="cl-cf57f244">.001</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">&lt;</span><span class="cl-cf57f244"> </span><span class="cl-cf57f244">.001</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">CFI</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.977</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.952</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.973</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.965</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.918</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.882</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">RMSEA</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.069</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.115</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.055</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.103</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.087</span></p></td><td class="cl-cf59a334"><p class="cl-cf59934c"><span class="cl-cf57f244">.138</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cf59a332"><p class="cl-cf59934c"><span class="cl-cf57f244">SRMR</span></p></td><td class="cl-cf59a332"><p class="cl-cf59934c"><span class="cl-cf57f244">.080</span></p></td><td class="cl-cf59a332"><p class="cl-cf59934c"><span class="cl-cf57f244">.060</span></p></td><td class="cl-cf59a332"><p class="cl-cf59934c"><span class="cl-cf57f244">.074</span></p></td><td class="cl-cf59a332"><p class="cl-cf59934c"><span class="cl-cf57f244">.061</span></p></td><td class="cl-cf59a332"><p class="cl-cf59934c"><span class="cl-cf57f244">.088</span></p></td><td class="cl-cf59a332"><p class="cl-cf59934c"><span class="cl-cf57f244">.091</span></p></td></tr></tbody></table></div>
+</div>
+</div></div>
+</section>
+<section id="modification-indices" class="level2">
+<h2 class="anchored" data-anchor-id="modification-indices">Modification indices</h2>
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>mod_indA6 <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">modificationindices</span>(fit1A6)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mod_indA6[<span class="fu">order</span>(mod_indA6<span class="sc">$</span>mi, <span class="at">decreasing=</span><span class="cn">TRUE</span>), ], mi <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     lhs op         rhs     mi    epc sepc.lv sepc.all sepc.nox
+185  A_9 ~~ Alter_realW 91.615 -5.755  -5.755   -0.698   -0.698
+130  A_2 ~~         A_4 67.641 -0.201  -0.201   -0.441   -0.441
+173  A_7 ~~         A_9 66.729 -0.224  -0.224   -0.486   -0.486
+152  A_4 ~~         A_9 58.591  0.287   0.287    0.594    0.594
+147  A_3 ~~ Alter_realW 54.467 -4.326  -4.326   -0.446   -0.446
+148  A_4 ~~         A_5 50.182 -0.173  -0.173   -0.392   -0.392
+188 A_10 ~~ Alter_realW 45.640  4.101   4.101    0.471    0.471
+142  A_3 ~~         A_7 39.846 -0.187  -0.187   -0.344   -0.344
+139  A_3 ~~         A_4 37.350  0.214   0.214    0.378    0.378
+156  A_4 ~~ Alter_realW 34.330  3.805   3.805    0.540    0.540
+138  A_2 ~~ Alter_realW 34.110  3.696   3.696    0.475    0.475
+150  A_4 ~~         A_7 34.077  0.191   0.191    0.483    0.483
+182  A_9 ~~        A_10 33.010  0.164   0.164    0.275    0.275
+184  A_9 ~~        A_12 27.560  0.186   0.186    0.386    0.386
+176  A_7 ~~ Alter_realW 26.359 -3.410  -3.410   -0.506   -0.506
+160  A_5 ~~         A_9 22.580  0.165   0.165    0.320    0.320
+134  A_2 ~~         A_9 21.590  0.164   0.164    0.308    0.308
+132  A_2 ~~         A_7 21.261  0.151   0.151    0.346    0.346
+144  A_3 ~~        A_10 19.527  0.126   0.126    0.180    0.180
+153  A_4 ~~        A_10 17.253 -0.130  -0.130   -0.256   -0.256
+129  A_2 ~~         A_3 15.257  0.131   0.131    0.209    0.209
+164  A_5 ~~ Alter_realW 13.450  2.384   2.384    0.316    0.316
+128  A_1 ~~ Alter_realW 13.439  2.177   2.177    0.230    0.230
+163  A_5 ~~        A_12 11.388 -0.087  -0.087   -0.198   -0.198
+191 A_12 ~~ Alter_realW 11.299  2.229   2.229    0.317    0.317
+140  A_3 ~~         A_5  9.514  0.104   0.104    0.171    0.171
+137  A_2 ~~        A_12  9.239 -0.081  -0.081   -0.177   -0.177
+135  A_2 ~~        A_10  9.231 -0.099  -0.099   -0.176   -0.176
+190 A_11 ~~ Alter_realW  8.906  1.837   1.837    0.194    0.194
+171  A_6 ~~ Alter_realW  8.901  1.624   1.624    0.152    0.152
+168  A_6 ~~        A_10  8.860 -0.096  -0.096   -0.124   -0.124
+166  A_6 ~~         A_8  8.795 -0.098  -0.098   -0.126   -0.126
+158  A_5 ~~         A_7  8.675  0.092   0.092    0.218    0.218
+146  A_3 ~~        A_12  8.605  0.100   0.100    0.176    0.176
+161  A_5 ~~        A_10  7.785 -0.091  -0.091   -0.166   -0.166
+175  A_7 ~~        A_12  6.940  0.081   0.081    0.205    0.205
+136  A_2 ~~        A_11  6.733 -0.081  -0.081   -0.133   -0.133
+127  A_1 ~~        A_12  5.683 -0.077  -0.077   -0.139   -0.139
+124  A_1 ~~         A_9  5.642  0.092   0.092    0.142    0.142
+155  A_4 ~~        A_12  5.609 -0.062  -0.062   -0.152   -0.152
+169  A_6 ~~        A_11  5.413 -0.076  -0.076   -0.091   -0.091
+187 A_10 ~~        A_12  5.378 -0.073  -0.073   -0.144   -0.144
+121  A_1 ~~         A_6  5.016 -0.081  -0.081   -0.097   -0.097
+167  A_6 ~~         A_9  4.520  0.079   0.079    0.108    0.108</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mod_indA2 <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">modificationindices</span>(fit1A2)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mod_indA2[<span class="fu">order</span>(mod_indA2<span class="sc">$</span>mi, <span class="at">decreasing=</span><span class="cn">TRUE</span>), ], mi <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     lhs op         rhs     mi    epc sepc.lv sepc.all sepc.nox
+82   A_2 ~~         A_4 37.594 -0.284  -0.284   -0.563   -0.563
+100  A_4 ~~         A_5 36.375 -0.252  -0.252   -0.595   -0.595
+137  A_9 ~~ Alter_realW 33.104 -4.084  -4.084   -0.629   -0.629
+99   A_3 ~~ Alter_realW 26.361 -3.681  -3.681   -0.466   -0.466
+90   A_2 ~~ Alter_realW 19.707  3.454   3.454    0.426    0.426
+115  A_5 ~~        A_12 16.006 -0.185  -0.185   -0.386   -0.386
+89   A_2 ~~        A_12 15.905 -0.204  -0.204   -0.357   -0.357
+136  A_9 ~~        A_12 13.012  0.211   0.211    0.460    0.460
+108  A_4 ~~ Alter_realW 12.546  2.819   2.819    0.461    0.461
+94   A_3 ~~         A_7 12.156 -0.173  -0.173   -0.519   -0.519
+91   A_3 ~~         A_4 11.732  0.202   0.202    0.411    0.411
+112  A_5 ~~         A_9 11.582  0.180   0.180    0.400    0.400
+81   A_2 ~~         A_3 10.889  0.197   0.197    0.301    0.301
+92   A_3 ~~         A_5  9.689  0.172   0.172    0.313    0.313
+73   A_1 ~~         A_6  9.057 -0.182  -0.182   -0.204   -0.204
+116  A_5 ~~ Alter_realW  8.981  2.362   2.362    0.347    0.347
+102  A_4 ~~         A_7  8.673  0.156   0.156    0.606    0.606
+119  A_6 ~~         A_9  8.530  0.162   0.162    0.250    0.250
+143 A_12 ~~ Alter_realW  8.406  2.302   2.302    0.332    0.332
+86   A_2 ~~         A_9  8.387  0.168   0.168    0.314    0.314
+123  A_6 ~~ Alter_realW  8.224  2.080   2.080    0.212    0.212
+134  A_9 ~~        A_10  7.723  0.121   0.121    0.302    0.302
+104  A_4 ~~         A_9  7.191  0.144   0.144    0.357    0.357
+118  A_6 ~~         A_8  7.073 -0.153  -0.153   -0.193   -0.193
+128  A_7 ~~ Alter_realW  6.810 -2.048  -2.048   -0.496   -0.496
+79   A_1 ~~        A_12  6.196 -0.150  -0.150   -0.240   -0.240
+110  A_5 ~~         A_7  5.961  0.128   0.128    0.448    0.448
+121  A_6 ~~        A_11  5.178 -0.119  -0.119   -0.136   -0.136
+139 A_10 ~~        A_12  4.911 -0.124  -0.124   -0.290   -0.290</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mod_indG6 <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">modificationindices</span>(fit1G6)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mod_indG6[<span class="fu">order</span>(mod_indG6<span class="sc">$</span>mi, <span class="at">decreasing=</span><span class="cn">TRUE</span>), ], mi <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       lhs op                  rhs     mi    epc sepc.lv sepc.all sepc.nox
+183 KGr_21 ~~               KGr_22 48.094 -0.162  -0.162   -0.370   -0.370
+184 KGr_21 ~~               KGr_23 38.251 -0.129  -0.129   -0.355   -0.355
+154 KGr_16 ~~               KGr_23 36.184  0.123   0.123    0.354    0.354
+141 KGr_15 ~~               KGr_18 22.782 -0.118  -0.118   -0.309   -0.309
+124 KGr_13 ~~               KGr_22 22.780 -0.184  -0.184   -0.316   -0.316
+145 KGr_15 ~~               KGr_22 20.964 -0.163  -0.163   -0.330   -0.330
+181 KGr_20 ~~               KGr_24 20.751 -0.106  -0.106   -0.269   -0.269
+168 KGr_18 ~~               KGr_22 20.144 -0.161  -0.161   -0.381   -0.381
+125 KGr_13 ~~               KGr_23 19.818 -0.161  -0.161   -0.335   -0.335
+146 KGr_15 ~~               KGr_23 18.598 -0.146  -0.146   -0.358   -0.358
+123 KGr_13 ~~               KGr_21 18.444 -0.154  -0.154   -0.329   -0.329
+167 KGr_18 ~~               KGr_21 18.164 -0.135  -0.135   -0.400   -0.400
+169 KGr_18 ~~               KGr_23 16.760 -0.127  -0.127   -0.366   -0.366
+150 KGr_16 ~~               KGr_18 16.024  0.117   0.117    0.363    0.363
+153 KGr_16 ~~               KGr_22 13.163  0.089   0.089    0.214    0.214
+120 KGr_13 ~~               KGr_18 12.558 -0.110  -0.110   -0.244   -0.244
+187 KGr_22 ~~               KGr_24 11.668 -0.109  -0.109   -0.258   -0.258
+139 KGr_15 ~~               KGr_16 11.656  0.104   0.104    0.276    0.276
+143 KGr_15 ~~               KGr_20 11.526 -0.092  -0.092   -0.200   -0.200
+159 KGr_17 ~~               KGr_20 10.019  0.104   0.104    0.228    0.228
+165 KGr_18 ~~               KGr_19  8.883 -0.069  -0.069   -0.208   -0.208
+189 KGr_23 ~~               KGr_24  8.600 -0.075  -0.075   -0.217   -0.217
+144 KGr_15 ~~               KGr_21  7.510 -0.086  -0.086   -0.218   -0.218
+179 KGr_20 ~~               KGr_22  6.791 -0.096  -0.096   -0.189   -0.189
+185 KGr_21 ~~               KGr_24  6.632 -0.066  -0.066   -0.196   -0.196
+117 KGr_13 ~~               KGr_15  6.495 -0.082  -0.082   -0.156   -0.156
+173 KGr_19 ~~               KGr_21  6.304 -0.064  -0.064   -0.187   -0.187
+151 KGr_16 ~~               KGr_19  6.092  0.062   0.062    0.189    0.189
+178 KGr_20 ~~               KGr_21  5.772 -0.075  -0.075   -0.184   -0.184
+118 KGr_13 ~~               KGr_16  5.322  0.078   0.078    0.174    0.174
+182 KGr_20 ~~ Koerpergroesse_realW  5.280  0.833   0.833    0.256    0.256</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>mod_indG2 <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">modificationindices</span>(fit1G2)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mod_indG2[<span class="fu">order</span>(mod_indG2<span class="sc">$</span>mi, <span class="at">decreasing=</span><span class="cn">TRUE</span>), ], mi <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       lhs op                  rhs     mi    epc sepc.lv sepc.all sepc.nox
+135 KGr_21 ~~               KGr_22 20.290 -0.158  -0.158   -0.514   -0.514
+105 KGr_16 ~~               KGr_22 19.642  0.157   0.157    0.500    0.500
+120 KGr_18 ~~               KGr_22 16.880 -0.277  -0.277   -0.971   -0.971
+106 KGr_16 ~~               KGr_23 12.812  0.120   0.120    0.430    0.430
+136 KGr_21 ~~               KGr_23 12.714 -0.119  -0.119   -0.434   -0.434
+102 KGr_16 ~~               KGr_18 11.032  0.189   0.189    0.765    0.765
+139 KGr_22 ~~               KGr_24 10.543 -0.186  -0.186   -0.655   -0.655
+96  KGr_15 ~~               KGr_21  9.942 -0.207  -0.207   -0.658   -0.658
+133 KGr_20 ~~               KGr_24  9.704 -0.140  -0.140   -0.381   -0.381
+95  KGr_15 ~~               KGr_20  7.715 -0.146  -0.146   -0.306   -0.306
+70  KGr_13 ~~               KGr_16  7.318  0.200   0.200    0.617    0.617
+94  KGr_15 ~~               KGr_19  6.570 -0.109  -0.109   -0.337   -0.337
+100 KGr_15 ~~ Koerpergroesse_realW  6.479  1.119   1.119    0.410    0.410
+121 KGr_18 ~~               KGr_23  6.419 -0.150  -0.150   -0.591   -0.591
+91  KGr_15 ~~               KGr_16  5.981  0.159   0.159    0.495    0.495
+103 KGr_16 ~~               KGr_19  5.922  0.108   0.108    0.392    0.392
+134 KGr_20 ~~ Koerpergroesse_realW  5.874  1.199   1.199    0.347    0.347
+137 KGr_21 ~~               KGr_24  5.637 -0.111  -0.111   -0.459   -0.459
+130 KGr_20 ~~               KGr_21  5.225 -0.137  -0.137   -0.344   -0.344
+141 KGr_23 ~~               KGr_24  5.221 -0.114  -0.114   -0.449   -0.449
+98  KGr_15 ~~               KGr_23  5.127 -0.155  -0.155   -0.470   -0.470
+89  KGr_14 ~~               KGr_24  5.084 -0.078  -0.078   -0.289   -0.289
+117 KGr_18 ~~               KGr_19  5.060 -0.081  -0.081   -0.322   -0.322
+80  KGr_14 ~~               KGr_15  4.965 -0.099  -0.099   -0.282   -0.282
+72  KGr_13 ~~               KGr_18  4.914 -0.102  -0.102   -0.345   -0.345
+97  KGr_15 ~~               KGr_22  4.632 -0.160  -0.160   -0.434   -0.434
+125 KGr_19 ~~               KGr_21  4.518 -0.092  -0.092   -0.341   -0.341
+138 KGr_21 ~~ Koerpergroesse_realW  4.404  0.756   0.756    0.333    0.333
+108 KGr_16 ~~ Koerpergroesse_realW  4.249 -0.737  -0.737   -0.319   -0.319
+119 KGr_18 ~~               KGr_21  4.234 -0.112  -0.112   -0.461   -0.461
+87  KGr_14 ~~               KGr_22  4.159 -0.105  -0.105   -0.308   -0.308
+104 KGr_16 ~~               KGr_20  4.096  0.121   0.121    0.298    0.298
+107 KGr_16 ~~               KGr_24  4.050  0.093   0.093    0.379    0.379</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mod_indGe6 <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">modificationindices</span>(fit1Ge6)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mod_indGe6[<span class="fu">order</span>(mod_indGe6<span class="sc">$</span>mi, <span class="at">decreasing=</span><span class="cn">TRUE</span>), ], mi <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       lhs op                  rhs     mi    epc sepc.lv sepc.all sepc.nox
+149 KGe_28 ~~               KGe_30 41.901 -0.120  -0.120   -0.818   -0.818
+168 KGe_30 ~~               KGe_34 27.984  0.170   0.170    0.462    0.462
+185 KGe_33 ~~ Koerpergewicht_realW 27.834  2.494   2.494    0.249    0.249
+188 KGe_34 ~~ Koerpergewicht_realW 22.622 -2.228  -2.228   -0.279   -0.279
+124 KGe_25 ~~               KGe_34 21.353 -0.176  -0.176   -0.298   -0.298
+182 KGe_33 ~~               KGe_34 17.971  0.139   0.139    0.213    0.213
+177 KGe_32 ~~               KGe_33 17.772 -0.122  -0.122   -0.173   -0.173
+167 KGe_30 ~~               KGe_33 17.094 -0.147  -0.147   -0.320   -0.320
+152 KGe_28 ~~               KGe_33 15.994 -0.153  -0.153   -0.588   -0.588
+136 KGe_26 ~~               KGe_35 15.020 -0.136  -0.136   -0.164   -0.164
+156 KGe_28 ~~ Koerpergewicht_realW 14.949  2.002   2.002    0.630    0.630
+153 KGe_28 ~~               KGe_34 12.987  0.110   0.110    0.531    0.531
+138 KGe_26 ~~ Koerpergewicht_realW 12.114  1.841   1.841    0.193    0.193
+170 KGe_30 ~~ Koerpergewicht_realW 11.635  1.808   1.808    0.321    0.321
+166 KGe_30 ~~               KGe_32 10.659 -0.097  -0.097   -0.244   -0.244
+181 KGe_32 ~~ Koerpergewicht_realW 10.653  1.493   1.493    0.173    0.173
+155 KGe_28 ~~               KGe_36 10.398 -0.079  -0.079   -0.372   -0.372
+191 KGe_36 ~~ Koerpergewicht_realW  9.814  1.708   1.708    0.210    0.210
+180 KGe_32 ~~               KGe_36  9.513 -0.098  -0.098   -0.172   -0.172
+137 KGe_26 ~~               KGe_36  8.238 -0.087  -0.087   -0.137   -0.137
+134 KGe_26 ~~               KGe_33  7.920 -0.099  -0.099   -0.128   -0.128
+141 KGe_27 ~~               KGe_30  6.930  0.066   0.066    0.215    0.215
+171 KGe_31 ~~               KGe_32  6.680 -0.066  -0.066   -0.122   -0.122
+131 KGe_26 ~~               KGe_30  6.548 -0.076  -0.076   -0.173   -0.173
+151 KGe_28 ~~               KGe_32  6.326 -0.074  -0.074   -0.329   -0.329
+178 KGe_32 ~~               KGe_34  6.277  0.069   0.069    0.123    0.123
+132 KGe_26 ~~               KGe_31  6.222 -0.084  -0.084   -0.140   -0.140
+187 KGe_34 ~~               KGe_36  6.132  0.083   0.083    0.156    0.156
+126 KGe_25 ~~               KGe_36  5.367  0.107   0.107    0.177    0.177
+160 KGe_29 ~~               KGe_33  5.205 -0.077  -0.077   -0.209   -0.209
+163 KGe_29 ~~               KGe_36  4.564 -0.052  -0.052   -0.172   -0.172</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>mod_indGe2 <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">modificationindices</span>(fit1Ge2)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mod_indGe2[<span class="fu">order</span>(mod_indGe2<span class="sc">$</span>mi, <span class="at">decreasing=</span><span class="cn">TRUE</span>), ], mi <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       lhs op                  rhs     mi    epc sepc.lv sepc.all sepc.nox
+137 KGe_33 ~~ Koerpergewicht_realW 15.162  2.504   2.504    0.265    0.265
+90  KGe_26 ~~ Koerpergewicht_realW 10.433  2.170   2.170    0.234    0.234
+123 KGe_31 ~~               KGe_32  8.626 -0.134  -0.134   -0.268   -0.268
+89  KGe_26 ~~               KGe_36  7.860 -0.151  -0.151   -0.209   -0.209
+126 KGe_31 ~~               KGe_35  7.313 -0.155  -0.155   -0.239   -0.239
+101 KGe_28 ~~               KGe_30  6.902 -0.111  -0.111   -0.578   -0.578
+136 KGe_33 ~~               KGe_36  6.695 -0.142  -0.142   -0.194   -0.194
+96  KGe_27 ~~               KGe_34  6.658 -0.162  -0.162   -0.360   -0.360
+141 KGe_35 ~~               KGe_36  6.509 -0.138  -0.138   -0.175   -0.175
+103 KGe_28 ~~               KGe_32  6.120 -0.155  -0.155   -0.600   -0.600
+143 KGe_36 ~~ Koerpergewicht_realW  5.938  1.662   1.662    0.195    0.195
+81  KGe_26 ~~               KGe_28  5.532 -0.142  -0.142   -0.464   -0.464
+120 KGe_30 ~~               KGe_34  4.990  0.168   0.168    0.389    0.389
+128 KGe_31 ~~ Koerpergewicht_realW  4.952  1.358   1.358    0.193    0.193
+119 KGe_30 ~~               KGe_33  4.764 -0.122  -0.122   -0.244   -0.244
+102 KGe_28 ~~               KGe_31  4.536 -0.128  -0.128   -0.551   -0.551
+104 KGe_28 ~~               KGe_33  4.510 -0.149  -0.149   -0.478   -0.478
+85  KGe_26 ~~               KGe_32  4.011 -0.121  -0.121   -0.182   -0.182</code></pre>
+</div>
+</div></div>
+</section>
+<section id="sec-saveresults" class="level2">
+<h2 class="anchored" data-anchor-id="sec-saveresults">Save results for manuscript</h2>
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">saveRDS</span>(</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">object =</span> <span class="fu">list</span>(</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">table5 =</span> table5,</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">load_df_mod =</span> load_df_mod,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cor_errors =</span> cor_errors</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    ), </span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"../results/results_secondary.rds"</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+     </main>
+<!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>  </div> <!-- /content --> 
+  
+</body></html>

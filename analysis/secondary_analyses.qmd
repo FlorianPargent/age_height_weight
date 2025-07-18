@@ -1,0 +1,196 @@
+---
+title: "Secondary analyses (appendices)"
+format:
+  html:
+    theme:
+      - cosmo
+      - ../notebooks.scss
+    grid:
+      body-width: 900px
+---
+
+::: {.callout-note appearance="simple"}
+
+In this notebook, we record the analyses that are reported in the appendices of the manuscript.
+
+The section [Save results for manuscript](primary_analyses.qmd#sec-saveresults) lists all results objects and tables that are exported to be used in the main manuscript file and can be used to retrace all reported numbers.
+
+:::
+
+## Load packages
+
+```{r}
+library(foreign)
+library(tidyverse)
+library(semTools)
+library(lavaan)
+```
+
+```{r}
+#| include: false
+# record R packages
+papaja::r_refs(file = "../r-references.bib")
+```
+
+## Load datasets
+
+```{r}
+dat_poly <- read.spss("../data/Haupterhebung Studie III (Polytom 6PS).sav", 
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = TRUE)
+dat_dich <- read.spss("../data/Haupterhebung Studie III (Dichotom 2PS).sav",
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = TRUE)
+```
+
+## Fit and analyze CFA models with correlated errors
+
+```{r}
+### tau-kongeneric models with correlated errors 
+modelA <- "
+  f1 =~ A_1 +  A_2 + A_3 + A_4 + A_5 + A_6 + A_7 + A_8 + A_9 +A_10 + A_11 + A_12 + Alter_realW
+  A_3 ~~ A_9
+  A_2 ~~ A_5
+  A_7 ~~ A_10"
+modelG <- "
+  f1 =~ KGr_13 + KGr_14 + KGr_15 + KGr_16 + KGr_17 + KGr_18 + KGr_19 + KGr_20 + KGr_21 + KGr_22 + KGr_23 + KGr_24 + Koerpergroesse_realW
+  KGr_22 ~~ KGr_23 
+  KGr_16 ~~ KGr_21"
+modelGe <- "
+  f1 =~ KGe_25 + KGe_26 + KGe_27 + KGe_28 + KGe_29 + KGe_30 + KGe_31 + KGe_32 + KGe_33 + KGe_34 + KGe_35 + KGe_36 + Koerpergewicht_realW
+  KGe_30 ~~ KGe_36
+  KGe_27 ~~ KGe_31"
+
+### run model test with MIIVsem
+### fit1 <- MIIVsem::miive(model = model1, data = dat_poly)
+
+fit1A6 <- cfa(model = modelA, data = dat_poly, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12"), std.lv=TRUE, meanstructure=TRUE)
+fit1A2 <- cfa(model = modelA, data = dat_dich, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12"), std.lv=TRUE, meanstructure=TRUE)
+fit1G6 <- cfa(model = modelG, data = dat_poly, ordered = c("KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24"), std.lv=TRUE, meanstructure=TRUE)
+fit1G2 <- cfa(model = modelG, data = dat_dich, ordered = c("KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24"), std.lv=TRUE, meanstructure=TRUE)
+fit1Ge6 <- cfa(model = modelGe, data = dat_poly, ordered = c("KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+fit1Ge2 <- cfa(model = modelGe, data = dat_dich, ordered = c("KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+
+summary(fit1A6, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1A2, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1G6, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1G2, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1Ge6, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1Ge2, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+
+tabelle1a <- compareFit(fit1A6, fit1G6, fit1Ge6, nested=FALSE)
+tabelle1b <- compareFit(fit1A2, fit1G2, fit1Ge2, nested=FALSE)
+summary(tabelle1a)
+summary(tabelle1b)
+```
+
+```{r}
+cor_errors <- 
+  bind_rows(
+    standardizedSolution(fit1A6, type = "std.all") |> mutate(measure = "age", categories = "6"),
+    standardizedSolution(fit1A2, type = "std.all") |> mutate(measure = "age", categories = "2"),
+    standardizedSolution(fit1G6, type = "std.all") |> mutate(measure = "height", categories = "6"),
+    standardizedSolution(fit1G2, type = "std.all") |> mutate(measure = "height", categories = "2"),
+    standardizedSolution(fit1Ge6, type = "std.all") |> mutate(measure = "weight", categories = "6"),
+    standardizedSolution(fit1Ge2, type = "std.all") |> mutate(measure = "weight", categories = "2")) |>
+  filter(op == "~~" & lhs != rhs)
+
+load_df_mod <- 
+  bind_rows(
+    standardizedSolution(fit1A6, type = "std.all") |> mutate(measure = "age", categories = "6"),
+    standardizedSolution(fit1A2, type = "std.all") |> mutate(measure = "age", categories = "2"),
+    standardizedSolution(fit1G6, type = "std.all") |> mutate(measure = "height", categories = "6"),
+    standardizedSolution(fit1G2, type = "std.all") |> mutate(measure = "height", categories = "2"),
+    standardizedSolution(fit1Ge6, type = "std.all") |> mutate(measure = "weight", categories = "6"),
+    standardizedSolution(fit1Ge2, type = "std.all") |> mutate(measure = "weight", categories = "2")) |>
+  filter(lhs == "f1" & op == "=~") |> 
+  mutate(item_name = rhs)
+
+load_df_mod_proc <- load_df_mod |>
+  # Create new columns: prefix (everything before underscore) and suffix (the numeric part)
+  mutate(prefix = sub("_.*", "", item_name),
+    suffix = as.numeric(sub(".*_", "", item_name))) |>
+  group_by(prefix) |>
+  mutate(item = match(suffix, sort(unique(suffix)))) |>
+  mutate(item = replace_na(as.character(item), "Physical item")) |>
+  ungroup() |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  select(item, measure, categories, est_print) |>
+  pivot_wider(names_from = c(measure, categories), values_from = est_print)
+
+fit_df <- bind_rows(
+  data.frame(as.list(fitMeasures(fit1A6))) |> mutate(measure = "age", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1A2))) |> mutate(measure = "age", categories = "2"),
+  data.frame(as.list(fitMeasures(fit1G6))) |> mutate(measure = "height", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1G2))) |> mutate(measure = "height", categories = "2"),
+  data.frame(as.list(fitMeasures(fit1Ge6))) |> mutate(measure = "weight", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1Ge2))) |> mutate(measure = "weight", categories = "2")
+) |>
+  pivot_longer(!c(measure, categories), names_to = "statistic", values_to = "est") |>
+  filter(statistic %in% c("chisq.scaled", "pvalue.scaled", "df.scaled", "cfi.scaled", "rmsea.scaled", "srmr")) |>
+  mutate(statistic = case_match(statistic, "chisq.scaled" ~ "$\\chi^2$", "pvalue.scaled" ~ "p", "df.scaled" ~ "df", "cfi.scaled" ~ "CFI", "rmsea.scaled" ~ "RMSEA", "srmr" ~ "SRMR")) |>
+  mutate(est_print = papaja::printnum(est, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print = if_else(statistic == "df", as.character(est), est_print)) |>
+  mutate(est_print = if_else(statistic == "p", papaja::printp(as.numeric(est_print)), est_print)) |>
+  pivot_wider(id_cols = statistic, names_from = c(measure, categories), values_from = est_print)
+
+table5 <- rbind(
+    load_df_mod_proc |> select(item, height_2, height_6, weight_2, weight_6, age_2, age_6) |> rename(Measure = item) |> mutate(group = "Items"),
+    fit_df |> select(statistic, height_2, height_6, weight_2, weight_6, age_2, age_6) |> rename(Measure = statistic) |> mutate(group = "Model fit")
+  ) |> 
+  group_by(group) |>
+  flextable::as_grouped_data(groups = "group") |>
+  flextable::as_flextable(hide_grouplabel = TRUE) |>
+  flextable::add_header_row(values = c("Measure", "Height", "Weight", "Age"),
+    colwidths = c(1, 2, 2, 2)) |>
+  flextable::set_header_labels(
+    values = list(
+      Measure = "Categories",
+      age_6 = "Six", age_2 = "Two", 
+      height_6 = "Six", height_2 = "Two",
+      weight_6 = "Six", weight_2 = "Two")) |>
+  flextable::align(i = 1, align = "center", part = "header") |>
+  flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
+  flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  
+  flextable::bold(i = ~ abs(parse_number(age_6)) > parse_number(age_6[14]), j = "age_6") |>
+  flextable::bold(i = ~ abs(parse_number(age_2)) > parse_number(age_2[14]), j = "age_2") |>
+  flextable::bold(i = ~ abs(parse_number(height_6)) > parse_number(height_6[14]), j = "height_6") |>
+  flextable::bold(i = ~ abs(parse_number(height_2)) > parse_number(height_2[14]), j = "height_2") |>
+  flextable::bold(i = ~ abs(parse_number(weight_6)) > parse_number(weight_6[14]), j = "weight_6") |>
+  flextable::bold(i = ~ abs(parse_number(weight_2)) > parse_number(weight_2[14]), j = "weight_2") |>
+  flextable::bold(i = 15:21, bold = FALSE) |>
+  flextable::bg(i  = 14, bg = "grey90") |>
+  
+  flextable::theme_apa() |>
+  ftExtra::colformat_md()
+table5
+```
+
+## Modification indices
+
+```{r}
+mod_indA6 <- lavaan::modificationindices(fit1A6)
+subset(mod_indA6[order(mod_indA6$mi, decreasing=TRUE), ], mi > 4)
+mod_indA2 <- lavaan::modificationindices(fit1A2)
+subset(mod_indA2[order(mod_indA2$mi, decreasing=TRUE), ], mi > 4)
+mod_indG6 <- lavaan::modificationindices(fit1G6)
+subset(mod_indG6[order(mod_indG6$mi, decreasing=TRUE), ], mi > 4)
+mod_indG2 <- lavaan::modificationindices(fit1G2)
+subset(mod_indG2[order(mod_indG2$mi, decreasing=TRUE), ], mi > 4)
+mod_indGe6 <- lavaan::modificationindices(fit1Ge6)
+subset(mod_indGe6[order(mod_indGe6$mi, decreasing=TRUE), ], mi > 4)
+mod_indGe2 <- lavaan::modificationindices(fit1Ge2)
+subset(mod_indGe2[order(mod_indGe2$mi, decreasing=TRUE), ], mi > 4)
+```
+
+## Save results for manuscript {#sec-saveresults}
+
+```{r}
+results <- saveRDS(
+  object = list(
+    table5 = table5,
+    load_df_mod = load_df_mod,
+    cor_errors = cor_errors
+    ), 
+  file = "../results/results_secondary.rds"
+)
+```

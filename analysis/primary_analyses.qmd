@@ -1,0 +1,511 @@
+---
+title: "Primary analyses (manuscript)"
+format:
+  html:
+    theme:
+      - cosmo
+      - ../notebooks.scss
+    grid:
+      body-width: 900px
+---
+
+::: {.callout-note appearance="simple"}
+
+In this notebook, we record the analyses that are reported in the main body of the manuscript.
+
+The section [Save results for manuscript](primary_analyses.qmd#sec-saveresults) lists all results objects and tables that are exported to be used in the main manuscript file and can be used to retrace all reported numbers.
+
+:::
+
+## Load packages
+
+```{r}
+library(foreign, quietly = TRUE, warn.conflicts = FALSE)
+library(tidyverse, quietly = TRUE, warn.conflicts = FALSE)
+library(semTools, quietly = TRUE, warn.conflicts = FALSE)
+library(lavaan, quietly = TRUE, warn.conflicts = FALSE)
+library(MBESS, quietly = TRUE, warn.conflicts = FALSE)
+```
+
+```{r}
+#| include: false
+# record R packages
+papaja::r_refs(file = "../r-references.bib")
+```
+
+## Load datasets
+
+```{r}
+dat_poly <- read.spss("../data/Haupterhebung Studie III (Polytom 6PS).sav", 
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+dat_dich <- read.spss("../data/Haupterhebung Studie III (Dichotom 2PS).sav",
+  to.data.frame = TRUE, use.value.labels = FALSE, na.omit = FALSE)
+```
+
+## Descriptive statistics
+
+```{r}
+dat_desc <- bind_rows(
+  dat_poly |> select(Alter_realW, Geschlecht, Bildung, Muttersprache) |> mutate(categories = "6"),
+  dat_dich |> select(Alter_realW, Geschlecht,Bildung, Muttersprache) |> mutate(categories = "2")
+)
+
+table1 <- dat_desc |>
+  rename(Gender = Geschlecht, Education = Bildung, `Mother tongue` = Muttersprache, Age = Alter_realW) |>
+  mutate(categories = factor(categories, levels = c(2, 6), labels = c("Two categories", "Six categories")),
+    Gender = factor(Gender, levels = 1:2, labels = c("Women", "Men")), 
+    Education = factor(Education, levels = 1:6, labels = c("No school leaving certificate", "Secondary school leaving certificate/elementary school or equivalent", "Secondary school or equivalent", "Vocational baccalaureate or high school diploma", "College degree or university degree", "Doctorate or habilitation")), 
+    `Mother tongue` = factor(`Mother tongue`, levels = 1:2, labels = c("German", "Other"))) |>
+  flextable::summarizor(by = "categories") |>
+  flextable::as_flextable() |>
+  flextable::theme_apa() |>
+  ftExtra::colformat_md()
+table1
+```
+
+
+## Fit and analyze CFA models
+
+### Tau-congeneric model for each trait
+
+```{r}
+### tau-congeneric model without modification 
+modelAP <- "
+  f1 =~ A_1 +  A_2 + A_3 + A_4 + A_5 + A_6 + A_7 + A_8 + A_9 +A_10 + A_11 + A_12 + Alter_realW"
+modelGP <- "
+  f1 =~ KGr_13 + KGr_14 + KGr_15 + KGr_16 + KGr_17 + KGr_18 + KGr_19 + KGr_20 + KGr_21 + KGr_22 + KGr_23 + KGr_24 + Koerpergroesse_realW"
+modelGeP <- "
+  f1 =~ KGe_25 + KGe_26 + KGe_27 + KGe_28 + KGe_29 + KGe_30 + KGe_31 + KGe_32 + KGe_33 + KGe_34 + KGe_35 + KGe_36 + Koerpergewicht_realW"
+
+
+fit1A6P <- cfa(model = modelAP, data = dat_poly, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12"), std.lv=TRUE, meanstructure=TRUE)
+fit1A2P <- cfa(model = modelAP, data = dat_dich, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12"), std.lv=TRUE, meanstructure=TRUE)
+fit1G6P <- cfa(model = modelGP, data = dat_poly, ordered = c("KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24"), std.lv=TRUE, meanstructure=TRUE)
+fit1G2P <- cfa(model = modelGP, data = dat_dich, ordered = c("KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24"), std.lv=TRUE, meanstructure=TRUE)
+fit1Ge6P <- cfa(model = modelGeP, data = dat_poly, ordered = c("KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+fit1Ge2P <- cfa(model = modelGeP, data = dat_dich, ordered = c("KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+
+summary(fit1A6P, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1A2P, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1G6P, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1G2P, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1Ge6P, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1Ge2P, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+
+
+tabelle2a <- compareFit(fit1A6P, fit1G6P, fit1Ge6P, nested=FALSE)
+tabelle2b <- compareFit(fit1A2P, fit1G2P, fit1Ge2P, nested=FALSE)
+summary(tabelle2a)
+summary(tabelle2b)
+```
+
+```{r}
+load_df_nomod <- 
+  bind_rows(
+    standardizedSolution(fit1A6P, type = "std.all") |> mutate(measure = "age", categories = "6"),
+    standardizedSolution(fit1A2P, type = "std.all") |> mutate(measure = "age", categories = "2"),
+    standardizedSolution(fit1G6P, type = "std.all") |> mutate(measure = "height", categories = "6"),
+    standardizedSolution(fit1G2P, type = "std.all") |> mutate(measure = "height", categories = "2"),
+    standardizedSolution(fit1Ge6P, type = "std.all") |> mutate(measure = "weight", categories = "6"),
+    standardizedSolution(fit1Ge2P, type = "std.all") |> mutate(measure = "weight", categories = "2")) |>
+  filter(lhs == "f1" & op == "=~") |> 
+  mutate(item_name = rhs)
+
+load_df_nomod_proc <- load_df_nomod |>
+  # Create new columns: prefix (everything before underscore) and suffix (the numeric part)
+  mutate(prefix = sub("_.*", "", item_name),
+    suffix = as.numeric(sub(".*_", "", item_name))) |>
+  group_by(prefix) |>
+  mutate(item = match(suffix, sort(unique(suffix)))) |>
+  mutate(item = replace_na(as.character(item), "Physical item")) |>
+  ungroup() |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  select(item, measure, categories, est_print) |>
+  pivot_wider(names_from = c(measure, categories), values_from = est_print)
+
+fit_df <- bind_rows(
+  data.frame(as.list(fitMeasures(fit1A6P))) |> mutate(measure = "age", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1A2P))) |> mutate(measure = "age", categories = "2"),
+  data.frame(as.list(fitMeasures(fit1G6P))) |> mutate(measure = "height", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1G2P))) |> mutate(measure = "height", categories = "2"),
+  data.frame(as.list(fitMeasures(fit1Ge6P))) |> mutate(measure = "weight", categories = "6"),
+  data.frame(as.list(fitMeasures(fit1Ge2P))) |> mutate(measure = "weight", categories = "2")
+) |>
+  pivot_longer(!c(measure, categories), names_to = "statistic", values_to = "est") |>
+  filter(statistic %in% c("chisq.scaled", "pvalue.scaled", "df.scaled", "cfi.scaled", "rmsea.scaled", "srmr")) |>
+  mutate(statistic = case_match(statistic, "chisq.scaled" ~ "$\\chi^2$", "pvalue.scaled" ~ "p", "df.scaled" ~ "df", "cfi.scaled" ~ "CFI", "rmsea.scaled" ~ "RMSEA", "srmr" ~ "SRMR")) |>
+  mutate(est_print = papaja::printnum(est, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print = if_else(statistic == "df", as.character(est), est_print)) |>
+  mutate(est_print = if_else(statistic == "p", papaja::printp(as.numeric(est_print)), est_print)) |>
+  pivot_wider(id_cols = statistic, names_from = c(measure, categories), values_from = est_print)
+
+
+
+table2 <- rbind(
+    load_df_nomod_proc |> select(item, height_2, height_6, weight_2, weight_6, age_2, age_6) |> rename(Measure = item) |> mutate(group = "Items"),
+    fit_df |> select(statistic, height_2, height_6, weight_2, weight_6, age_2, age_6) |> rename(Measure = statistic) |> mutate(group = "Model fit")
+  ) |> 
+  group_by(group) |>
+  flextable::as_grouped_data(groups = "group") |>
+  flextable::as_flextable(hide_grouplabel = TRUE) |>
+  flextable::add_header_row(values = c("Measure", "Height", "Weight", "Age"),
+    colwidths = c(1, 2, 2, 2)) |>
+  flextable::set_header_labels(
+    values = list(
+      Measure = "Categories",
+      age_6 = "Six", age_2 = "Two", 
+      height_6 = "Six", height_2 = "Two",
+      weight_6 = "Six", weight_2 = "Two")) |>
+  flextable::align(i = 1, align = "center", part = "header") |>
+  flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
+  flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  
+  flextable::bold(i = ~ abs(parse_number(age_6)) > parse_number(age_6[14]), j = "age_6") |>
+  flextable::bold(i = ~ abs(parse_number(age_2)) > parse_number(age_2[14]), j = "age_2") |>
+  flextable::bold(i = ~ abs(parse_number(height_6)) > parse_number(height_6[14]), j = "height_6") |>
+  flextable::bold(i = ~ abs(parse_number(height_2)) > parse_number(height_2[14]), j = "height_2") |>
+  flextable::bold(i = ~ abs(parse_number(weight_6)) > parse_number(weight_6[14]), j = "weight_6") |>
+  flextable::bold(i = ~ abs(parse_number(weight_2)) > parse_number(weight_2[14]), j = "weight_2") |>
+  flextable::bold(i = 15:21, bold = FALSE) |>
+  flextable::bg(i  = 14, bg = "grey90") |>
+  
+  flextable::theme_apa() |>
+  ftExtra::colformat_md()
+table2
+```
+
+### Bifactor models
+
+```{r}
+### Residual Psychologie
+modelA_p <- "
+  age =~ A_1 + A_2 + A_3 + A_4 + A_5 + A_6 + A_7 + A_8 + A_9 + A_10 + A_11 + A_12
+  A_1 ~ Alter_realW + Geschlecht 
+  A_2 ~ Alter_realW + Geschlecht
+  A_3 ~ Alter_realW + Geschlecht
+  A_4 ~ Alter_realW + Geschlecht
+  A_5 ~ Alter_realW + Geschlecht
+  A_6 ~ Alter_realW + Geschlecht
+  A_7 ~ Alter_realW + Geschlecht
+  A_8 ~ Alter_realW + Geschlecht
+  A_9 ~ Alter_realW + Geschlecht
+  A_10 ~ Alter_realW + Geschlecht
+  A_11 ~ Alter_realW + Geschlecht
+  A_12 ~ Alter_realW + Geschlecht
+"
+
+modelG_p <- "
+height =~ KGr_13 + KGr_14 + KGr_15 + KGr_16 + KGr_17 + KGr_18 + KGr_19 + KGr_20 + KGr_21 + KGr_22 + KGr_23 + KGr_24
+  KGr_13 ~ Koerpergroesse_realW + Geschlecht
+  KGr_14 ~ Koerpergroesse_realW + Geschlecht
+  KGr_15 ~ Koerpergroesse_realW + Geschlecht
+  KGr_16 ~ Koerpergroesse_realW + Geschlecht
+  KGr_17 ~ Koerpergroesse_realW + Geschlecht
+  KGr_18 ~ Koerpergroesse_realW + Geschlecht
+  KGr_19 ~ Koerpergroesse_realW + Geschlecht
+  KGr_20 ~ Koerpergroesse_realW + Geschlecht
+  KGr_21 ~ Koerpergroesse_realW + Geschlecht
+  KGr_22 ~ Koerpergroesse_realW + Geschlecht
+  KGr_23 ~ Koerpergroesse_realW + Geschlecht
+  KGr_24 ~ Koerpergroesse_realW + Geschlecht
+"
+modelGe_p <- "
+  weight =~ KGe_25 + KGe_26 + KGe_27 + KGe_28 + KGe_29 + KGe_30 + KGe_31 + KGe_32 + KGe_33 + KGe_34 + KGe_35 + KGe_36
+  KGe_25 ~ Koerpergewicht_realW + Geschlecht
+  KGe_26 ~ Koerpergewicht_realW + Geschlecht
+  KGe_27 ~ Koerpergewicht_realW + Geschlecht
+  KGe_28 ~ Koerpergewicht_realW + Geschlecht
+  KGe_29 ~ Koerpergewicht_realW + Geschlecht
+  KGe_30 ~ Koerpergewicht_realW + Geschlecht
+  KGe_31 ~ Koerpergewicht_realW + Geschlecht
+  KGe_32 ~ Koerpergewicht_realW + Geschlecht
+  KGe_33 ~ Koerpergewicht_realW + Geschlecht
+  KGe_34 ~ Koerpergewicht_realW + Geschlecht
+  KGe_35 ~ Koerpergewicht_realW + Geschlecht
+  KGe_36 ~ Koerpergewicht_realW + Geschlecht
+"
+
+fit1A6_p <- cfa(model = modelA_p, data = dat_poly, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12"), std.lv=TRUE, meanstructure=TRUE)
+fit1A2_p <- cfa(model = modelA_p, data = dat_dich, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12"), std.lv=TRUE, meanstructure=TRUE)
+fit1G6_p <- cfa(model = modelG_p, data = dat_poly, ordered = c("KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24"), std.lv=TRUE, meanstructure=TRUE)
+fit1G2_p <- cfa(model = modelG_p, data = dat_dich, ordered = c("KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24"), std.lv=TRUE, meanstructure=TRUE)
+fit1Ge6_p <- cfa(model = modelGe_p, data = dat_poly, ordered = c("KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+fit1Ge2_p <- cfa(model = modelGe_p, data = dat_dich, ordered = c("KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+
+summary(fit1A6_p, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1A2_p, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1G6_p, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1G2_p, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1Ge6_p, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1Ge2_p, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+```
+
+```{r}
+load_df_bifac <- 
+  bind_rows(
+    standardizedSolution(fit1A6_p, type = "std.all") |> mutate(measure = "age", categories = "6"),
+    standardizedSolution(fit1A2_p, type = "std.all") |> mutate(measure = "age", categories = "2"),
+    standardizedSolution(fit1G6_p, type = "std.all") |> mutate(measure = "height", categories = "6"),
+    standardizedSolution(fit1G2_p, type = "std.all") |> mutate(measure = "height", categories = "2"),
+    standardizedSolution(fit1Ge6_p, type = "std.all") |> mutate(measure = "weight", categories = "6"),
+    standardizedSolution(fit1Ge2_p, type = "std.all") |> mutate(measure = "weight", categories = "2")) |>
+  filter(
+    (lhs %in% c("age", "height", "weight") & op == "=~") |
+    (rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW", "Geschlecht") & op == "~"))
+  
+load_df_bifac_proc <- load_df_bifac |>
+  mutate(
+    cause = case_when(
+      lhs %in% c("age", "height", "weight") & op == "=~" ~ lhs,
+      rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW", "Geschlecht") & op == "~" ~ rhs),
+    item_name = case_when(
+      lhs %in% c("age", "height", "weight") & op == "=~" ~ rhs,
+      rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW", "Geschlecht") & op == "~" ~ lhs
+    )) |> 
+  # Create new columns: prefix (everything before underscore) and suffix (the numeric part)
+  mutate(prefix = sub("_.*", "", item_name),
+    suffix = as.numeric(sub(".*_", "", item_name))) |>
+  # For each prefix group, assign new_num as the rank of suffix in sorted order 
+  group_by(prefix) |>
+  mutate(item = match(suffix, sort(unique(suffix)))) |>
+  ungroup() |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = TRUE, digits = 3))
+```
+
+```{r}
+table3 <- load_df_bifac_proc |> 
+  select(item, cause, measure, categories, est_print) |> 
+  pivot_wider(names_from = c(measure, cause), values_from = est_print) |>
+  select(item, categories, height_height, height_Koerpergroesse_realW, height_Geschlecht, weight_weight, weight_Koerpergewicht_realW, weight_Geschlecht, age_age, age_Alter_realW, age_Geschlecht) |>
+  mutate(categories = factor(categories, levels = c(2, 6), labels = c("Two categories", "Six categories"))) |>
+  arrange(categories, item) |>
+  flextable::as_grouped_data(groups = "categories") |>
+  flextable::as_flextable(hide_grouplabel = TRUE) |>
+  flextable::add_header_row(values = c("", "Height", "Weight", "Age"),
+    colwidths = c(1, 3, 3, 3)) |>
+  flextable::set_header_labels(
+    values = list(
+      item = "Item",
+      age_age = "Latent", height_height = "Latent", weight_weight = "Latent",
+      age_Alter_realW = "Physical",
+      height_Koerpergroesse_realW = "Physical",
+      weight_Koerpergewicht_realW = "Physical",
+      age_Geschlecht = "Gender", height_Geschlecht = "Gender", weight_Geschlecht = "Gender")) |>
+  flextable::align(i = 1, align = "center", part = "header") |>
+  flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
+  flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  
+  flextable::bold(i = ~ abs(parse_number(age_age)) > 0.6, j = "age_age") |>
+  flextable::bold(i = ~ abs(parse_number(age_Alter_realW)) > 0.6, j = "age_Alter_realW") |>
+  flextable::bold(i = ~ abs(parse_number(age_Geschlecht)) > 0.6, j = "age_Geschlecht") |>
+  flextable::bold(i = ~ abs(parse_number(height_height)) > 0.6, j = "height_height") |>
+  flextable::bold(i = ~ abs(parse_number(height_Koerpergroesse_realW)) > 0.6, j = "height_Koerpergroesse_realW") |>
+  flextable::bold(i = ~ abs(parse_number(height_Geschlecht)) > 0.6, j = "height_Geschlecht") |>
+  flextable::bold(i = ~ abs(parse_number(weight_weight)) > 0.6, j = "weight_weight") |>
+  flextable::bold(i = ~ abs(parse_number(weight_Koerpergewicht_realW)) > 0.6, j = "weight_Koerpergewicht_realW") |>
+  flextable::bold(i = ~ abs(parse_number(weight_Geschlecht)) > 0.6, j = "weight_Geschlecht") |>
+  
+  flextable::theme_apa() |>
+  ftExtra::colformat_md()
+table3
+```
+
+
+### Full model
+
+```{r}
+modelges <- "
+  age =~ A_1 +  A_2 + A_3 + A_4 + A_5 + A_6 + A_7 + A_8 + A_9 + A_10 + A_11 + A_12 
+  height =~ KGr_13 + KGr_14 + KGr_15 + KGr_16 + KGr_17 + KGr_18 + KGr_19 + KGr_20 + KGr_21 + KGr_22 + KGr_23 + KGr_24 
+  weight =~ KGe_25 + KGe_26 + KGe_27 + KGe_28 + KGe_29 + KGe_30 + KGe_31 + KGe_32 + KGe_33 + KGe_34 + KGe_35 + KGe_36
+  Alter_realW ~~ Koerpergroesse_realW
+  Koerpergewicht_realW ~~ Alter_realW
+  Koerpergroesse_realW ~~ Koerpergewicht_realW
+
+  Alter_realW ~~ age
+  Koerpergewicht_realW ~~ weight
+  Koerpergroesse_realW ~~ height
+" 
+
+fit1ges6 <- cfa(model = modelges, data = dat_poly, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12", "KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24", "KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+fit1ges2 <- cfa(model = modelges, data = dat_dich, ordered = c("A_1","A_2", "A_3", "A_4", "A_5", "A_6", "A_7","A_8", "A_9", "A_10", "A_11","A_12", "KGr_13","KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19","KGr_20", "KGr_21", "KGr_22", "KGr_23","KGr_24", "KGe_25","KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31","KGe_32", "KGe_33", "KGe_34", "KGe_35","KGe_36"), std.lv=TRUE, meanstructure=TRUE)
+
+summary(fit1ges6, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+summary(fit1ges2, fit.measures=TRUE, standardized = TRUE, rsquare = TRUE, modindices = TRUE)
+```
+
+## Correlations between latent variables
+
+```{r}
+(r_latent_poly <- standardizedSolution(fit1ges6, type = "std.all") |>
+  filter(op == "~~" & 
+      lhs %in% c("age", "height", "weight") &
+      rhs %in% c("age", "height", "weight") &
+      lhs != rhs) |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print_star = case_when(
+    pvalue < 0.05 & pvalue > 0.01 ~ paste0(est_print, "*"),
+    pvalue < 0.01 & pvalue > 0.001 ~ paste0(est_print, "**"),
+    pvalue < 0.001 ~ paste0(est_print, "***"),
+    .default = est_print 
+  )))
+r_latent_AG6 <- r_latent_poly |> filter(lhs == "age" & rhs == "height") |> pull(est_print_star)
+r_latent_AGe6 <- r_latent_poly |> filter(lhs == "age" & rhs == "weight") |> pull(est_print_star)
+r_latent_GGe6 <- r_latent_poly |> filter(lhs == "height" & rhs == "weight") |> pull(est_print_star)
+
+(r_latent_dich <- standardizedSolution(fit1ges2, type = "std.all") |>
+  filter(op == "~~" & 
+      lhs %in% c("age", "height", "weight") &
+      rhs %in% c("age", "height", "weight") &
+      lhs != rhs) |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print_star = case_when(
+    pvalue < 0.05 & pvalue > 0.01 ~ paste0(est_print, "*"),
+    pvalue < 0.01 & pvalue > 0.001 ~ paste0(est_print, "**"),
+    pvalue < 0.001 ~ paste0(est_print, "***"),
+    .default = est_print 
+  )))
+r_latent_AG2 <- r_latent_dich |> filter(lhs == "age" & rhs == "height") |> pull(est_print_star)
+r_latent_AGe2 <- r_latent_dich |> filter(lhs == "age" & rhs == "weight") |> pull(est_print_star)
+r_latent_GGe2 <- r_latent_dich |> filter(lhs == "height" & rhs == "weight") |> pull(est_print_star)
+```
+
+
+## Correlations between physical variables
+
+```{r}
+(r_phys_poly <- standardizedSolution(fit1ges6, type = "std.all") |>
+  filter(op == "~~" & 
+      lhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW") &
+      rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW") &
+      lhs != rhs) |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print_star = case_when(
+    pvalue < 0.05 & pvalue > 0.01 ~ paste0(est_print, "*"),
+    pvalue < 0.01 & pvalue > 0.001 ~ paste0(est_print, "**"),
+    pvalue < 0.001 ~ paste0(est_print, "***"),
+    .default = est_print 
+  )))
+
+r_phys_AG6 <- r_phys_poly |> filter(lhs == "Alter_realW" & rhs == "Koerpergroesse_realW") |> pull(est_print_star)
+r_phys_AGe6 <- r_phys_poly |> filter(lhs == "Alter_realW" & rhs == "Koerpergewicht_realW") |> pull(est_print_star)
+r_phys_GGe6 <- r_phys_poly |> filter(lhs == "Koerpergewicht_realW" & rhs == "Koerpergroesse_realW") |> pull(est_print_star)
+
+
+(r_phys_dich <- standardizedSolution(fit1ges2, type = "std.all") |>
+  filter(op == "~~" & 
+      lhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW") &
+      rhs %in% c("Alter_realW", "Koerpergroesse_realW", "Koerpergewicht_realW") &
+      lhs != rhs) |>
+  mutate(est_print = papaja::printnum(est.std, gt1 = FALSE, digits = 3)) |>
+  mutate(est_print_star = case_when(
+    pvalue < 0.05 & pvalue > 0.01 ~ paste0(est_print, "*"),
+    pvalue < 0.01 & pvalue > 0.001 ~ paste0(est_print, "**"),
+    pvalue < 0.001 ~ paste0(est_print, "***"),
+    .default = est_print 
+  )))
+
+r_phys_AG2 <- r_phys_dich |> filter(lhs == "Alter_realW" & rhs == "Koerpergroesse_realW") |> pull(est_print_star)
+r_phys_AGe2 <- r_phys_dich |> filter(lhs == "Alter_realW" & rhs == "Koerpergewicht_realW") |> pull(est_print_star)
+r_phys_GGe2 <- r_phys_dich |> filter(lhs == "Koerpergewicht_realW" & rhs == "Koerpergroesse_realW") |> pull(est_print_star)
+```
+
+
+## Reliability estimates
+
+```{r}
+## ------------------------------------------------------------
+## 1. recode inverse items on scales from 1-6 and 0-1
+## ------------------------------------------------------------
+
+# recode 6-point scale
+recode_inverse_6 <- c('1' = 6L, '2' = 5L, '3' = 4L, '4' = 3L, '5' = 2L, '6' = 1L)
+
+dat_poly_r <- dat_poly |>
+  mutate(across(all_of(c("A_10", "KGr_21", "KGr_22", "KGr_23", "KGe_31", "KGe_32", "KGe_33")),
+                ~ recode(.x, !!!recode_inverse_6)))
+
+# recode 2-point scale
+recode_inverse_2 <- c('1' = 0L, '0' = 1L)
+
+dat_dich_r <- dat_dich |>
+  mutate(across(all_of(c("A_10", "KGr_21", "KGr_22", "KGr_23", "KGe_31", "KGe_32", "KGe_33")),
+                ~ recode(.x, !!!recode_inverse_2)))
+
+## ------------------------------------------------------------
+## 2. define item sets
+## ------------------------------------------------------------
+
+items_age <- c("A_1", "A_2", "A_3", "A_4", "A_5", "A_6", "A_7", "A_8", "A_9", "A_10", "A_11", "A_12")
+items_height <- c("KGr_13", "KGr_14", "KGr_15", "KGr_16", "KGr_17", "KGr_18", "KGr_19", "KGr_20", "KGr_21", "KGr_22", "KGr_23", "KGr_24")
+items_weight <- c("KGe_25", "KGe_26", "KGe_27", "KGe_28", "KGe_29", "KGe_30", "KGe_31", "KGe_32", "KGe_33", "KGe_34", "KGe_35", "KGe_36")
+
+## ------------------------------------------------------------
+## 3. Reliabilitätsanalyse (McDonald's Omega) mit Konfidenzintervallen
+## ------------------------------------------------------------
+
+# Für dat_poly (6-stufige Items)
+(rel_A6 <- ci.reliability(data = dat_poly_r[, items_age], type = "omega", interval.type = "ml"))
+rel_A6 <- papaja::printnum(rel_A6$est, gt1 = FALSE, digits = 3)
+(rel_G6 <- ci.reliability(data = dat_poly_r[, items_height], type = "omega", interval.type = "ml"))
+rel_G6 <- papaja::printnum(rel_G6$est, gt1 = FALSE, digits = 3)
+(rel_Ge6 <- ci.reliability(data = dat_poly_r[, items_weight], type = "omega", interval.type = "ml"))
+rel_Ge6 <- papaja::printnum(rel_Ge6$est, gt1 = FALSE, digits = 3)
+
+# Für dat_dich (dichotome Items)
+(rel_A2 <- ci.reliability(data = dat_dich_r[, items_age], type = "omega", interval.type = "ml"))
+rel_A2 <- papaja::printnum(rel_A2$est, gt1 = FALSE, digits = 3)
+(rel_G2 <- ci.reliability(data = dat_dich_r[, items_height], type = "omega", interval.type = "ml"))
+rel_G2 <- papaja::printnum(rel_G2$est, gt1 = FALSE, digits = 3)
+(rel_Ge2 <- ci.reliability(data = dat_dich_r[, items_weight], type = "omega", interval.type = "ml"))
+rel_Ge2 <- papaja::printnum(rel_Ge2$est, gt1 = FALSE, digits = 3)
+```
+
+```{r}
+cor_table <- tribble(
+  ~Measure, ~Height_2  , ~Height_6  , ~Weight_2    , ~Weight_6    , ~Age_2       , ~Age_6       ,
+  "Height", rel_G2     , rel_G6     , r_latent_GGe2, r_latent_GGe6, r_latent_AG2 , r_latent_AG6 ,
+  "Weight", r_phys_GGe2, r_phys_GGe6, rel_Ge2      , rel_Ge6      , r_latent_AGe2, r_latent_AGe6,
+  "Age"   , r_phys_AG2 , r_phys_AG6 , r_phys_AGe2  , r_phys_AGe6  , rel_A2       , rel_A6      
+)
+```
+
+```{r}
+table4 <- flextable::flextable(cor_table) |>
+  flextable::set_header_labels(
+    Measure = "Categories",
+    Age_6 = "Six", Age_2 = "Two",
+    Height_6 = "Six", Height_2 = "Two",
+    Weight_6 = "Six", Weight_2 = "Two") |>
+  flextable::add_header_row(values = c("Measure", "Height", "Weight", "Age"),
+    colwidths = c(1, 2, 2, 2)) |>
+  flextable::align(i = 1, align = "center", part = "header") |>
+  flextable::border(i = 2, j = 1, border.top = officer::fp_border(width = 0), part = "header") |>
+  flextable::border(i = 1, j = 1, border.bottom = officer::fp_border(width = 0), part = "header") |>
+  
+  flextable::bold(i  = 1, j = 4:7) |>
+  flextable::bold(i  = 2, j = 6:7) |>
+
+  flextable::bg(i  = 1, j = c(2, 3), bg = "grey90") |>
+  flextable::bg(i  = 2, j = c(4, 5), bg = "grey90") |>
+  flextable::bg(i  = 3, j = c(6, 7), bg = "grey90") |>
+  
+  flextable::theme_apa() |>
+  ftExtra::colformat_md()
+table4
+```
+
+## Save results for manuscript {#sec-saveresults}
+
+```{r}
+results <- saveRDS(
+  object = list(
+    table1 = table1, table2 = table2, table3 = table3, table4 = table4,
+    load_df_nomod = load_df_nomod,
+    load_df_bifac = load_df_bifac,
+    fullmodelfit6 = fitMeasures(fit1ges6),
+    fullmodelfit2 = fitMeasures(fit1ges2)
+    ), 
+  file = "../results/results.rds"
+)
+```
