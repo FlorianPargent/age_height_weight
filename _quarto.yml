@@ -19,7 +19,6 @@ manuscript:
 
 format:
   apaquarto-html:
-  #  theme: default
     suppress-title-introduction: true
     suppress-title: false
     toc: true
@@ -31,14 +30,10 @@ format:
       container-title: "PsyArxiv"
       id: "eichhorn2025"
       issued: 2025
-  #  theme: [brand, styles.scss]
+      abstract: "."
     grid:
       body-width: 900px
   jats: default
-  # apaquarto-pdf:
-  #   documentmode: man
-  #   a4paper: true
-  #   keep-tex: true
   apaquarto-typst:
     documentmode: man
     a4paper: true
