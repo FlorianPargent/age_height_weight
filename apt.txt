@@ -1,3 +1,5 @@
 zip
 cmake
 pandoc
+libharfbuzz-dev
+libfribidi-dev
