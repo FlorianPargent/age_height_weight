@@ -133,7 +133,7 @@ fit_df <- bind_rows(
 ) |>
   pivot_longer(!c(measure, categories), names_to = "statistic", values_to = "est") |>
   filter(statistic %in% c("chisq.scaled", "pvalue.scaled", "df.scaled", "cfi.scaled", "rmsea.scaled", "srmr")) |>
-  mutate(statistic = case_match(statistic, "chisq.scaled" ~ "$\\chi^2$", "pvalue.scaled" ~ "p", "df.scaled" ~ "df", "cfi.scaled" ~ "CFI", "rmsea.scaled" ~ "RMSEA", "srmr" ~ "SRMR")) |>
+  mutate(statistic = case_match(statistic, "chisq.scaled" ~ "$\\chi^2$", "pvalue.scaled" ~ "$p$", "df.scaled" ~ "$df$", "cfi.scaled" ~ "CFI", "rmsea.scaled" ~ "RMSEA", "srmr" ~ "SRMR")) |>
   mutate(est_print = papaja::printnum(est, gt1 = FALSE, digits = 3)) |>
   mutate(est_print = if_else(statistic == "df", as.character(est), est_print)) |>
   mutate(est_print = if_else(statistic == "p", papaja::printp(as.numeric(est_print)), est_print)) |>
