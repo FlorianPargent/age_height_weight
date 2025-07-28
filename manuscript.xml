@@ -6,7 +6,7 @@ and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
     <article-meta>
       <title-group>
         <article-title>Item Construction Rules Revisited: Learnings from
-Measurement of Latent Variables with Gold Standard Items</article-title>
+Measurement of Latent Variables with Gold-Standard Items</article-title>
       </title-group>
       <contrib-group>
         <contrib contrib-type="author">
@@ -150,31 +150,35 @@ analysis</role>
       </permissions>
       <abstract>
 This article investigates whether gold-standard items are helpful for
-questionnaire construction. Based on cognitive interviews (n = 8) and a
-pilot study (n = 390) with an initial item set, three 12-item scales
-were constructed to measure the physical traits of body height, body
-weight, and age. We collected data on these scales using response
-formats with either two (n = 921) or six (n = 933) categories. We also
-collected numeric self-reports of body weight, body height, and age as
-gold-standard items. Confirmatory factor analyses revealed that the
-gold-standard items did not consistently exhibit the highest loading on
-their corresponding latent variable. Furthermore, when controlling for
-the self-reported physical body height, body weight, and age as
-gold-standard items, as well as gender, we did not always find an
-interpretable, systematic residual variance. Finally, the pattern of
-correlations between the latent variables did not reflect the
-correlations between the self-reported gold-standard items, suggesting
-that the item scales and the gold-standard items do not have the same
-validity. While these results are consistent with previous studies, our
-analyses also showed that items with two response categories were at
-least as valid as those with six categories, contradicting past
-recommendations. When constructing a questionnaire, we would argue that
-the items intended to measure the latent variable most directly should
-have the highest loading on that variable. If this is not the case, the
-content validity is questionable at best. The implications are that
-intensive cognitive pretesting is necessary. Questionnaires with
-different response formats should be compared empirically and hypotheses
-about which items best represent the latent variable should be tested.
+questionnaire construction. Based on cognitive interviews
+(<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 8) and a pilot study (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 390) with an initial item set, three 12-item scales were constructed
+to measure the physical traits of body height, body weight, and age. We
+collected data on these scales using response formats with either two
+(<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 921) or six (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 933) categories. We also collected numeric self-reports of body
+weight, body height, and age as gold-standard items. Confirmatory factor
+analyses revealed that the gold-standard items did not consistently
+exhibit the highest loading on their corresponding latent variable.
+Furthermore, when controlling for the self-reported physical body
+height, body weight, and age as gold-standard items, as well as gender,
+we did not always find an interpretable, systematic residual variance.
+Finally, the pattern of correlations between the latent variables did
+not reflect the correlations between the self-reported gold-standard
+items, suggesting that the item scales and the gold-standard items do
+not have the same validity. While these results are consistent with
+previous studies, our analyses also showed that items with two response
+categories were at least as valid as those with six categories,
+contradicting past recommendations. When constructing a questionnaire,
+we would argue that the items intended to measure the latent variable
+most directly should have the highest loading on that variable. If this
+is not the case, the content validity is questionable at best. The
+implications are that intensive cognitive pretesting is necessary.
+Questionnaires with different response formats should be compared
+empirically and hypotheses about which items best represent the latent
+variable should be tested.
 </abstract>
     </article-meta>
   </front>
@@ -218,7 +222,7 @@ robustness check that the latent variable has the intended meaning. In
 the following sections, we refer to such items as <italic>gold-standard
 items</italic>.</p>
     <p>In this study, we construct scales for “physical traits” like body
-height, body weight, and age and compare them with a gold standard item,
+height, body weight, and age and compare them with a gold-standard item,
 that is, the numerical self-report of the respective physical property.
 We derive four assumptions that should hold if a valid measurement of
 the mentioned latent variables is possible. We base these assumptions on
@@ -227,7 +231,7 @@ categories, which we will outline in the next section.</p>
     <sec id="theoretical-background">
       <title>Theoretical Background</title>
       <sec id="evidence-using-gold-standard-items">
-        <title>Evidence Using Gold Standard Items</title>
+        <title>Evidence Using Gold-Standard Items</title>
         <p>To demonstrate the validity of psychological measurements and the
     practical utility of psychological measurement models, Bortolotti et
     al.
@@ -245,8 +249,8 @@ categories, which we will outline in the next section.</p>
     physical, gold-standard measurements. The results revealed a strong
     correlation (.86, not corrected for disattenuation) between the
     estimated person parameters derived from a two-parameter logistic
-    model and the self-reported physical height. Still, the gold
-    standard did not exhibit the highest loading on the scale
+    model and the self-reported physical height. Still, the
+    gold-standard item did not exhibit the highest loading on the scale
     (<xref alt="Bortolotti et al., 2013" rid="ref-bortolottiRelevanceAdvantagesUsing2013" ref-type="bibr">Bortolotti
     et al., 2013</xref>). Van der Linden
     (<xref alt="2016" rid="ref-vanderlindenUnidimensionalLogisticResponse2016" ref-type="bibr">2016</xref>)
@@ -258,7 +262,7 @@ categories, which we will outline in the next section.</p>
     yardstick. However, differences in height influence behavior, making
     it quite plausible to view such behavioral indicators as proxies for
     body height and to derive a psychological measurement from them. The
-    two examples suggest that, first, gold standard items do not always
+    two examples suggest that, first, gold-standard items do not always
     have the highest loading on the latent variable. Second, measuring a
     “physical” latent variable might be a psychological representation
     of body height rather than a measure of physical body height.</p>
@@ -296,7 +300,7 @@ categories, which we will outline in the next section.</p>
       </sec>
       <sec id="response-scale">
         <title>Response Scale</title>
-        <p>Hilbert
+        <p>Hilbert et al.
     (<xref alt="2016" rid="ref-hilbertInfluenceResponseFormat2016" ref-type="bibr">2016</xref>)
     presented initial evidence that different response scales might not
     measure the same latent variable. They found that the correlation
@@ -404,7 +408,7 @@ categories, which we will outline in the next section.</p>
         <list-item>
           <p><italic>Assumption 3a, b:</italic> The correlational pattern
       between the latent variables for the physical traits should
-      correspond to the correlation of the self-reported gold standard
+      correspond to the correlation of the self-reported gold-standard
       items (3a) and the factor loadings and reliability estimates
       should be higher for scales with 6-point response categories
       compared to 2-point response categories (3b).</p>
@@ -723,13 +727,13 @@ categories, which we will outline in the next section.</p>
       <title>Discussion</title>
       <sec id="summary">
         <title>Summary</title>
-        <p>The goal of this study was to find out whether gold standard
+        <p>The goal of this study was to find out whether gold-standard
     items have the highest loadings on the corresponding latent
     variable. This was investigated using items with two and six
     response categories which measure these physical traits. The results
     reveal that this is only an exception, and two response categories
     perform not necessarily worse than six response categories regarding
-    validity and reliability. Gold standard items might help to ensure
+    validity and reliability. Gold-standard items might help to ensure
     the interpretation of the latent variable. The choice of the
     response format should be based on empirical testing and extensive
     cognitive interviews. It seems not sufficient to take advice from
@@ -738,7 +742,7 @@ categories, which we will outline in the next section.</p>
     discussed in the following sections.</p>
       </sec>
       <sec id="gold-standard-items">
-        <title>Gold Standard Items</title>
+        <title>Gold-Standard Items</title>
         <p>Gold-standard items did not work as theoretically expected in
     this study. However, we still believe they are important. Only the
     gold-standard item for body height – for six, not for two response
@@ -831,14 +835,14 @@ categories, which we will outline in the next section.</p>
         <p>As expected, reliability estimates were higher for scales with
     six response categories compared to two categories. The results with
     regard to model fit and validity, indicated as correlations between
-    latent variables compared to the correlation between gold standard
+    latent variables compared to the correlation between gold-standard
     items, are mixed. Some fit indices suggested slightly better fit for
     items with two response categories and some for six categories. The
     same holds true for the differences between the correlations of the
     gold-standard items and the correlations of the latent variables.
     Except for reliability, the study revealed no clear picture to
     choose between two or six response categories. Hilbert et al.
-    (<xref alt="2016" rid="ref-hilbertInfluenceResponseFormat2016" ref-type="bibr">2016</xref>;
+    (<xref alt="2016" rid="ref-hilbertInfluenceResponseFormat2016" ref-type="bibr">2016</xref>,
     <xref alt="2022" rid="ref-hilbertWhatMeasureEmpirical2022" ref-type="bibr">2022</xref>)
     showed that the same items with a different number of response
     categories do not measure the same latent variable. This result
@@ -885,23 +889,22 @@ categories, which we will outline in the next section.</p>
     response categories in pilot testing. In this context, it is
     important to recognize that the number of response categories can
     influence what latent variables are measured (see
-    <xref alt="Hilbert, 2016" rid="ref-hilbertInfluenceResponseFormat2016" ref-type="bibr">Hilbert,
-    2016</xref>;
-    <xref alt="Hilbert et al., 2022" rid="ref-hilbertWhatMeasureEmpirical2022" ref-type="bibr">Hilbert
-    et al., 2022</xref>). Thus, comparing the construct validity of
-    questionnaires differing in the number of response categories is
-    essential. Nevertheless, it remains necessary to subject response
-    scales to intensive cognitive pretesting to determine a suitable
-    number of categories. On the one hand, cognitive interviews can
-    reveal when single categories are systematically overlooked by
-    respondents lacking information or cognitive capacity to
-    differentiate categories. On the other hand, cognitive pretests help
-    assess participants’ cognitive load, which should always be kept in
-    mind. For example, two-point scales, which are commonly criticized,
-    have previously been shown to require less effort from the
-    respondents
-    (<xref alt="Hilbert, 2016" rid="ref-hilbertInfluenceResponseFormat2016" ref-type="bibr">Hilbert,
-    2016</xref>).</p>
+    <xref alt="Hilbert et al., 2016" rid="ref-hilbertInfluenceResponseFormat2016" ref-type="bibr">Hilbert
+    et al., 2016</xref>,
+    <xref alt="2022" rid="ref-hilbertWhatMeasureEmpirical2022" ref-type="bibr">2022</xref>).
+    Thus, comparing the construct validity of questionnaires differing
+    in the number of response categories is essential. Nevertheless, it
+    remains necessary to subject response scales to intensive cognitive
+    pretesting to determine a suitable number of categories. On the one
+    hand, cognitive interviews can reveal when single categories are
+    systematically overlooked by respondents lacking information or
+    cognitive capacity to differentiate categories. On the other hand,
+    cognitive pretests help assess participants’ cognitive load, which
+    should always be kept in mind. For example, two-point scales, which
+    are commonly criticized, have previously been shown to require less
+    effort from the respondents
+    (<xref alt="Hilbert et al., 2016" rid="ref-hilbertInfluenceResponseFormat2016" ref-type="bibr">Hilbert
+    et al., 2016</xref>).</p>
       </sec>
       <sec id="conclusion">
         <title>Conclusion</title>
@@ -1609,6 +1612,22 @@ categories, which we will outline in the next section.</p>
             <name>
               <surname>Hilbert</surname>
               <given-names>Sven</given-names>
+            </name>
+            <name>
+              <surname>Küchenhoff</surname>
+              <given-names>Helmut</given-names>
+            </name>
+            <name>
+              <surname>Sarubin</surname>
+              <given-names>Nina</given-names>
+            </name>
+            <name>
+              <surname>Toyo Nakagawa</surname>
+              <given-names>Tristan</given-names>
+            </name>
+            <name>
+              <surname>Bühner</surname>
+              <given-names>Markus</given-names>
             </name>
           </person-group>
           <article-title>The influence of the response format in a personality questionnaire: An analysis of a dichotomous, a Likert-type, and a visual analogue scale</article-title>
@@ -2666,7 +2685,7 @@ categories, which we will outline in the next section.</p>
     <front-stub>
       <title-group>
         <article-title>Item Construction Rules Revisited: Learnings from
-Measurement of Latent Variables with Gold Standard Items</article-title>
+Measurement of Latent Variables with Gold-Standard Items</article-title>
       </title-group>
       <contrib-group>
         <contrib contrib-type="author">
@@ -2804,31 +2823,35 @@ analysis</role>
       </author-notes>
       <abstract>
 This article investigates whether gold-standard items are helpful for
-questionnaire construction. Based on cognitive interviews (n = 8) and a
-pilot study (n = 390) with an initial item set, three 12-item scales
-were constructed to measure the physical traits of body height, body
-weight, and age. We collected data on these scales using response
-formats with either two (n = 921) or six (n = 933) categories. We also
-collected numeric self-reports of body weight, body height, and age as
-gold-standard items. Confirmatory factor analyses revealed that the
-gold-standard items did not consistently exhibit the highest loading on
-their corresponding latent variable. Furthermore, when controlling for
-the self-reported physical body height, body weight, and age as
-gold-standard items, as well as gender, we did not always find an
-interpretable, systematic residual variance. Finally, the pattern of
-correlations between the latent variables did not reflect the
-correlations between the self-reported gold-standard items, suggesting
-that the item scales and the gold-standard items do not have the same
-validity. While these results are consistent with previous studies, our
-analyses also showed that items with two response categories were at
-least as valid as those with six categories, contradicting past
-recommendations. When constructing a questionnaire, we would argue that
-the items intended to measure the latent variable most directly should
-have the highest loading on that variable. If this is not the case, the
-content validity is questionable at best. The implications are that
-intensive cognitive pretesting is necessary. Questionnaires with
-different response formats should be compared empirically and hypotheses
-about which items best represent the latent variable should be tested.
+questionnaire construction. Based on cognitive interviews
+(<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 8) and a pilot study (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 390) with an initial item set, three 12-item scales were constructed
+to measure the physical traits of body height, body weight, and age. We
+collected data on these scales using response formats with either two
+(<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 921) or six (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 933) categories. We also collected numeric self-reports of body
+weight, body height, and age as gold-standard items. Confirmatory factor
+analyses revealed that the gold-standard items did not consistently
+exhibit the highest loading on their corresponding latent variable.
+Furthermore, when controlling for the self-reported physical body
+height, body weight, and age as gold-standard items, as well as gender,
+we did not always find an interpretable, systematic residual variance.
+Finally, the pattern of correlations between the latent variables did
+not reflect the correlations between the self-reported gold-standard
+items, suggesting that the item scales and the gold-standard items do
+not have the same validity. While these results are consistent with
+previous studies, our analyses also showed that items with two response
+categories were at least as valid as those with six categories,
+contradicting past recommendations. When constructing a questionnaire,
+we would argue that the items intended to measure the latent variable
+most directly should have the highest loading on that variable. If this
+is not the case, the content validity is questionable at best. The
+implications are that intensive cognitive pretesting is necessary.
+Questionnaires with different response formats should be compared
+empirically and hypotheses about which items best represent the latent
+variable should be tested.
 </abstract>
     </front-stub>
     <body>
@@ -2922,7 +2945,7 @@ robustness check that the latent variable has the intended meaning. In
 the following sections, we refer to such items as <italic>gold-standard
 items</italic>.</p>
       <p>In this study, we construct scales for “physical traits” like body
-height, body weight, and age and compare them with a gold standard item,
+height, body weight, and age and compare them with a gold-standard item,
 that is, the numerical self-report of the respective physical property.
 We derive four assumptions that should hold if a valid measurement of
 the mentioned latent variables is possible. We base these assumptions on
@@ -2931,7 +2954,7 @@ categories, which we will outline in the next section.</p>
       <sec id="theoretical-background-nb-article">
         <title>Theoretical Background</title>
         <sec id="evidence-using-gold-standard-items-nb-article">
-          <title>Evidence Using Gold Standard Items</title>
+          <title>Evidence Using Gold-Standard Items</title>
           <p>To demonstrate the validity of psychological measurements and the
     practical utility of psychological measurement models, Bortolotti et
     al.
@@ -2949,8 +2972,8 @@ categories, which we will outline in the next section.</p>
     physical, gold-standard measurements. The results revealed a strong
     correlation (.86, not corrected for disattenuation) between the
     estimated person parameters derived from a two-parameter logistic
-    model and the self-reported physical height. Still, the gold
-    standard did not exhibit the highest loading on the scale
+    model and the self-reported physical height. Still, the
+    gold-standard item did not exhibit the highest loading on the scale
     (<xref alt="Bortolotti et al., 2013" rid="ref-bortolottiRelevanceAdvantagesUsing2013-nb-article" ref-type="bibr">Bortolotti
     et al., 2013</xref>). Van der Linden
     (<xref alt="2016" rid="ref-vanderlindenUnidimensionalLogisticResponse2016-nb-article" ref-type="bibr">2016</xref>)
@@ -2962,7 +2985,7 @@ categories, which we will outline in the next section.</p>
     yardstick. However, differences in height influence behavior, making
     it quite plausible to view such behavioral indicators as proxies for
     body height and to derive a psychological measurement from them. The
-    two examples suggest that, first, gold standard items do not always
+    two examples suggest that, first, gold-standard items do not always
     have the highest loading on the latent variable. Second, measuring a
     “physical” latent variable might be a psychological representation
     of body height rather than a measure of physical body height.</p>
@@ -3000,7 +3023,7 @@ categories, which we will outline in the next section.</p>
         </sec>
         <sec id="response-scale-nb-article">
           <title>Response Scale</title>
-          <p>Hilbert
+          <p>Hilbert et al.
     (<xref alt="2016" rid="ref-hilbertInfluenceResponseFormat2016-nb-article" ref-type="bibr">2016</xref>)
     presented initial evidence that different response scales might not
     measure the same latent variable. They found that the correlation
@@ -3108,7 +3131,7 @@ categories, which we will outline in the next section.</p>
           <list-item>
             <p><italic>Assumption 3a, b:</italic> The correlational pattern
       between the latent variables for the physical traits should
-      correspond to the correlation of the self-reported gold standard
+      correspond to the correlation of the self-reported gold-standard
       items (3a) and the factor loadings and reliability estimates
       should be higher for scales with 6-point response categories
       compared to 2-point response categories (3b).</p>
@@ -3451,13 +3474,13 @@ r_loadings &lt;- apa_print(r_loadings)$table</code>
         <title>Discussion</title>
         <sec id="summary-nb-article">
           <title>Summary</title>
-          <p>The goal of this study was to find out whether gold standard
+          <p>The goal of this study was to find out whether gold-standard
     items have the highest loadings on the corresponding latent
     variable. This was investigated using items with two and six
     response categories which measure these physical traits. The results
     reveal that this is only an exception, and two response categories
     perform not necessarily worse than six response categories regarding
-    validity and reliability. Gold standard items might help to ensure
+    validity and reliability. Gold-standard items might help to ensure
     the interpretation of the latent variable. The choice of the
     response format should be based on empirical testing and extensive
     cognitive interviews. It seems not sufficient to take advice from
@@ -3466,7 +3489,7 @@ r_loadings &lt;- apa_print(r_loadings)$table</code>
     discussed in the following sections.</p>
         </sec>
         <sec id="gold-standard-items-nb-article">
-          <title>Gold Standard Items</title>
+          <title>Gold-Standard Items</title>
           <p>Gold-standard items did not work as theoretically expected in
     this study. However, we still believe they are important. Only the
     gold-standard item for body height – for six, not for two response
@@ -3559,14 +3582,14 @@ r_loadings &lt;- apa_print(r_loadings)$table</code>
           <p>As expected, reliability estimates were higher for scales with
     six response categories compared to two categories. The results with
     regard to model fit and validity, indicated as correlations between
-    latent variables compared to the correlation between gold standard
+    latent variables compared to the correlation between gold-standard
     items, are mixed. Some fit indices suggested slightly better fit for
     items with two response categories and some for six categories. The
     same holds true for the differences between the correlations of the
     gold-standard items and the correlations of the latent variables.
     Except for reliability, the study revealed no clear picture to
     choose between two or six response categories. Hilbert et al.
-    (<xref alt="2016" rid="ref-hilbertInfluenceResponseFormat2016-nb-article" ref-type="bibr">2016</xref>;
+    (<xref alt="2016" rid="ref-hilbertInfluenceResponseFormat2016-nb-article" ref-type="bibr">2016</xref>,
     <xref alt="2022" rid="ref-hilbertWhatMeasureEmpirical2022-nb-article" ref-type="bibr">2022</xref>)
     showed that the same items with a different number of response
     categories do not measure the same latent variable. This result
@@ -3613,23 +3636,22 @@ r_loadings &lt;- apa_print(r_loadings)$table</code>
     response categories in pilot testing. In this context, it is
     important to recognize that the number of response categories can
     influence what latent variables are measured (see
-    <xref alt="Hilbert, 2016" rid="ref-hilbertInfluenceResponseFormat2016-nb-article" ref-type="bibr">Hilbert,
-    2016</xref>;
-    <xref alt="Hilbert et al., 2022" rid="ref-hilbertWhatMeasureEmpirical2022-nb-article" ref-type="bibr">Hilbert
-    et al., 2022</xref>). Thus, comparing the construct validity of
-    questionnaires differing in the number of response categories is
-    essential. Nevertheless, it remains necessary to subject response
-    scales to intensive cognitive pretesting to determine a suitable
-    number of categories. On the one hand, cognitive interviews can
-    reveal when single categories are systematically overlooked by
-    respondents lacking information or cognitive capacity to
-    differentiate categories. On the other hand, cognitive pretests help
-    assess participants’ cognitive load, which should always be kept in
-    mind. For example, two-point scales, which are commonly criticized,
-    have previously been shown to require less effort from the
-    respondents
-    (<xref alt="Hilbert, 2016" rid="ref-hilbertInfluenceResponseFormat2016-nb-article" ref-type="bibr">Hilbert,
-    2016</xref>).</p>
+    <xref alt="Hilbert et al., 2016" rid="ref-hilbertInfluenceResponseFormat2016-nb-article" ref-type="bibr">Hilbert
+    et al., 2016</xref>,
+    <xref alt="2022" rid="ref-hilbertWhatMeasureEmpirical2022-nb-article" ref-type="bibr">2022</xref>).
+    Thus, comparing the construct validity of questionnaires differing
+    in the number of response categories is essential. Nevertheless, it
+    remains necessary to subject response scales to intensive cognitive
+    pretesting to determine a suitable number of categories. On the one
+    hand, cognitive interviews can reveal when single categories are
+    systematically overlooked by respondents lacking information or
+    cognitive capacity to differentiate categories. On the other hand,
+    cognitive pretests help assess participants’ cognitive load, which
+    should always be kept in mind. For example, two-point scales, which
+    are commonly criticized, have previously been shown to require less
+    effort from the respondents
+    (<xref alt="Hilbert et al., 2016" rid="ref-hilbertInfluenceResponseFormat2016-nb-article" ref-type="bibr">Hilbert
+    et al., 2016</xref>).</p>
         </sec>
         <sec id="conclusion-nb-article">
           <title>Conclusion</title>
@@ -4390,6 +4412,22 @@ r_A7_A10_2 &lt;- results_secondary$cor_errors |&gt;
               <name>
                 <surname>Hilbert</surname>
                 <given-names>Sven</given-names>
+              </name>
+              <name>
+                <surname>Küchenhoff</surname>
+                <given-names>Helmut</given-names>
+              </name>
+              <name>
+                <surname>Sarubin</surname>
+                <given-names>Nina</given-names>
+              </name>
+              <name>
+                <surname>Toyo Nakagawa</surname>
+                <given-names>Tristan</given-names>
+              </name>
+              <name>
+                <surname>Bühner</surname>
+                <given-names>Markus</given-names>
               </name>
             </person-group>
             <article-title>The influence of the response format in a personality questionnaire: An analysis of a dichotomous, a Likert-type, and a visual analogue scale</article-title>
