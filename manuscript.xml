@@ -205,28 +205,29 @@ validity. The item construction is believed to be theoretically sound if
 items are selected from a larger population of possible indicators of
 the latent variable in a representative manner to achieve high content
 validity and ensure that we measure the indented construct. Let us
-assume that we try to measure the latent variable warmth with the
-following adjectives: <italic>affectionate</italic>,
-<italic>friendly</italic>, <italic>talkative</italic>,
-<italic>unprejudiced</italic>. We ask how well each adjective describes
-yourself from <italic>not at all</italic> (0) to <italic>fully and
-entirely</italic> (4) with five response categories. If these items
-measure warmth, they should at least all significantly correlate with
-the adjective <italic>warmth</italic> measured with the same response
-format. Even more, the <italic>warmth</italic> item should have the
-highest discrimination parameter conducting a factor analysis with
-empirical data, otherwise a different construct is measured, e.g.,
-friendliness, in the case that the adjective <italic>friendly</italic>
-has the highest loading on the latent variable. This can be seen as a
-robustness check that the latent variable has the intended meaning. In
-the following sections, we refer to such items as <italic>gold-standard
+assume that we try to measure the latent variable <italic>interpersonal
+warmth</italic> with the following adjectives:
+<italic>affectionate</italic>, <italic>friendly</italic>,
+<italic>talkative</italic>, <italic>unprejudiced</italic>. We ask how
+well each adjective describes yourself from <italic>not at all</italic>
+(0) to <italic>fully and entirely</italic> (4) with five response
+categories. If these items measure warmth, they should at least all
+significantly correlate with the adjective warmth measured with the same
+response format. Even more, the warmth item should have the highest
+discrimination parameter conducting a factor analysis with empirical
+data, otherwise a different construct is measured, e.g., friendliness,
+in the case that the adjective <italic>friendly</italic> has the highest
+loading on the latent variable. This can be seen as a robustness check
+that the latent variable has the intended meaning. In the following
+sections, we refer to such items as <italic>gold-standard
 items</italic>.</p>
-    <p>In this study, we construct scales for “physical traits” like body
-height, body weight, and age and compare them with a gold-standard item,
-that is, the numerical self-report of the respective physical property.
-We derive four assumptions that should hold if a valid measurement of
-the mentioned latent variables is possible. We base these assumptions on
-the relevant literature on previous studies, item wording, and response
+    <p>In this study, we construct scales for the “physical traits”
+<italic>body height</italic>, <italic>body weight</italic>, and
+<italic>age</italic> and compare them with a gold-standard item, that
+is, the numerical self-report of the respective physical property. We
+derive three assumptions that should hold if a valid measurement of the
+mentioned latent variables is possible. We base these assumptions on the
+relevant literature on previous studies, item wording, and response
 categories, which we will outline in the next section.</p>
     <sec id="theoretical-background">
       <title>Theoretical Background</title>
@@ -365,8 +366,8 @@ categories, which we will outline in the next section.</p>
   for body height, body weight, and age. Second, we used items with two
   response categories to replicate the results of Bortolotti et al.
   (<xref alt="2013" rid="ref-bortolottiRelevanceAdvantagesUsing2013" ref-type="bibr">2013</xref>)
-  for body height. Second, we applied an additional format containing
-  six response categories without a middle category which low-motivated
+  for body height. Third, we applied an additional format containing six
+  response categories without a middle category which low-motivated
   persons tend to overuse (e.g., see
   <xref alt="Masuda et al., 2017" rid="ref-masudaRespondentsLowMotivation2017" ref-type="bibr">Masuda
   et al., 2017</xref>). We aimed to investigate whether 1) the results
@@ -607,12 +608,12 @@ categories, which we will outline in the next section.</p>
     higher on the latent variable than the physical items: For weight,
     the items 4 (“I am obese.”) and 5 (“I weigh a lot.”) had especially
     high loadings on the latent variable for the questionnaires with two
-    and six response categories. For age, item 7 (“My pants have a small
-    waistband.”) had especially high loadings on the latent variable for
-    the questionnaires with two and six response categories. The item
-    loadings for the weight and age scales suggest that the
-    gold-standard items were not essential for measuring the latent
-    variable.</p>
+    and six response categories. For age, item 7 (“I have already lived
+    most of my life.”) had especially high loadings on the latent
+    variable for the questionnaires with two and six response
+    categories. The item loadings for the weight and age scales suggest
+    that the gold-standard items were not essential for measuring the
+    latent variable.</p>
         <p>Even after allowing for correlated errors as suggested by
     standard modification indices, the loading patterns did not improve
     (see <xref alt="Table 5" rid="tbl-5">Table 5</xref>). Loading
@@ -776,10 +777,11 @@ categories, which we will outline in the next section.</p>
     very helpful to formulate a priori hypotheses about the importance
     of the constructed items as we did here to test the construct
     validity of a test. If we, for example, want to measure
-    <italic>warmth</italic> as a big five facet and construct items that
-    describe this facet, an item that most directly measures warmth
-    should have its highest loading on the latent variable, otherwise
-    the interpretation of the latent variable is not justified.</p>
+    <italic>interpersonal warmth</italic> as a big five facet and
+    construct items that describe this facet, an item that most directly
+    measures warmth should have its highest loading on the latent
+    variable, otherwise the interpretation of the latent variable is not
+    justified.</p>
         <p>We must be aware, that general model fit does not prove how well
     items are formulated (see
     <xref alt="Pargent et al., 2019" rid="ref-pargentCanMakeIt2019" ref-type="bibr">Pargent
@@ -862,9 +864,9 @@ categories, which we will outline in the next section.</p>
     of the loadings or construct-divergent items that (in)validate the
     items intended to measure a latent variable should be included in
     the construction process. Revisiting the example of
-    <italic>warmth</italic> as a personality facet, such additional
-    validation items could, for example, measure warmth itself or
-    openness. An openness scale or marker items that show high
+    <italic>interpersonal warmth</italic> as a personality facet, such
+    additional validation items could, for example, measure warmth
+    itself or openness. An openness scale or marker items that show high
     correlations with these warmth items should not be included in the
     final scale but only used for validation purposes. These demands are
     not entirely new, but should be newly emphasized based on the
@@ -2928,28 +2930,29 @@ validity. The item construction is believed to be theoretically sound if
 items are selected from a larger population of possible indicators of
 the latent variable in a representative manner to achieve high content
 validity and ensure that we measure the indented construct. Let us
-assume that we try to measure the latent variable warmth with the
-following adjectives: <italic>affectionate</italic>,
-<italic>friendly</italic>, <italic>talkative</italic>,
-<italic>unprejudiced</italic>. We ask how well each adjective describes
-yourself from <italic>not at all</italic> (0) to <italic>fully and
-entirely</italic> (4) with five response categories. If these items
-measure warmth, they should at least all significantly correlate with
-the adjective <italic>warmth</italic> measured with the same response
-format. Even more, the <italic>warmth</italic> item should have the
-highest discrimination parameter conducting a factor analysis with
-empirical data, otherwise a different construct is measured, e.g.,
-friendliness, in the case that the adjective <italic>friendly</italic>
-has the highest loading on the latent variable. This can be seen as a
-robustness check that the latent variable has the intended meaning. In
-the following sections, we refer to such items as <italic>gold-standard
+assume that we try to measure the latent variable <italic>interpersonal
+warmth</italic> with the following adjectives:
+<italic>affectionate</italic>, <italic>friendly</italic>,
+<italic>talkative</italic>, <italic>unprejudiced</italic>. We ask how
+well each adjective describes yourself from <italic>not at all</italic>
+(0) to <italic>fully and entirely</italic> (4) with five response
+categories. If these items measure warmth, they should at least all
+significantly correlate with the adjective warmth measured with the same
+response format. Even more, the warmth item should have the highest
+discrimination parameter conducting a factor analysis with empirical
+data, otherwise a different construct is measured, e.g., friendliness,
+in the case that the adjective <italic>friendly</italic> has the highest
+loading on the latent variable. This can be seen as a robustness check
+that the latent variable has the intended meaning. In the following
+sections, we refer to such items as <italic>gold-standard
 items</italic>.</p>
-      <p>In this study, we construct scales for “physical traits” like body
-height, body weight, and age and compare them with a gold-standard item,
-that is, the numerical self-report of the respective physical property.
-We derive four assumptions that should hold if a valid measurement of
-the mentioned latent variables is possible. We base these assumptions on
-the relevant literature on previous studies, item wording, and response
+      <p>In this study, we construct scales for the “physical traits”
+<italic>body height</italic>, <italic>body weight</italic>, and
+<italic>age</italic> and compare them with a gold-standard item, that
+is, the numerical self-report of the respective physical property. We
+derive three assumptions that should hold if a valid measurement of the
+mentioned latent variables is possible. We base these assumptions on the
+relevant literature on previous studies, item wording, and response
 categories, which we will outline in the next section.</p>
       <sec id="theoretical-background-nb-article">
         <title>Theoretical Background</title>
@@ -3088,8 +3091,8 @@ categories, which we will outline in the next section.</p>
   for body height, body weight, and age. Second, we used items with two
   response categories to replicate the results of Bortolotti et al.
   (<xref alt="2013" rid="ref-bortolottiRelevanceAdvantagesUsing2013-nb-article" ref-type="bibr">2013</xref>)
-  for body height. Second, we applied an additional format containing
-  six response categories without a middle category which low-motivated
+  for body height. Third, we applied an additional format containing six
+  response categories without a middle category which low-motivated
   persons tend to overuse (e.g., see
   <xref alt="Masuda et al., 2017" rid="ref-masudaRespondentsLowMotivation2017-nb-article" ref-type="bibr">Masuda
   et al., 2017</xref>). We aimed to investigate whether 1) the results
@@ -3340,12 +3343,12 @@ categories, which we will outline in the next section.</p>
     higher on the latent variable than the physical items: For weight,
     the items 4 (“I am obese.”) and 5 (“I weigh a lot.”) had especially
     high loadings on the latent variable for the questionnaires with two
-    and six response categories. For age, item 7 (“My pants have a small
-    waistband.”) had especially high loadings on the latent variable for
-    the questionnaires with two and six response categories. The item
-    loadings for the weight and age scales suggest that the
-    gold-standard items were not essential for measuring the latent
-    variable.</p>
+    and six response categories. For age, item 7 (“I have already lived
+    most of my life.”) had especially high loadings on the latent
+    variable for the questionnaires with two and six response
+    categories. The item loadings for the weight and age scales suggest
+    that the gold-standard items were not essential for measuring the
+    latent variable.</p>
           <sec specific-use="notebook-content">
             <code language="r script"># correlation of loadings between cfa models with and without correlated errors
 r_loadings &lt;- cor.test(
@@ -3523,10 +3526,11 @@ r_loadings &lt;- apa_print(r_loadings)$table</code>
     very helpful to formulate a priori hypotheses about the importance
     of the constructed items as we did here to test the construct
     validity of a test. If we, for example, want to measure
-    <italic>warmth</italic> as a big five facet and construct items that
-    describe this facet, an item that most directly measures warmth
-    should have its highest loading on the latent variable, otherwise
-    the interpretation of the latent variable is not justified.</p>
+    <italic>interpersonal warmth</italic> as a big five facet and
+    construct items that describe this facet, an item that most directly
+    measures warmth should have its highest loading on the latent
+    variable, otherwise the interpretation of the latent variable is not
+    justified.</p>
           <p>We must be aware, that general model fit does not prove how well
     items are formulated (see
     <xref alt="Pargent et al., 2019" rid="ref-pargentCanMakeIt2019-nb-article" ref-type="bibr">Pargent
@@ -3609,9 +3613,9 @@ r_loadings &lt;- apa_print(r_loadings)$table</code>
     of the loadings or construct-divergent items that (in)validate the
     items intended to measure a latent variable should be included in
     the construction process. Revisiting the example of
-    <italic>warmth</italic> as a personality facet, such additional
-    validation items could, for example, measure warmth itself or
-    openness. An openness scale or marker items that show high
+    <italic>interpersonal warmth</italic> as a personality facet, such
+    additional validation items could, for example, measure warmth
+    itself or openness. An openness scale or marker items that show high
     correlations with these warmth items should not be included in the
     final scale but only used for validation purposes. These demands are
     not entirely new, but should be newly emphasized based on the
