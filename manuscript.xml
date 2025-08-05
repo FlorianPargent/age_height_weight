@@ -132,7 +132,7 @@ analysis</role>
         <country>Germany</country>
       </aff>
       <aff id="regen">
-        <institution content-type="dept">Faculty of Psychology</institution>
+        <institution content-type="dept">Faculty of Human Sciences</institution>
         <institution-wrap>
           <institution>University of Regensburg</institution>
         </institution-wrap>
@@ -150,13 +150,15 @@ analysis</role>
       </permissions>
       <abstract>
 This article investigates whether gold-standard items are helpful for
-questionnaire construction. Based on cognitive interviews
-(<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+questionnaire construction. Based on an initial item pool (138 items)
+derived by a deductive item construction (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 124) and prototype approach (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 24), followed by cognitive interviews (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
 = 8) and a pilot study (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
-= 390) with an initial item set, three 12-item scales were constructed
-to measure the physical traits of body height, body weight, and age. We
-collected data on these scales using response formats with either two
-(<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 390) of a preliminary item set (61 items), three 12-item scales were
+constructed to measure the physical traits of body height, body weight,
+and age. We collected data on these scales using response formats with
+either two (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
 = 921) or six (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
 = 933) categories. We also collected numeric self-reports of body
 weight, body height, and age as gold-standard items. Confirmatory factor
@@ -180,6 +182,13 @@ Questionnaires with different response formats should be compared
 empirically and hypotheses about which items best represent the latent
 variable should be tested.
 </abstract>
+      <kwd-group kwd-group-type="author">
+        <kwd>confirmatory factor analysis</kwd>
+        <kwd>content validity</kwd>
+        <kwd>item responses</kwd>
+        <kwd>latent variables</kwd>
+        <kwd>questionnaire development</kwd>
+      </kwd-group>
     </article-meta>
   </front>
   <body>
@@ -273,6 +282,8 @@ categories, which we will outline in the next section.</p>
         <p>One important aspect of item construction is item wording. In
     this context, Pargent et al.
     (<xref alt="2019" rid="ref-pargentCanMakeIt2019" ref-type="bibr">2019</xref>)
+    and Goretzko et al.
+    (<xref alt="2020" rid="ref-goretzkoNotVeryPowerful2020" ref-type="bibr">2020</xref>)
     showed that the quality of item wording did, in fact, not impact
     model fit based on commonly used fit indices of confirmatory factor
     analyses. Sound item wording may not be crucial for achieving good
@@ -423,9 +434,10 @@ categories, which we will outline in the next section.</p>
       <p>All materials (reproducible manuscript, analysis code, datasets,
   codebooks, questionnaires) for this manuscript are openly available on
   the Open Science Framework (OSF) at
-  <ext-link ext-link-type="uri" xlink:href="https://osf.io/p7492/">https://osf.io/p7492/</ext-link>.
-  A Quarto Manuscripts website presenting the manuscript and electronic
-  supplementary materials is hosted at
+  <ext-link ext-link-type="uri" xlink:href="https://osf.io/p7492/">https://osf.io/p7492/</ext-link>
+  (<xref alt="Eichhorn et al., 2025" rid="ref-OsfMaterials2025" ref-type="bibr">Eichhorn
+  et al., 2025</xref>). A Quarto Manuscripts website presenting the
+  manuscript and electronic supplementary materials is hosted at
   <ext-link ext-link-type="uri" xlink:href="https://florianpargent.github.io/gold-standard-items/">https://florianpargent.github.io/gold-standard-items/</ext-link>.</p>
       <sec id="item-construction">
         <title>Item Construction</title>
@@ -542,25 +554,32 @@ categories, which we will outline in the next section.</p>
     aged between 18 and 97 years (<italic>M</italic> = 32.70,
     <italic>SD</italic> = 16.01), including 1036 women (56%) and 818 men
     (44%). The overall sample consisted of two independent subsamples,
-    which were divided into the 2-point and 6-point response format
-    conditions.</p>
+    which were divided into the 2-point (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+    = 921) and 6-point (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+    = 933) response format conditions.</p>
         <p>Participants were recruited in trains, colleges, universities,
     adult education centers, fitness studios and various public places
     in Germany and Austria in November and December 2017. Participation
-    was voluntary and without reimbursement. Each participant was handed
+    was voluntary and without reimbursement. Each participant was given
+    a piece of paper informing them about the voluntary and anonymous
+    nature of their participation, the purpose of the study and the data
+    to be collected. When they gave consent, the participant was handed
     a paper and pencil questionnaire, alternating between the 2-point
-    and 6-point response scale versions. When a participant handed back
-    the questionnaire, the facilitator immediately checked for missing
-    values, in which case the participant was politely asked to complete
-    the missing questions. With this procedure, we achieved complete
-    responses for all questionnaires.</p>
+    and 6-point response scale versions. When the participant handed
+    back the questionnaire, the facilitator immediately checked for
+    missing values, in which case the participant was politely asked to
+    complete the missing questions. With this procedure, we achieved
+    complete responses for all questionnaires. No power analysis was
+    performed to determine the sample size. Instead, the goal was to
+    collect at least 500 subjects per response format condition over a
+    period of six weeks. No data was analysed before data collection
+    ended.</p>
         <p><xref alt="Table 1" rid="tbl-1">Table 1</xref> shows the
     distribution of gender, level of education, native language, and age
     within the two conditions. As expected based on the randomization
     procedure, the two subsamples are very similar. Due to the
-    left-skewed age distribution and outlier values, the median is
-    reported as a measure of the central tendency instead of the
-    mean.</p>
+    left-skewed age distribution and outlier values, we report both the
+    mean and the median.</p>
         <fig id="tbl-1">
           <caption>
             <p>Table 1: Sample characteristics within response
@@ -835,15 +854,17 @@ categories, which we will outline in the next section.</p>
       <sec id="number-of-categories">
         <title>Number of Categories</title>
         <p>As expected, reliability estimates were higher for scales with
-    six response categories compared to two categories. The results with
-    regard to model fit and validity, indicated as correlations between
-    latent variables compared to the correlation between gold-standard
-    items, are mixed. Some fit indices suggested slightly better fit for
-    items with two response categories and some for six categories. The
-    same holds true for the differences between the correlations of the
-    gold-standard items and the correlations of the latent variables.
-    Except for reliability, the study revealed no clear picture to
-    choose between two or six response categories. Hilbert et al.
+    six response categories compared to two categories
+    (<xref alt="Preston &amp; Colman, 2000" rid="ref-prestonOptimalNumberResponse2000" ref-type="bibr">Preston
+    &amp; Colman, 2000</xref>). The results with regard to model fit and
+    validity, indicated as correlations between latent variables
+    compared to the correlation between gold-standard items, are mixed.
+    Some fit indices suggested slightly better fit for items with two
+    response categories and some for six categories. The same holds true
+    for the differences between the correlations of the gold-standard
+    items and the correlations of the latent variables. Except for
+    reliability, the study revealed no clear picture to choose between
+    two or six response categories. Hilbert et al.
     (<xref alt="2016" rid="ref-hilbertInfluenceResponseFormat2016" ref-type="bibr">2016</xref>,
     <xref alt="2022" rid="ref-hilbertWhatMeasureEmpirical2022" ref-type="bibr">2022</xref>)
     showed that the same items with a different number of response
@@ -1295,6 +1316,84 @@ categories, which we will outline in the next section.</p>
   <back>
     <ref-list>
       <title/>
+      <ref id="ref-OsfMaterials2025">
+        <element-citation>
+          <person-group person-group-type="author">
+            <name>
+              <surname>Eichhorn</surname>
+              <given-names>Kathryn</given-names>
+            </name>
+            <name>
+              <surname>Bühner</surname>
+              <given-names>Markus</given-names>
+            </name>
+            <name>
+              <surname>Pargent</surname>
+              <given-names>Florian</given-names>
+            </name>
+            <name>
+              <surname>Saretzki</surname>
+              <given-names>Janika</given-names>
+            </name>
+            <name>
+              <surname>Sust</surname>
+              <given-names>Larissa</given-names>
+            </name>
+            <name>
+              <surname>Hauck</surname>
+              <given-names>Jonas</given-names>
+            </name>
+            <name>
+              <surname>Hilbert</surname>
+              <given-names>Sven</given-names>
+            </name>
+          </person-group>
+          <article-title>Measuring latent variables with gold standard items</article-title>
+          <publisher-name>OSF</publisher-name>
+          <year iso-8601-date="2025-08">2025</year>
+          <month>08</month>
+          <uri>osf.io/p7492</uri>
+          <pub-id pub-id-type="doi">10.17605/OSF.IO/P7492</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref-goretzkoNotVeryPowerful2020">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goretzko</surname>
+              <given-names>David</given-names>
+            </name>
+            <name>
+              <surname>Pargent</surname>
+              <given-names>Florian</given-names>
+            </name>
+            <name>
+              <surname>Sust</surname>
+              <given-names>Larissa N. N.</given-names>
+            </name>
+            <name>
+              <surname>Bühner</surname>
+              <given-names>Markus</given-names>
+            </name>
+          </person-group>
+          <article-title>Not Very Powerful: The Influence of Negations and Vague Quantifiers on the Psychometric Properties of Questionnaires</article-title>
+          <source>European Journal of Psychological Assessment</source>
+          <year iso-8601-date="2020-07">2020</year>
+          <month>07</month>
+          <date-in-citation content-type="access-date">
+            <year iso-8601-date="2023-09-21">2023</year>
+            <month>09</month>
+            <day>21</day>
+          </date-in-citation>
+          <volume>36</volume>
+          <issue>4</issue>
+          <issn>1015-5759, 2151-2426</issn>
+          <uri>https://econtent.hogrefe.com/doi/10.1027/1015-5759/a000539</uri>
+          <pub-id pub-id-type="doi">10.1027/1015-5759/a000539</pub-id>
+          <fpage>563</fpage>
+          <lpage>572</lpage>
+        </element-citation>
+      </ref>
       <ref id="ref-maulRethinking2017">
         <element-citation publication-type="article-journal">
           <person-group person-group-type="author">
@@ -2655,14 +2754,15 @@ categories, which we will outline in the next section.</p>
     <fn-group>
       <fn id="fn1">
         <label>1</label>
-        <p>The data presented in this manuscript has
-    previously been analyzed in the German dissertation thesis of the
-    first author
+        <p>No analyses reported in the current manuscript
+    were preregistered. However, the data presented in this manuscript
+    has previously been analyzed in the German dissertation thesis of
+    the first author
     (<xref alt="Eichhorn, 2019" rid="ref-eichhornItem2019" ref-type="bibr">Eichhorn,
     2019</xref>). As part of the dissertation, a preregistration was
     published at
     <ext-link ext-link-type="uri" xlink:href="https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9">https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9</ext-link>
-    that differs from the analyses reported in the current publication.
+    that differs from the analyses reported in the current manuscript.
     The results of the preregistered analyses are reported in Eichhorn
     (<xref alt="2019" rid="ref-eichhornItem2019" ref-type="bibr">2019</xref>).</p>
       </fn>
@@ -2813,7 +2913,7 @@ analysis</role>
         <country>Germany</country>
       </aff>
       <aff id="regen-nb-article">
-        <institution content-type="dept">Faculty of Psychology</institution>
+        <institution content-type="dept">Faculty of Human Sciences</institution>
         <institution-wrap>
           <institution>University of Regensburg</institution>
         </institution-wrap>
@@ -2825,13 +2925,15 @@ analysis</role>
       </author-notes>
       <abstract>
 This article investigates whether gold-standard items are helpful for
-questionnaire construction. Based on cognitive interviews
-(<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+questionnaire construction. Based on an initial item pool (138 items)
+derived by a deductive item construction (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 124) and prototype approach (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 24), followed by cognitive interviews (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
 = 8) and a pilot study (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
-= 390) with an initial item set, three 12-item scales were constructed
-to measure the physical traits of body height, body weight, and age. We
-collected data on these scales using response formats with either two
-(<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+= 390) of a preliminary item set (61 items), three 12-item scales were
+constructed to measure the physical traits of body height, body weight,
+and age. We collected data on these scales using response formats with
+either two (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
 = 921) or six (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
 = 933) categories. We also collected numeric self-reports of body
 weight, body height, and age as gold-standard items. Confirmatory factor
@@ -2998,6 +3100,8 @@ categories, which we will outline in the next section.</p>
           <p>One important aspect of item construction is item wording. In
     this context, Pargent et al.
     (<xref alt="2019" rid="ref-pargentCanMakeIt2019-nb-article" ref-type="bibr">2019</xref>)
+    and Goretzko et al.
+    (<xref alt="2020" rid="ref-goretzkoNotVeryPowerful2020-nb-article" ref-type="bibr">2020</xref>)
     showed that the quality of item wording did, in fact, not impact
     model fit based on commonly used fit indices of confirmatory factor
     analyses. Sound item wording may not be crucial for achieving good
@@ -3148,9 +3252,10 @@ categories, which we will outline in the next section.</p>
         <p>All materials (reproducible manuscript, analysis code, datasets,
   codebooks, questionnaires) for this manuscript are openly available on
   the Open Science Framework (OSF) at
-  <ext-link ext-link-type="uri" xlink:href="https://osf.io/p7492/">https://osf.io/p7492/</ext-link>.
-  A Quarto Manuscripts website presenting the manuscript and electronic
-  supplementary materials is hosted at
+  <ext-link ext-link-type="uri" xlink:href="https://osf.io/p7492/">https://osf.io/p7492/</ext-link>
+  (<xref alt="Eichhorn et al., 2025" rid="ref-OsfMaterials2025-nb-article" ref-type="bibr">Eichhorn
+  et al., 2025</xref>). A Quarto Manuscripts website presenting the
+  manuscript and electronic supplementary materials is hosted at
   <ext-link ext-link-type="uri" xlink:href="https://florianpargent.github.io/gold-standard-items/">https://florianpargent.github.io/gold-standard-items/</ext-link>.</p>
         <sec id="item-construction-nb-article">
           <title>Item Construction</title>
@@ -3267,25 +3372,32 @@ categories, which we will outline in the next section.</p>
     aged between 18 and 97 years (<italic>M</italic> = 32.70,
     <italic>SD</italic> = 16.01), including 1036 women (56%) and 818 men
     (44%). The overall sample consisted of two independent subsamples,
-    which were divided into the 2-point and 6-point response format
-    conditions.</p>
+    which were divided into the 2-point (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+    = 921) and 6-point (<inline-formula><alternatives><tex-math><![CDATA[N]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mi>N</mml:mi></mml:math></alternatives></inline-formula>
+    = 933) response format conditions.</p>
           <p>Participants were recruited in trains, colleges, universities,
     adult education centers, fitness studios and various public places
     in Germany and Austria in November and December 2017. Participation
-    was voluntary and without reimbursement. Each participant was handed
+    was voluntary and without reimbursement. Each participant was given
+    a piece of paper informing them about the voluntary and anonymous
+    nature of their participation, the purpose of the study and the data
+    to be collected. When they gave consent, the participant was handed
     a paper and pencil questionnaire, alternating between the 2-point
-    and 6-point response scale versions. When a participant handed back
-    the questionnaire, the facilitator immediately checked for missing
-    values, in which case the participant was politely asked to complete
-    the missing questions. With this procedure, we achieved complete
-    responses for all questionnaires.</p>
+    and 6-point response scale versions. When the participant handed
+    back the questionnaire, the facilitator immediately checked for
+    missing values, in which case the participant was politely asked to
+    complete the missing questions. With this procedure, we achieved
+    complete responses for all questionnaires. No power analysis was
+    performed to determine the sample size. Instead, the goal was to
+    collect at least 500 subjects per response format condition over a
+    period of six weeks. No data was analysed before data collection
+    ended.</p>
           <p><xref alt="Table 1" rid="tbl-1-nb-article">Table 1</xref> shows the
     distribution of gender, level of education, native language, and age
     within the two conditions. As expected based on the randomization
     procedure, the two subsamples are very similar. Due to the
-    left-skewed age distribution and outlier values, the median is
-    reported as a measure of the central tendency instead of the
-    mean.</p>
+    left-skewed age distribution and outlier values, we report both the
+    mean and the median.</p>
           <sec specific-use="notebook-content">
             <code language="r script">results$table1</code>
             <fig id="tbl-1-nb-article">
@@ -3584,15 +3696,17 @@ r_loadings &lt;- apa_print(r_loadings)$table</code>
         <sec id="number-of-categories-nb-article">
           <title>Number of Categories</title>
           <p>As expected, reliability estimates were higher for scales with
-    six response categories compared to two categories. The results with
-    regard to model fit and validity, indicated as correlations between
-    latent variables compared to the correlation between gold-standard
-    items, are mixed. Some fit indices suggested slightly better fit for
-    items with two response categories and some for six categories. The
-    same holds true for the differences between the correlations of the
-    gold-standard items and the correlations of the latent variables.
-    Except for reliability, the study revealed no clear picture to
-    choose between two or six response categories. Hilbert et al.
+    six response categories compared to two categories
+    (<xref alt="Preston &amp; Colman, 2000" rid="ref-prestonOptimalNumberResponse2000-nb-article" ref-type="bibr">Preston
+    &amp; Colman, 2000</xref>). The results with regard to model fit and
+    validity, indicated as correlations between latent variables
+    compared to the correlation between gold-standard items, are mixed.
+    Some fit indices suggested slightly better fit for items with two
+    response categories and some for six categories. The same holds true
+    for the differences between the correlations of the gold-standard
+    items and the correlations of the latent variables. Except for
+    reliability, the study revealed no clear picture to choose between
+    two or six response categories. Hilbert et al.
     (<xref alt="2016" rid="ref-hilbertInfluenceResponseFormat2016-nb-article" ref-type="bibr">2016</xref>,
     <xref alt="2022" rid="ref-hilbertWhatMeasureEmpirical2022-nb-article" ref-type="bibr">2022</xref>)
     showed that the same items with a different number of response
@@ -4097,6 +4211,84 @@ r_A7_A10_2 &lt;- results_secondary$cor_errors |&gt;
     <back>
       <ref-list>
         <title/>
+        <ref id="ref-OsfMaterials2025-nb-article">
+          <element-citation>
+            <person-group person-group-type="author">
+              <name>
+                <surname>Eichhorn</surname>
+                <given-names>Kathryn</given-names>
+              </name>
+              <name>
+                <surname>Bühner</surname>
+                <given-names>Markus</given-names>
+              </name>
+              <name>
+                <surname>Pargent</surname>
+                <given-names>Florian</given-names>
+              </name>
+              <name>
+                <surname>Saretzki</surname>
+                <given-names>Janika</given-names>
+              </name>
+              <name>
+                <surname>Sust</surname>
+                <given-names>Larissa</given-names>
+              </name>
+              <name>
+                <surname>Hauck</surname>
+                <given-names>Jonas</given-names>
+              </name>
+              <name>
+                <surname>Hilbert</surname>
+                <given-names>Sven</given-names>
+              </name>
+            </person-group>
+            <article-title>Measuring latent variables with gold standard items</article-title>
+            <publisher-name>OSF</publisher-name>
+            <year iso-8601-date="2025-08">2025</year>
+            <month>08</month>
+            <uri>osf.io/p7492</uri>
+            <pub-id pub-id-type="doi">10.17605/OSF.IO/P7492</pub-id>
+          </element-citation>
+        </ref>
+        <ref id="ref-goretzkoNotVeryPowerful2020-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Goretzko</surname>
+                <given-names>David</given-names>
+              </name>
+              <name>
+                <surname>Pargent</surname>
+                <given-names>Florian</given-names>
+              </name>
+              <name>
+                <surname>Sust</surname>
+                <given-names>Larissa N. N.</given-names>
+              </name>
+              <name>
+                <surname>Bühner</surname>
+                <given-names>Markus</given-names>
+              </name>
+            </person-group>
+            <article-title>Not Very Powerful: The Influence of Negations and Vague Quantifiers on the Psychometric Properties of Questionnaires</article-title>
+            <source>European Journal of Psychological Assessment</source>
+            <year iso-8601-date="2020-07">2020</year>
+            <month>07</month>
+            <date-in-citation content-type="access-date">
+              <year iso-8601-date="2023-09-21">2023</year>
+              <month>09</month>
+              <day>21</day>
+            </date-in-citation>
+            <volume>36</volume>
+            <issue>4</issue>
+            <issn>1015-5759, 2151-2426</issn>
+            <uri>https://econtent.hogrefe.com/doi/10.1027/1015-5759/a000539</uri>
+            <pub-id pub-id-type="doi">10.1027/1015-5759/a000539</pub-id>
+            <fpage>563</fpage>
+            <lpage>572</lpage>
+          </element-citation>
+        </ref>
         <ref id="ref-maulRethinking2017-nb-article">
           <element-citation publication-type="article-journal">
             <person-group person-group-type="author">
@@ -5457,14 +5649,15 @@ r_A7_A10_2 &lt;- results_secondary$cor_errors |&gt;
       <fn-group>
         <fn id="fn1-nb-article">
           <label>1</label>
-          <p>The data presented in this manuscript has
-    previously been analyzed in the German dissertation thesis of the
-    first author
+          <p>No analyses reported in the current manuscript
+    were preregistered. However, the data presented in this manuscript
+    has previously been analyzed in the German dissertation thesis of
+    the first author
     (<xref alt="Eichhorn, 2019" rid="ref-eichhornItem2019-nb-article" ref-type="bibr">Eichhorn,
     2019</xref>). As part of the dissertation, a preregistration was
     published at
     <ext-link ext-link-type="uri" xlink:href="https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9">https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9</ext-link>
-    that differs from the analyses reported in the current publication.
+    that differs from the analyses reported in the current manuscript.
     The results of the preregistered analyses are reported in Eichhorn
     (<xref alt="2019" rid="ref-eichhornItem2019-nb-article" ref-type="bibr">2019</xref>).</p>
         </fn>
