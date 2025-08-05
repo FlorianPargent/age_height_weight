@@ -121,7 +121,7 @@ abstract: "This article investigates whether gold-standard items are helpful for
 license: CC BY 4.0
 bibliography: [references.bib, r-references.bib]
 floatsintext: true
-numbered-lines: true
+numbered-lines: false
 csl: apa.csl
 ---
 
