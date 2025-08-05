@@ -29,7 +29,7 @@ papaja::r_refs(file = "r-references.bib")
 title: "Item Construction Rules Revisited: Learnings from Measurement of Latent Variables with Gold-Standard Items"
 shorttitle: "Measuring latent variables with gold-standard items"
 date: 2025-07-18
-date-modified: 2025-07-30
+date-modified: 2025-08-05
 date-format: iso
 author:
   - name: Kathryn Eichhorn
@@ -110,7 +110,7 @@ author:
     
 author-note:
   disclosures:
-    data-sharing: This is version 0 (last modification {{< meta date-modified >}}) of our preprint to be published on PsyArXiv. All materials (reproducible manuscript, analysis code, datasets, codebooks, questionnaires) are available in the project's repository on the Open Science Framework (OSF) at <https://osf.io/p7492/>. A Quarto Manuscripts website is hosted at <https://florianpargent.github.io/gold-standard-items/>. The data has previously been analyzed in the dissertation thesis of the first author at <https://doi.org/10.5282/edoc.23628>. As part of the dissertation, a preregistration was published at <https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9> that differs from the analyses reported in the current manuscript.
+    data-sharing: This is version 0 (last modification {{< meta date-modified >}}) of our preprint published on PsyArXiv. All materials (reproducible manuscript, analysis code, datasets, codebooks, questionnaires) are available in the project's repository on the Open Science Framework (OSF) at <https://osf.io/p7492/>. A Quarto Manuscript website is hosted at <https://florianpargent.github.io/gold-standard-items/>. The data has previously been analyzed in the dissertation thesis of the first author at <https://doi.org/10.5282/edoc.23628>. As part of the dissertation, a preregistration was published at <https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9> that differs from the analyses reported in the current manuscript.
     conflict-of-interest: The authors declare that there were no conflicts of interest concerning the authorship or the publication of this article.
     financial-support: ~
     gratitude: ~
@@ -161,13 +161,13 @@ We quote from a review on the application of Item Response Theory (IRT) models a
 
 -	*Assumption 3a, b:* The correlational pattern between the latent variables for the physical traits should correspond to the correlation of the self-reported gold-standard items (3a) and the factor loadings and reliability estimates should be higher for scales with 6-point response categories compared to 2-point response categories (3b).
 
-[^noteprereg]: The data presented in this manuscript has previously been analyzed in the German dissertation thesis of the first author [@eichhornItem2019]. As part of the dissertation, a preregistration was published at <https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9> that differs from the analyses reported in the current publication. The results of the preregistered analyses are reported in @eichhornItem2019.
+[^noteprereg]: No analyses reported in the current manuscript were preregistered. However, the data presented in this manuscript has previously been analyzed in the German dissertation thesis of the first author [@eichhornItem2019]. As part of the dissertation, a preregistration was published at <https://osf.io/cz3uv/?view_only=9cac02db231b48629fea9ae53c3038b9> that differs from the analyses reported in the current manuscript. The results of the preregistered analyses are reported in @eichhornItem2019.
 
 \
 
 # Methods
 
-All materials (reproducible manuscript, analysis code, datasets, codebooks, questionnaires) for this manuscript are openly available on the Open Science Framework (OSF) at <https://osf.io/p7492/>. A Quarto Manuscripts website presenting the manuscript and electronic supplementary materials is hosted at <https://florianpargent.github.io/gold-standard-items/>.
+All materials (reproducible manuscript, analysis code, datasets, codebooks, questionnaires) for this manuscript are openly available on the Open Science Framework (OSF) at <https://osf.io/p7492/> [@OsfMaterials2025]. A Quarto Manuscripts website presenting the manuscript and electronic supplementary materials is hosted at <https://florianpargent.github.io/gold-standard-items/>.
 
 ## Item Construction
 
@@ -183,7 +183,7 @@ All analyses were conducted in `r R.version$version.string`. A full list of soft
 
 The total sample of our main study consisted of `r nrow(dat_desc)` participants aged between `r min(dat_desc$Alter_realW)` and `r max(dat_desc$Alter_realW)` years (*M* = `r printnum(mean(dat_desc$Alter_realW))`, *SD* = `r printnum(sd(dat_desc$Alter_realW))`), including `r nrow(dat_desc[dat_desc$Geschlecht == 1,])` women (`r round(nrow(dat_desc[dat_desc$Geschlecht == 1,]) / nrow(dat_desc) * 100)`%) and `r nrow(dat_desc[dat_desc$Geschlecht == 2,])` men (`r round(nrow(dat_desc[dat_desc$Geschlecht == 2,]) / nrow(dat_desc) * 100)`%). The overall sample consisted of two independent subsamples, which were divided into the 2-point ($N$ = `r nrow(dat_desc[dat_desc$categories == "2 categories",])`) and 6-point ($N$ = `r nrow(dat_desc[dat_desc$categories == "6 categories",])`) response format conditions.
 
-Participants were recruited in trains, colleges, universities, adult education centers, fitness studios and various public places in Germany and Austria in November and December 2017. Participation was voluntary and without reimbursement. Each participant was handed a paper and pencil questionnaire, alternating between the 2-point and 6-point response scale versions. When a participant handed back the questionnaire, the facilitator immediately checked for missing values, in which case the participant was politely asked to complete the missing questions. With this procedure, we achieved complete responses for all questionnaires.
+Participants were recruited in trains, colleges, universities, adult education centers, fitness studios and various public places in Germany and Austria in November and December 2017. Participation was voluntary and without reimbursement. Each participant was handed a paper and pencil questionnaire, alternating between the 2-point and 6-point response scale versions. When a participant handed back the questionnaire, the facilitator immediately checked for missing values, in which case the participant was politely asked to complete the missing questions. With this procedure, we achieved complete responses for all questionnaires. No power analysis was performed to determine the sample size. Instead, the goal was to collect at least 500 subjects per response format condition over a period of six weeks. No data was analysed before data collection ended.
 
 @tbl-1 shows the distribution of gender, level of education, native language, and age within the two conditions. As expected based on the randomization procedure, the two subsamples are very similar. Due to the left-skewed age distribution and outlier values, we report both the mean and the median. 
 
